@@ -7,21 +7,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--blue:#1558FF;--blue-d:#0A3ACC;--blue-l:#EEF3FF;--blue-m:#6B9BFF;--ink:#060D1F;--muted:#6B7A99;--subtle:#A8B4CC;--border:#E8ECF4;--surface:#F5F7FC;--white:#fff;--r:16px;--r-lg:22px}
+:root{
+  --blue:#1558FF;--blue-d:#0A3ACC;--blue-l:#EEF3FF;--blue-m:#6B9BFF;
+  --ink:#060D1F;--muted:#6B7A99;--subtle:#A8B4CC;
+  --border:#E8ECF4;--surface:#F5F7FC;--white:#fff;
+  --r:16px;--r-lg:22px;
+}
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
 img{display:block;max-width:100%}
 button,a{font-family:inherit;cursor:pointer;text-decoration:none}
 .serif{font-family:'Instrument Serif',serif;font-weight:400;line-height:1.07;letter-spacing:-.025em}
-.serif em{font-style:italic}
-.wrap{max-width:1100px;margin:0 auto;padding:0 40px}
-.section{padding:108px 0}
+.wrap{max-width:1100px;margin:0 auto;padding:0 48px}
+.section{padding:128px 0}
 hr.rule{border:none;border-top:1px solid var(--border)}
-.ey{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:14px}
+.ey{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:18px}
 .ey-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0}
-.h2{font-size:clamp(28px,3.8vw,48px)}
+.h2{font-size:clamp(30px,4vw,50px);line-height:1.1}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;border:none;border-radius:100px;padding:12px 26px;transition:all .22s cubic-bezier(.16,1,.3,1)}
-.btn-lg{font-size:15px;padding:14px 30px}
+.btn-lg{font-size:15px;padding:14px 32px}
 .btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 18px rgba(21,88,255,.3)}
 .btn-primary:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,88,255,.42)}
 .btn-ghost{background:white;color:var(--ink);border:1.5px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.04)}
@@ -29,97 +33,93 @@ hr.rule{border:none;border-top:1px solid var(--border)}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
 .rv.in{opacity:1;transform:none}
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+/* SVG arrow inline */
+.ic-arr{display:inline-flex;flex-shrink:0}
 
-/* ANNOUNCEMENT BAR */
-.ann-bar{background:var(--ink);color:white;padding:9px 20px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:13px;position:relative;z-index:600;overflow:hidden;animation:annSlide .5s cubic-bezier(.16,1,.3,1) both}
-@keyframes annSlide{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:none}}
-.ann-bar::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(21,88,255,.18),transparent);animation:shimmer 3s 1s infinite}
-@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-.ann-badge{background:var(--blue);color:white;font-size:10px;font-weight:800;padding:2px 9px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase;flex-shrink:0}
-.ann-link{color:var(--blue-m);font-weight:600;transition:color .2s}
-.ann-link:hover{color:white}
-.ann-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.35);font-size:20px;line-height:1;padding:4px 7px;transition:color .2s}
-.ann-close:hover{color:white}
-.ann-bar.gone{display:none}
-
-/* NAV */
+/* ── NAV ── */
 .nav-shell{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:500;width:calc(100% - 28px);max-width:1080px;animation:navIn .6s .1s cubic-bezier(.16,1,.3,1) both}
 @keyframes navIn{from{opacity:0;transform:translateX(-50%) translateY(-16px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 nav{background:rgba(255,255,255,.88);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(232,236,244,.9);border-radius:100px;padding:7px 7px 7px 6px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(6,13,31,.06);transition:box-shadow .4s,background .4s}
 nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
-.nav-l{display:flex;align-items:center;gap:9px}
-.nav-logo-img{width:100px;height:28px;object-fit:contain;padding:3px}
+.nav-l{display:flex;align-items:center}
+.nav-logo-img{height:28px;width:auto;object-fit:contain}
 .nav-links{display:flex;list-style:none;gap:2px}
 .nav-links a{font-size:13px;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:100px;transition:all .18s}
 .nav-links a:hover{background:var(--surface);color:var(--ink)}
 .nav-r{display:flex;align-items:center;gap:6px}
 .btn-nav-ghost{font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;padding:8px 14px;border-radius:100px;transition:color .18s}
 .btn-nav-ghost:hover{color:var(--ink)}
-.btn-nav-cta{font-size:13px;font-weight:700;background:var(--blue);color:#fff;border:none;padding:9px 20px;border-radius:100px;box-shadow:0 2px 10px rgba(21,88,255,.28);transition:all .22s cubic-bezier(.16,1,.3,1)}
+.btn-nav-cta{font-size:13px;font-weight:700;background:var(--blue);color:#fff;border:none;padding:9px 20px;border-radius:100px;box-shadow:0 2px 10px rgba(21,88,255,.28);transition:all .22s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;gap:7px}
 .btn-nav-cta:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 4px 16px rgba(21,88,255,.4)}
 
-/* HERO */
-.hero{min-height:100vh;background:linear-gradient(165deg,#E9EEFF 0%,#F1F5FF 32%,#F8F9FD 62%,#fff 100%);display:flex;flex-direction:column;align-items:center;padding-top:132px;overflow:hidden;position:relative}
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(165deg,#E9EEFF 0%,#F1F5FF 32%,#F8F9FD 62%,#fff 100%);
+  display:flex;flex-direction:column;align-items:center;
+  padding-top:140px;overflow:hidden;position:relative;
+}
 .hero-grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(21,88,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(21,88,255,.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,black 40%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,black 40%,transparent 100%)}
-.hero-inner{position:relative;z-index:2;max-width:740px;text-align:center;padding:0 24px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid var(--border);border-radius:100px;padding:5px 15px 5px 7px;font-size:12px;font-weight:600;color:var(--muted);box-shadow:0 2px 12px rgba(6,13,31,.06);margin-bottom:26px;animation:fdUp .6s ease both}
+.hero-inner{position:relative;z-index:2;max-width:720px;text-align:center;padding:0 24px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid var(--border);border-radius:100px;padding:5px 15px 5px 7px;font-size:12px;font-weight:600;color:var(--muted);box-shadow:0 2px 12px rgba(6,13,31,.06);margin-bottom:32px;animation:fdUp .6s ease both}
 .hero-badge-pill{background:var(--blue);color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase}
-.hero-h1{font-size:clamp(46px,7vw,80px);margin-bottom:8px;animation:fdUp .7s .08s cubic-bezier(.16,1,.3,1) both}
-.hero-sub{font-family:'Instrument Serif',serif;font-size:clamp(16px,2vw,21px);font-weight:400;font-style:italic;color:var(--muted);letter-spacing:-.01em;margin-bottom:22px;animation:fdUp .7s .15s cubic-bezier(.16,1,.3,1) both}
-.hero-p{font-size:17px;color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto 30px;animation:fdUp .7s .22s cubic-bezier(.16,1,.3,1) both}
-.hero-btns{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px;animation:fdUp .7s .28s cubic-bezier(.16,1,.3,1) both}
-.hero-hint{font-size:12px;color:var(--subtle);animation:fdIn .8s .4s both}
+.hero-h1{font-size:clamp(48px,7.5vw,84px);margin-bottom:24px;animation:fdUp .7s .08s cubic-bezier(.16,1,.3,1) both;line-height:1.05}
+.hero-p{font-size:18px;color:var(--muted);line-height:1.72;max-width:480px;margin:0 auto 36px;animation:fdUp .7s .15s cubic-bezier(.16,1,.3,1) both}
+.hero-btns{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;animation:fdUp .7s .22s cubic-bezier(.16,1,.3,1) both}
+.hero-hint{font-size:12px;color:var(--subtle);animation:fdIn .8s .35s both;margin-bottom:56px}
 .hero-hint span{margin:0 6px;opacity:.4}
 @keyframes fdUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 @keyframes fdIn{from{opacity:0}to{opacity:1}}
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-/* HERO IMAGE PLACEHOLDER */
-.hero-img-outer{position:relative;z-index:2;width:100%;max-width:1040px;padding:48px 28px 0;animation:fdUp .9s .36s cubic-bezier(.16,1,.3,1) both}
-.hero-img-placeholder{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:0 28px 80px rgba(6,13,31,.12);background:var(--surface);min-height:360px;display:flex;align-items:center;justify-content:center;position:relative}
-.hero-img-placeholder img{width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg);display:block}
+/* Hero image – flush bottom, only top border radius */
+.hero-img-outer{
+  position:relative;z-index:2;
+  width:100%;max-width:1040px;
+  padding:0 28px 0;/* no top padding - spacing from hint margin */
+}
+.hero-img-placeholder{
+  border-radius:var(--r-lg) var(--r-lg) 0 0;
+  overflow:hidden;border:1px solid var(--border);
+  border-bottom:none;
+  box-shadow:0 -8px 48px rgba(6,13,31,.08),8px 0 0 rgba(6,13,31,.03),-8px 0 0 rgba(6,13,31,.03);
+  background:var(--surface);min-height:340px;
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.hero-img-placeholder img{width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--r-lg) var(--r-lg) 0 0}
 .hero-img-fallback{display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1}
-.hero-img-fallback svg{opacity:.22}
+.hero-img-fallback svg{opacity:.2}
 .hero-img-fallback span{font-size:13px;font-weight:600;color:var(--subtle)}
 
-/* LOGOS */
-.logos-sec{padding:48px 0}
-.logos-lbl{font-size:11px;font-weight:600;color:var(--subtle);text-transform:uppercase;letter-spacing:.1em;text-align:center;margin-bottom:20px}
-.logos-row{display:flex;align-items:center;justify-content:center;gap:46px;flex-wrap:wrap}
-.logo-n{font-size:14px;font-weight:700;color:#C5CDE0;letter-spacing:-.2px}
-
-/* PROBLEM */
-.prob-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:44px}
-.prob-c{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:26px 22px;transition:all .25s}
+/* ── PROBLEM ── */
+.prob-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+.prob-c{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:28px 24px;transition:all .25s}
 .prob-c:hover{background:white;box-shadow:0 10px 36px rgba(6,13,31,.07);transform:translateY(-2px)}
-.prob-ic{font-size:22px;margin-bottom:14px;display:block}
-.prob-ttl{font-size:14px;font-weight:700;margin-bottom:6px}
+.prob-ic{font-size:22px;margin-bottom:16px;display:block}
+.prob-ttl{font-size:14px;font-weight:700;margin-bottom:7px}
 .prob-dsc{font-size:13px;color:var(--muted);line-height:1.65}
 
-/* HOW IT WORKS — sticky scroll */
+/* ── HOW IT WORKS ── */
 .how-section{padding:0}
-.how-sticky-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1100px;margin:0 auto;padding:108px 40px}
+.how-sticky-wrap{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start;max-width:1100px;margin:0 auto;padding:128px 48px}
 .how-steps-col{display:flex;flex-direction:column}
-.how-intro{margin-bottom:48px}
-.how-step-item{min-height:260px;display:flex;flex-direction:column;justify-content:center;padding:40px 0;border-bottom:1px solid var(--border);opacity:.32;transition:opacity .45s ease;cursor:default}
-.how-step-item:last-child{border-bottom:none}
+.how-intro{margin-bottom:52px}
+.how-step-item{min-height:42vh;display:flex;flex-direction:column;justify-content:center;padding:48px 0;border-bottom:1px solid var(--border);opacity:.28;transition:opacity .5s cubic-bezier(.16,1,.3,1)}
+.how-step-item:last-child{border-bottom:none;padding-bottom:0}
 .how-step-item.active{opacity:1}
-.how-step-num{font-family:'Instrument Serif',serif;font-size:13px;color:var(--blue);font-weight:400;letter-spacing:.02em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.how-step-num::after{content:'';flex:1;height:1px;background:var(--blue-l);max-width:40px;transition:background .3s}
+.how-step-num{font-family:'Instrument Serif',serif;font-size:13px;color:var(--blue);font-weight:400;letter-spacing:.02em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.how-step-num::after{content:'';flex:1;height:1px;background:var(--blue-l);max-width:40px;transition:background .4s}
 .how-step-item.active .how-step-num::after{background:var(--blue)}
-.how-ttl{font-size:22px;font-family:'Instrument Serif',serif;margin-bottom:10px;line-height:1.2}
-.how-dsc{font-size:14px;color:var(--muted);line-height:1.7;max-width:340px}
+.how-ttl{font-size:22px;font-family:'Instrument Serif',serif;margin-bottom:12px;line-height:1.2}
+.how-dsc{font-size:14px;color:var(--muted);line-height:1.72;max-width:340px}
 .how-visual-col{position:sticky;top:120px}
-.how-visual-frame{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;min-height:440px;display:flex;align-items:stretch;position:relative}
-.how-frame{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px;opacity:0;transform:scale(.97) translateY(10px);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.how-visual-frame{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;min-height:460px;display:flex;align-items:stretch;position:relative}
+.how-frame{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px;opacity:0;transform:scale(.97) translateY(10px);transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1);pointer-events:none}
 .how-frame.active{opacity:1;transform:none;pointer-events:auto}
-
-/* Frame 0: Template picker */
 .frame-tmpl{width:100%}
-.ftmpl-hd{font-size:11px;font-weight:700;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.ftmpl-hd{font-size:11px;font-weight:700;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px}
 .ftmpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.ftmpl-card{background:white;border:1.5px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all .2s;position:relative}
+.ftmpl-card{background:white;border:1.5px solid var(--border);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s;position:relative}
 .ftmpl-card.sel{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,88,255,.1)}
 .ftmpl-sel{position:absolute;top:9px;right:9px;width:18px;height:18px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:white;font-weight:800;opacity:0;transition:opacity .2s}
 .ftmpl-card.sel .ftmpl-sel{opacity:1}
@@ -128,49 +128,45 @@ nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31
 .ftmpl-line{height:3px;background:var(--border);border-radius:2px}
 .ftmpl-line.s{width:60%}
 .ftmpl-name{font-size:11px;font-weight:700;color:var(--ink)}
-
-/* Frame 1: Send */
-.frame-send{width:100%;display:flex;flex-direction:column;gap:10px}
-.fsend-lbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center;margin-bottom:2px}
+.frame-send{width:100%;display:flex;flex-direction:column;gap:12px}
+.fsend-lbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center}
 .fsend-preview{background:white;border:1.5px solid var(--border);border-radius:12px;overflow:hidden}
 .fsend-hd{background:linear-gradient(90deg,var(--blue),var(--blue-d));padding:12px 14px;display:flex;align-items:center;gap:8px}
 .fsend-logo{width:20px;height:20px;border-radius:5px;background:rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white}
 .fsend-nm{font-size:11px;font-weight:700;color:white}
 .fsend-domain{font-size:10px;color:rgba(255,255,255,.5);margin-left:auto}
-.fsend-body{padding:12px 14px}
-.fsend-q{font-size:11px;font-weight:700;margin-bottom:6px}
-.fsend-field{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-size:11px;color:var(--muted);margin-bottom:6px}
-.fsend-link{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 11px}
+.fsend-body{padding:14px}
+.fsend-q{font-size:11px;font-weight:700;margin-bottom:7px}
+.fsend-field{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:9px 11px;font-size:11px;color:var(--muted);margin-bottom:8px}
+.fsend-link{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px 12px}
 .fsend-link-txt{font-size:11px;color:var(--muted);flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .fsend-copy{font-size:10px;font-weight:700;background:var(--blue);color:white;border:none;padding:4px 10px;border-radius:5px;font-family:inherit}
-.fsend-sent{display:flex;align-items:center;justify-content:center;gap:7px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:9px;font-size:12px;font-weight:700;color:#16A34A}
+.fsend-sent{display:flex;align-items:center;justify-content:center;gap:7px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:10px;font-size:12px;font-weight:700;color:#16A34A}
 .cur{display:inline-block;width:2px;height:12px;background:var(--blue-m);border-radius:1px;animation:pulse 1s infinite;vertical-align:middle;margin-left:1px}
-
-/* Frame 2: Dashboard */
 .frame-dash{width:100%;display:flex;flex-direction:column;gap:10px}
-.fdash-lbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center;margin-bottom:2px}
+.fdash-lbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center}
 .fdash-card{background:white;border:1.5px solid var(--border);border-radius:12px;padding:14px}
 .fdash-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .fdash-name{font-size:12px;font-weight:700}
 .fdash-done{font-size:10px;font-weight:700;background:#F0FDF4;color:#166534;padding:3px 9px;border-radius:20px}
-.fdash-track{height:5px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:5px}
+.fdash-track{height:5px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:6px}
 .fdash-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#22C55E,#16A34A);width:0;transition:width 1.2s 1s cubic-bezier(.16,1,.3,1)}
 .how-frame.active .fdash-fill{width:100%}
-.fdash-meta{font-size:10px;color:var(--muted);margin-bottom:2px}
-.fdash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.fdash-meta{font-size:10px;color:var(--muted);margin-bottom:10px}
+.fdash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:10px}
 .fdash-stat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px;text-align:center}
 .fdash-n{font-size:17px;font-weight:800;color:var(--blue);font-family:'Instrument Serif',serif}
 .fdash-l{font-size:9px;color:var(--muted);margin-top:1px}
-.fdash-feed{display:flex;flex-direction:column;gap:5px}
+.fdash-feed{display:flex;flex-direction:column;gap:6px}
 .fdash-row{display:flex;align-items:center;gap:7px;font-size:11px}
 .fdash-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .fdash-t{color:var(--muted);flex:1}
 .fdash-tm{color:var(--subtle);font-size:10px}
 
-/* BENTO — 2 rows */
-.bento-section{background:var(--surface);padding:80px 0}
-.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:48px}
-.s7{grid-column:span 7}.s5{grid-column:span 5}.s4{grid-column:span 4}.s8{grid-column:span 8}
+/* ── BENTO ── */
+.bento-section{background:var(--surface);padding:100px 0}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:52px}
+.s7{grid-column:span 7}.s5{grid-column:span 5}.s3{grid-column:span 3}
 .bc{background:white;border:1.5px solid var(--border);border-radius:var(--r);padding:28px;overflow:hidden;position:relative;transition:box-shadow .25s,transform .25s}
 .bc:hover{box-shadow:0 12px 44px rgba(6,13,31,.08);transform:translateY(-2px)}
 .bc-ink{background:var(--ink);border-color:var(--ink)}
@@ -181,20 +177,16 @@ nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31
 .bc-ink .bc-ttl{color:white}
 .bc-dsc{font-size:12px;color:var(--muted);line-height:1.6}
 .bc-ink .bc-dsc{color:rgba(255,255,255,.38)}
-
-/* bento: AI */
-.ai-gen-visual{margin-top:18px;display:flex;flex-direction:column;gap:7px}
-.ai-gen-input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:11px 13px;font-size:11px;color:rgba(255,255,255,.5);display:flex;align-items:flex-start;gap:6px}
-.ai-gen-arrow{display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.2);font-size:13px}
+/* AI bento */
+.ai-gen-visual{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+.ai-gen-input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 14px;font-size:11px;color:rgba(255,255,255,.5);line-height:1.5}
 .ai-gen-output{display:flex;flex-direction:column;gap:5px}
-.ai-gen-row{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:8px 11px;transition:all .3s}
-.bc:hover .ai-gen-row{background:rgba(255,255,255,.09)}
+.ai-gen-row{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:9px 12px}
 .ai-gen-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .ai-gen-text{font-size:11px;color:rgba(255,255,255,.55);flex:1}
 .ai-gen-ck{font-size:11px;color:var(--blue-m);font-weight:700}
-
-/* bento: status */
-.status-visual{margin-top:16px;display:flex;flex-direction:column;gap:5px}
+/* status */
+.status-visual{margin-top:18px;display:flex;flex-direction:column;gap:5px}
 .st-row{display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:9px 12px;transition:all .2s}
 .bc:hover .st-row:nth-child(1){border-color:rgba(21,88,255,.2);background:var(--blue-l)}
 .st-acc{width:3px;height:28px;border-radius:2px;flex-shrink:0}
@@ -202,9 +194,8 @@ nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31
 .st-nm{font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .st-meta{font-size:10px;color:var(--muted);margin-top:1px}
 .st-pill{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;flex-shrink:0}
-
-/* bento: branding */
-.brand-visual{margin-top:16px}
+/* branding */
+.brand-visual{margin-top:18px}
 .brand-browser{background:white;border:1.5px solid #BDD0FF;border-radius:11px;overflow:hidden}
 .brand-bar{background:var(--blue);padding:9px 12px;display:flex;align-items:center;gap:7px}
 .brand-logo-b{width:18px;height:18px;border-radius:5px;background:rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:white}
@@ -215,136 +206,212 @@ nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31
 .brand-line-b{height:3px;background:#BDD0FF;border-radius:2px}
 .color-swatch-row{display:flex;gap:6px;margin-top:12px}
 .color-swatch{height:20px;border-radius:6px;flex:1}
-
-/* bento: workflow */
-.wf-visual{margin-top:16px;display:flex;flex-direction:column;gap:0}
+/* send */
+.send-visual{margin-top:18px;display:flex;flex-direction:column;gap:8px}
+.send-link-box{display:flex;align-items:center;gap:7px;background:var(--surface);border:1.5px solid var(--border);border-radius:9px;padding:9px 12px}
+.send-link-txt{font-size:11px;color:var(--muted);flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.send-copy-btn{font-size:10px;font-weight:700;background:var(--blue);color:white;border:none;padding:4px 10px;border-radius:6px;font-family:inherit}
+.send-pills{display:flex;gap:6px;flex-wrap:wrap}
+.send-pill{font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;display:flex;align-items:center;gap:5px}
+/* template mini */
+.bc-tmpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:16px}
+.bc-tmpl-c{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px;transition:border-color .2s}
+.bc:hover .bc-tmpl-c:first-child{border-color:var(--blue-m)}
+.bc-tmpl-stripe{height:3px;border-radius:2px;margin-bottom:7px}
+.bc-tmpl-lines{display:flex;flex-direction:column;gap:3px}
+.bc-tmpl-line{height:2px;background:var(--border);border-radius:2px}
+.bc-tmpl-line.s{width:55%}
+.bc-tmpl-lbl{font-size:9px;font-weight:600;color:var(--muted);margin-top:5px}
+/* workflow */
+.wf-visual{margin-top:18px;display:flex;flex-direction:column}
 .wf-nd{display:flex;align-items:center;gap:10px;background:var(--surface);border:1.5px solid var(--border);border-radius:9px;padding:9px 12px;transition:all .22s}
 .bc:hover .wf-nd{border-color:rgba(21,88,255,.2)}
-.wf-conn{width:1px;height:16px;background:var(--border);margin-left:18px;position:relative}
-.wf-conn::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--border);position:absolute;bottom:-2px;left:50%;transform:translateX(-50%)}
+.wf-conn{width:1px;height:14px;background:var(--border);margin-left:18px}
 .wf-ic{font-size:13px;flex-shrink:0;width:24px;height:24px;background:var(--blue-l);border-radius:7px;display:flex;align-items:center;justify-content:center}
 .wf-lbl{font-size:12px;font-weight:600;flex:1}
 .wf-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;background:var(--blue-l);color:var(--blue-d)}
 
-/* bento: inbox */
-.inbox-visual{margin-top:16px;display:flex;flex-direction:column;gap:6px}
-.inbox-m{border-radius:10px;padding:9px 12px;font-size:12px}
-.inbox-m.out{background:var(--surface);border:1px solid var(--border);align-self:flex-start}
-.inbox-m.in{background:var(--blue-l);border:1px solid #C7D7FF;align-self:flex-end}
-.inbox-sender{font-size:10px;font-weight:700;margin-bottom:3px}
-.inbox-m.in .inbox-sender{color:var(--blue-d)}
-.inbox-compose{display:flex;align-items:center;gap:7px;background:white;border:1.5px solid var(--border);border-radius:9px;padding:8px 11px;margin-top:4px}
-.inbox-compose-input{font-size:11px;color:var(--muted);flex:1}
-.inbox-send-btn{width:24px;height:24px;background:var(--blue);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;color:white;flex-shrink:0}
+/* ── DASHBOARD TABS ── */
+.dash-tabs-sec{padding:100px 0;background:white}
+.dash-screen-wrap{
+  border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);
+  box-shadow:0 20px 64px rgba(6,13,31,.09);background:var(--surface);
+  min-height:460px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+}
+.dash-screen-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.dash-screen-fallback{display:flex;flex-direction:column;align-items:center;gap:12px}
+.dash-screen-fallback svg{opacity:.18}
+.dash-screen-fallback span{font-size:13px;font-weight:600;color:var(--subtle)}
+.dash-tabs-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.dash-tab{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:22px 20px;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.dash-tab:hover{background:white;border-color:var(--blue-m);box-shadow:0 4px 16px rgba(21,88,255,.08)}
+.dash-tab.active{background:white;border-color:var(--blue);box-shadow:0 4px 20px rgba(21,88,255,.1)}
+.dash-tab-icon{width:36px;height:36px;border-radius:10px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;transition:background .25s}
+.dash-tab.active .dash-tab-icon{background:var(--blue)}
+.dash-tab-icon svg{width:17px;height:17px;stroke:var(--blue);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s}
+.dash-tab.active .dash-tab-icon svg{stroke:white}
+.dash-tab-title{font-size:14px;font-weight:700;color:var(--ink);line-height:1.3}
+.dash-tab-sub{font-size:12px;color:var(--muted);line-height:1.5}
+.dash-tab.active .dash-tab-title{color:var(--blue)}
 
-/* FOR WHO */
-.fw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}
-.fw-c{background:white;border:1.5px solid var(--border);border-radius:var(--r);padding:24px 20px;transition:all .25s}
+/* ── IMPACT / STATS — light ── */
+.impact-sec{background:var(--surface);padding:128px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.impact-quote-block{text-align:center;max-width:600px;margin:0 auto 72px}
+.impact-quote-mark{font-family:'Instrument Serif',serif;font-size:72px;color:var(--blue-l);line-height:.7;display:block;margin-bottom:12px}
+.impact-quote-text{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;font-style:italic;color:var(--ink);line-height:1.6}
+.impact-quote-attr{font-size:13px;color:var(--subtle);margin-top:18px;font-weight:600}
+.impact-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.impact-m{background:white;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:36px 32px;transition:all .28s}
+.impact-m:hover{border-color:var(--blue);box-shadow:0 8px 36px rgba(21,88,255,.1);transform:translateY(-2px)}
+.impact-m-chart{height:72px;margin-bottom:24px}
+.impact-num{font-family:'Instrument Serif',serif;font-size:52px;color:var(--blue);line-height:1;margin-bottom:10px;letter-spacing:-2px}
+.impact-desc{font-size:14px;color:var(--muted);line-height:1.65}
+
+/* ── FOR WHO ── */
+.fw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px}
+.fw-c{background:white;border:1.5px solid var(--border);border-radius:var(--r);padding:26px 22px;transition:all .25s}
 .fw-c:hover{border-color:var(--blue);box-shadow:0 10px 36px rgba(21,88,255,.09);transform:translateY(-2px)}
-.fw-em{font-size:26px;margin-bottom:12px;display:block}
-.fw-nm{font-family:'Instrument Serif',serif;font-size:19px;margin-bottom:8px}
-.fw-dsc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:12px}
+.fw-em{font-size:26px;margin-bottom:14px;display:block}
+.fw-nm{font-family:'Instrument Serif',serif;font-size:19px;margin-bottom:9px}
+.fw-dsc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:13px}
 .fw-tags{display:flex;flex-wrap:wrap;gap:5px}
 .fw-tag{font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;background:var(--blue-l);color:var(--blue-d)}
 
-/* STATS */
-.stats-sec{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
-.stat-item{padding:52px 44px;text-align:center;border-right:1px solid var(--border);transition:background .25s}
-.stat-item:last-child{border-right:none}
-.stat-item:hover{background:var(--surface)}
-.stat-n{font-family:'Instrument Serif',serif;font-size:56px;color:var(--blue);line-height:1;margin-bottom:9px}
-.stat-lbl{font-size:13px;font-weight:700;margin-bottom:5px}
-.stat-src{font-size:11px;color:var(--subtle);max-width:200px;margin:0 auto;line-height:1.55}
-
-/* PRICING */
-.bill-row{display:flex;justify-content:center;margin:24px 0 40px}
+/* ── PRICING ── */
+.bill-row{display:flex;justify-content:center;margin:28px 0 48px}
 .bill-toggle{display:inline-flex;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:4px}
-.bill-btn{font-family:inherit;font-size:13px;font-weight:600;padding:7px 20px;border-radius:100px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.bill-btn{font-family:inherit;font-size:13px;font-weight:600;padding:8px 22px;border-radius:100px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
 .bill-btn.on{background:white;color:var(--ink);box-shadow:0 2px 8px rgba(6,13,31,.08)}
 .bill-save{color:var(--blue);font-size:11px;font-weight:700}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.plan{border-radius:var(--r-lg);padding:32px 28px;border:1.5px solid var(--border);background:white;position:relative;transition:all .25s}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{border-radius:var(--r-lg);padding:36px 32px;border:1.5px solid var(--border);background:white;position:relative;transition:all .25s}
 .plan:hover{box-shadow:0 16px 52px rgba(6,13,31,.08)}
 .plan.hi{background:var(--ink);border-color:var(--ink)}
-.plan-rec{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--blue);color:white;font-size:10px;font-weight:800;padding:4px 14px;border-radius:100px;white-space:nowrap;letter-spacing:.04em}
-.plan-name{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.plan-rec{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:white;font-size:10px;font-weight:800;padding:4px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.04em}
+.plan-name{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
 .plan.hi .plan-name{color:var(--blue-m)}
-.plan-price{font-family:'Instrument Serif',serif;font-size:52px;line-height:1;letter-spacing:-2px;color:var(--ink);margin-bottom:3px}
+.plan-price{font-family:'Instrument Serif',serif;font-size:54px;line-height:1;letter-spacing:-2px;color:var(--ink);margin-bottom:2px}
 .plan.hi .plan-price{color:white}
-.plan-price sup{font-size:22px;letter-spacing:0;vertical-align:top;margin-top:10px}
-.plan-cycle{font-size:12px;color:var(--muted);margin-bottom:20px}
-.plan.hi .plan-cycle{color:rgba(255,255,255,.35)}
-.plan-rule{border:none;border-top:1px solid var(--border);margin:0 0 18px}
+.plan-price sup{font-size:23px;letter-spacing:0;vertical-align:top;margin-top:11px}
+.plan-price-sub{font-size:12px;color:var(--subtle);margin-bottom:22px}
+.plan.hi .plan-price-sub{color:rgba(255,255,255,.3)}
+.plan-rule{border:none;border-top:1px solid var(--border);margin:0 0 20px}
 .plan.hi .plan-rule{border-color:rgba(255,255,255,.1)}
-.plan-fs{display:flex;flex-direction:column;gap:9px;margin-bottom:26px}
-.plan-f{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.plan-fs{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.plan-f{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--muted)}
 .plan.hi .plan-f{color:rgba(255,255,255,.5)}
 .pf-ok{color:var(--blue);font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px}
 .plan.hi .pf-ok{color:var(--blue-m)}
 .pf-no{color:var(--border);font-size:12px;flex-shrink:0;margin-top:1px}
-.plan-cta{width:100%;padding:12px;border-radius:100px;font-family:inherit;font-size:14px;font-weight:700;border:1.5px solid var(--border);background:transparent;color:var(--ink);cursor:pointer;transition:all .22s}
+.plan-cta{width:100%;padding:13px;border-radius:100px;font-family:inherit;font-size:14px;font-weight:700;border:1.5px solid var(--border);background:transparent;color:var(--ink);cursor:pointer;transition:all .22s;display:flex;align-items:center;justify-content:center;gap:7px}
 .plan-cta:hover{background:var(--surface)}
 .plan.hi .plan-cta{background:var(--blue);border-color:var(--blue);color:white}
 .plan.hi .plan-cta:hover{background:var(--blue-d);box-shadow:0 4px 18px rgba(21,88,255,.4)}
+/* Pricing coupon row */
+.pricing-coupon-row{margin-top:40px;display:flex;align-items:center;justify-content:center}
+.pricing-coupon-inner{display:flex;align-items:center;gap:0;background:white;border:1.5px solid var(--border);border-radius:100px;padding:5px 5px 5px 20px;box-shadow:0 2px 12px rgba(6,13,31,.05)}
+.pricing-coupon-label{font-size:13px;font-weight:500;color:var(--muted);white-space:nowrap;margin-right:12px}
+.pricing-coupon-input{border:none;background:var(--surface);border-radius:100px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--ink);font-family:inherit;letter-spacing:.04em;width:140px;outline:none;transition:background .2s}
+.pricing-coupon-input:focus{background:var(--blue-l)}
+.pricing-coupon-input::placeholder{font-weight:500;color:var(--subtle);letter-spacing:0}
+.pricing-coupon-btn{background:var(--blue);color:white;border:none;border-radius:100px;padding:9px 22px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .22s;display:inline-flex;align-items:center;gap:6px}
+.pricing-coupon-btn:hover{background:var(--blue-d)}
+.pricing-coupon-btn.success{background:#22C55E}
+.pricing-coupon-hint{font-size:12px;color:var(--subtle);text-align:center;margin-top:12px}
 
-/* FAQ */
+/* ── FAQ ── */
 .faq-sec{background:var(--surface)}
-.faq-list{max-width:700px;margin:44px auto 0}
+.faq-list{max-width:700px;margin:52px auto 0}
 .faq-item{border-bottom:1px solid var(--border)}
 .faq-item:first-child{border-top:1px solid var(--border)}
-.faq-q{width:100%;background:none;border:none;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:var(--ink);padding:20px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:color .2s}
+.faq-q{width:100%;background:none;border:none;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:var(--ink);padding:22px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:color .2s}
 .faq-q:hover{color:var(--blue)}
 .faq-ic{width:26px;height:26px;min-width:26px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s}
-.faq-ic svg{width:10px;height:10px;transition:transform .3s;flex-shrink:0}
+.faq-ic svg{width:10px;height:10px;transition:transform .3s}
 .faq-item.open .faq-ic{background:var(--blue);border-color:var(--blue);color:white}
 .faq-item.open .faq-ic svg{transform:rotate(45deg)}
 .faq-a{font-size:14px;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;padding:0;transition:max-height .4s cubic-bezier(.16,1,.3,1),padding .4s}
-.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:22px}
 
-/* CTA */
-.cta-outer{padding:0 40px 96px}
-.cta-box{background:var(--ink);border-radius:24px;padding:96px 56px;text-align:center;position:relative;overflow:hidden}
+/* ── CTA ── */
+.cta-outer{padding:0 48px 112px}
+.cta-box{background:var(--ink);border-radius:24px;padding:100px 60px;text-align:center;position:relative;overflow:hidden}
 .cta-glow{position:absolute;width:600px;height:400px;background:radial-gradient(ellipse,rgba(21,88,255,.22) 0%,transparent 65%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .cta-inner{position:relative;z-index:1}
 .cta-inner .ey{color:var(--blue-m);justify-content:center}
 .cta-inner .ey-dot{background:var(--blue-m)}
-.cta-h2{font-size:clamp(28px,4.5vw,52px);color:white;margin-bottom:12px}
-.cta-sub{font-size:15px;color:rgba(255,255,255,.38);margin-bottom:34px}
-.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px}
-.btn-white{background:white;color:var(--ink);font-family:inherit;font-size:15px;font-weight:700;padding:13px 30px;border-radius:100px;border:none;cursor:pointer;transition:all .22s}
+.cta-h2{font-size:clamp(28px,4.5vw,52px);color:white;margin-bottom:14px}
+.cta-sub{font-size:15px;color:rgba(255,255,255,.38);margin-bottom:38px}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:12px}
+.btn-white{background:white;color:var(--ink);font-family:inherit;font-size:15px;font-weight:700;padding:14px 32px;border-radius:100px;border:none;cursor:pointer;transition:all .22s;display:inline-flex;align-items:center;gap:8px}
 .btn-white:hover{box-shadow:0 8px 28px rgba(255,255,255,.22);transform:translateY(-2px)}
-.btn-gw{background:transparent;color:rgba(255,255,255,.55);font-family:inherit;font-size:15px;font-weight:600;padding:13px 24px;border-radius:100px;border:1.5px solid rgba(255,255,255,.16);cursor:pointer;transition:all .22s}
+.btn-gw{background:transparent;color:rgba(255,255,255,.55);font-family:inherit;font-size:15px;font-weight:600;padding:14px 26px;border-radius:100px;border:1.5px solid rgba(255,255,255,.16);cursor:pointer;transition:all .22s}
 .btn-gw:hover{border-color:rgba(255,255,255,.4);color:white}
 
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:32px 48px;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .foot-l{display:flex;align-items:center;gap:8px}
-.foot-logo{width:100px;height:24px;object-fit:contain;padding:2px}
-.foot-wm{font-size:14px;font-weight:800;color:var(--ink)}
+.foot-logo{height:24px;width:auto;object-fit:contain}
 .foot-copy{font-size:12px;color:var(--subtle);margin-left:14px}
-.foot-links{display:flex;gap:18px}
+.foot-links{display:flex;gap:20px}
 .foot-links a{font-size:12px;color:var(--subtle);transition:color .18s}
 .foot-links a:hover{color:var(--muted)}
 
+/* ── FOUNDING POPUP ── */
+.fp-overlay{position:fixed;inset:0;background:rgba(6,13,31,.45);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.16,1,.3,1);backdrop-filter:blur(6px)}
+.fp-overlay.show{opacity:1;pointer-events:auto}
+.fp-coupon{background:white;border-radius:20px;display:flex;max-width:560px;width:100%;box-shadow:0 32px 80px rgba(6,13,31,.18);overflow:hidden;position:relative;animation:couponIn .4s .05s cubic-bezier(.16,1,.3,1) both}
+@keyframes couponIn{from{opacity:0;transform:scale(.94) translateY(16px)}to{opacity:1;transform:none}}
+.fp-left{flex:1;padding:40px 36px;display:flex;flex-direction:column}
+.fp-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:16px}
+.fp-eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--blue)}
+.fp-h2{font-family:'Instrument Serif',serif;font-size:30px;font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:12px}
+.fp-desc{font-size:14px;color:var(--muted);line-height:1.68;margin-bottom:24px}
+.fp-features{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.fp-feat{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
+.fp-feat-check{width:18px;height:18px;background:var(--blue-l);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;color:var(--blue);font-weight:800}
+.fp-cta{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:white;font-size:14px;font-weight:700;padding:13px 26px;border-radius:100px;border:none;cursor:pointer;transition:all .22s;box-shadow:0 4px 18px rgba(21,88,255,.3);align-self:flex-start}
+.fp-cta:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,88,255,.4)}
+.fp-hint{font-size:11px;color:var(--subtle);margin-top:10px}
+/* Right stub */
+.fp-right{width:148px;flex-shrink:0;border-left:2px dashed var(--border);background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 18px;gap:12px}
+.fp-code-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--subtle)}
+.fp-code-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%}
+.fp-code{font-family:'Plus Jakarta Sans',monospace;font-size:17px;font-weight:800;letter-spacing:.14em;background:white;color:var(--blue-d);padding:9px 12px;border-radius:9px;border:1.5px solid var(--blue-m);width:100%;text-align:center;user-select:all}
+.fp-copy-btn{width:100%;font-family:inherit;font-size:12px;font-weight:700;padding:8px;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--ink);cursor:pointer;transition:all .22s;display:flex;align-items:center;justify-content:center;gap:5px}
+.fp-copy-btn:hover{border-color:var(--blue-m);background:var(--blue-l);color:var(--blue-d)}
+.fp-copy-btn.copied{background:#22C55E;border-color:#22C55E;color:white}
+.fp-coupon-tag{font-size:11px;color:var(--muted);text-align:center;line-height:1.55}
+.fp-close{position:absolute;top:12px;right:12px;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-size:15px;color:var(--muted)}
+.fp-close:hover{background:var(--border);color:var(--ink)}
+
+/* ── RESPONSIVE ── */
 @media(max-width:1020px){
   .bento{grid-template-columns:1fr 1fr}
-  .s7,.s5,.s4,.s8{grid-column:span 2}
-  .prob-cards,.fw-grid,.plans,.stats-grid{grid-template-columns:1fr 1fr}
+  .s7,.s5,.s3{grid-column:span 2}
+  .prob-cards,.fw-grid,.plans{grid-template-columns:1fr 1fr}
+  .impact-metrics{grid-template-columns:1fr 1fr}
+  .dash-tabs-row{grid-template-columns:1fr 1fr}
   .how-sticky-wrap{grid-template-columns:1fr;gap:0}
-  .how-visual-col{position:static;margin-top:40px;min-height:380px}
+  .how-visual-col{position:static;margin-top:40px}
   .how-visual-frame{min-height:380px}
 }
 @media(max-width:680px){
-  .wrap{padding:0 18px}
+  .wrap{padding:0 20px}
+  .how-sticky-wrap{padding:80px 20px}
   .nav-links{display:none}
   .bento{grid-template-columns:1fr}
-  .s7,.s5,.s4,.s8{grid-column:span 1}
-  .prob-cards,.fw-grid,.plans,.stats-grid{grid-template-columns:1fr}
-  .how-sticky-wrap{padding:60px 18px}
-  .cta-outer{padding:0 16px 72px}
-  .cta-box{padding:60px 22px}
-  footer{flex-direction:column;align-items:flex-start;gap:14px}
+  .s7,.s5,.s3{grid-column:span 1}
+  .prob-cards,.fw-grid,.plans{grid-template-columns:1fr}
+  .impact-metrics{grid-template-columns:1fr}
+  .dash-tabs-row{grid-template-columns:1fr 1fr}
+  .how-step-item{min-height:30vh}
+  .cta-outer{padding:0 18px 80px}
+  .cta-box{padding:64px 24px}
+  footer{flex-direction:column;align-items:flex-start;gap:14px;padding:28px 20px}
+  .fp-coupon{flex-direction:column}
+  .fp-right{width:100%;border-left:none;border-top:2px dashed var(--border);flex-direction:row;gap:16px;padding:20px 24px}
 }
 </style>
 </head>
@@ -362,8 +429,11 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
       <li><a href="#pricing">Pricing</a></li>
     </ul>
     <div class="nav-r">
-      <button class="btn-nav-ghost">Log in</button>
-      <button class="btn-nav-cta">Start for free</button>
+      <button class="btn-nav-ghost" onclick="location.href='https://briefapp.base44.app/'">Log in</button>
+      <button class="btn-nav-cta" onclick="location.href='https://briefapp.base44.app/'">
+        Start for free
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
+      </button>
     </div>
   </nav>
 </div>
@@ -374,28 +444,21 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
   <div class="hero-inner">
     <div class="hero-badge"><span class="hero-badge-pill">New</span> The briefing platform</div>
     <h1 class="serif hero-h1">Bad briefs kill<br>good work.</h1>
-    <p class="hero-sub">Brief makes sure yours don't.</p>
-    <p class="hero-p">Build beautiful, branded briefings your clients actually engage with.</p>
+    <p class="hero-p">Build beautiful, branded briefings your clients actually engage with &mdash; from first question to final answer.</p>
     <div class="hero-btns">
-      <button class="btn btn-primary btn-lg">Start for free →</button>
-      <button class="btn btn-ghost btn-lg">See how it works</button>
+      <a href="https://briefapp.base44.app/" class="btn btn-primary btn-lg">
+        Start for free
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg>
+      </a>
+      <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
     </div>
-    <p class="hero-hint">No credit card <span>·</span> Setup in 3 minutes</p>
+    <p class="hero-hint">No credit card <span>&middot;</span> Setup in 3 minutes</p>
   </div>
-  <!-- Dashboard image placeholder — swap src for real screenshot -->
   <div class="hero-img-outer">
     <div class="hero-img-placeholder">
-      <img src="dashboard.png" alt="Brief dashboard"
-           onerror="this.style.display='none';document.getElementById('hero-fallback').style.display='flex'">
-      <div id="hero-fallback" class="hero-img-fallback" style="display:none">
-        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="8" width="44" height="36" rx="5" stroke="#94A3B8" stroke-width="2"/>
-          <rect x="4" y="8" width="44" height="9" rx="5" stroke="#94A3B8" stroke-width="2"/>
-          <rect x="10" y="24" width="14" height="3" rx="1.5" fill="#CBD5E1"/>
-          <rect x="10" y="30" width="22" height="3" rx="1.5" fill="#CBD5E1"/>
-          <rect x="10" y="36" width="16" height="3" rx="1.5" fill="#CBD5E1"/>
-          <rect x="30" y="24" width="16" height="15" rx="3" fill="#E2E8F0"/>
-        </svg>
+      <img src="dashboard.png" alt="Brief dashboard" onerror="this.style.display='none';document.getElementById('hFb').style.display='flex'">
+      <div id="hFb" class="hero-img-fallback" style="display:none">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect x="4" y="8" width="48" height="40" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="4" y="8" width="48" height="10" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="11" y="26" width="15" height="3" rx="1.5" fill="#E2E8F0"/><rect x="11" y="32" width="24" height="3" rx="1.5" fill="#E2E8F0"/><rect x="11" y="38" width="18" height="3" rx="1.5" fill="#E2E8F0"/><rect x="32" y="26" width="17" height="15" rx="3" fill="#E2E8F0"/></svg>
         <span>Dashboard Preview</span>
       </div>
     </div>
@@ -412,16 +475,16 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
       <h2 class="serif h2">You shouldn't need three tools<br>to start a project.</h2>
     </div>
     <div class="prob-cards">
-      <div class="prob-c rv d1"><span class="prob-ic">⏳</span><div class="prob-ttl">Building a brief takes hours</div><div class="prob-dsc">Copy-paste from old docs, reformat, send the wrong version.</div></div>
-      <div class="prob-c rv d2"><span class="prob-ic">📨</span><div class="prob-ttl">You sent it. Now you wonder.</div><div class="prob-dsc">No idea if they opened it. Follow-up. Then another. Then a call.</div></div>
-      <div class="prob-c rv d3"><span class="prob-ic">🔧</span><div class="prob-ttl">Three tools, zero flow</div><div class="prob-dsc">Form builder + email tool + spreadsheet. Still feels unprofessional.</div></div>
+      <div class="prob-c rv d1"><span class="prob-ic">&#x23F3;</span><div class="prob-ttl">Building a brief takes hours</div><div class="prob-dsc">Copy-paste from old docs, reformat, send the wrong version.</div></div>
+      <div class="prob-c rv d2"><span class="prob-ic">&#x1F4E8;</span><div class="prob-ttl">You sent it. Now you wonder.</div><div class="prob-dsc">No idea if they opened it. Follow-up. Then another. Then a call.</div></div>
+      <div class="prob-c rv d3"><span class="prob-ic">&#x1F527;</span><div class="prob-ttl">Three tools, zero flow</div><div class="prob-dsc">Form builder + email tool + spreadsheet. Still feels unprofessional.</div></div>
     </div>
   </div>
 </section>
 
 <hr class="rule">
 
-<!-- HOW IT WORKS — sticky scroll -->
+<!-- HOW IT WORKS -->
 <section class="how-section" id="how">
   <div class="how-sticky-wrap">
     <div class="how-steps-col">
@@ -432,7 +495,7 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
       <div class="how-step-item active" data-step="0">
         <div class="how-step-num">01</div>
         <div class="how-ttl">Build your brief</div>
-        <div class="how-dsc">Pick a template or let AI generate the structure. Add questions, sections, and your brand — done in minutes, not hours.</div>
+        <div class="how-dsc">Pick a template or let AI generate the structure. Add questions, sections, and your brand &mdash; done in minutes, not hours.</div>
       </div>
       <div class="how-step-item" data-step="1">
         <div class="how-step-num">02</div>
@@ -445,22 +508,19 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
         <div class="how-dsc">Answers land structured in your dashboard. Live status, auto-reminders, full history. Ready to act on instantly.</div>
       </div>
     </div>
-
     <div class="how-visual-col">
       <div class="how-visual-frame">
-        <!-- Frame 0: Template picker -->
         <div class="how-frame active" id="hf0">
           <div class="frame-tmpl">
             <div class="ftmpl-hd">Choose a template</div>
             <div class="ftmpl-grid">
-              <div class="ftmpl-card sel"><div class="ftmpl-sel">✓</div><div class="ftmpl-stripe" style="background:#1558FF"></div><div class="ftmpl-lines"><div class="ftmpl-line"></div><div class="ftmpl-line s"></div></div><div class="ftmpl-name">Website Relaunch</div></div>
-              <div class="ftmpl-card"><div class="ftmpl-sel">✓</div><div class="ftmpl-stripe" style="background:#8B5CF6"></div><div class="ftmpl-lines"><div class="ftmpl-line"></div><div class="ftmpl-line s"></div></div><div class="ftmpl-name">Brand Identity</div></div>
-              <div class="ftmpl-card"><div class="ftmpl-sel">✓</div><div class="ftmpl-stripe" style="background:#22C55E"></div><div class="ftmpl-lines"><div class="ftmpl-line"></div><div class="ftmpl-line s"></div></div><div class="ftmpl-name">Social Campaign</div></div>
-              <div class="ftmpl-card" style="border-style:dashed;display:flex;align-items:center;justify-content:center;gap:5px;color:var(--muted);font-size:12px;font-weight:600;min-height:80px"><div class="ftmpl-sel">✓</div><span style="font-size:18px;opacity:.3">+</span> AI Generate</div>
+              <div class="ftmpl-card sel"><div class="ftmpl-sel">&#x2713;</div><div class="ftmpl-stripe" style="background:#1558FF"></div><div class="ftmpl-lines"><div class="ftmpl-line"></div><div class="ftmpl-line s"></div></div><div class="ftmpl-name">Website Relaunch</div></div>
+              <div class="ftmpl-card"><div class="ftmpl-sel">&#x2713;</div><div class="ftmpl-stripe" style="background:#8B5CF6"></div><div class="ftmpl-lines"><div class="ftmpl-line"></div><div class="ftmpl-line s"></div></div><div class="ftmpl-name">Brand Identity</div></div>
+              <div class="ftmpl-card"><div class="ftmpl-sel">&#x2713;</div><div class="ftmpl-stripe" style="background:#22C55E"></div><div class="ftmpl-lines"><div class="ftmpl-line"></div><div class="ftmpl-line s"></div></div><div class="ftmpl-name">Social Campaign</div></div>
+              <div class="ftmpl-card" style="border-style:dashed;display:flex;align-items:center;justify-content:center;gap:5px;color:var(--muted);font-size:12px;font-weight:600;min-height:80px"><span style="font-size:18px;opacity:.3">+</span> AI Generate</div>
             </div>
           </div>
         </div>
-        <!-- Frame 1: Send -->
         <div class="how-frame" id="hf1">
           <div class="frame-send">
             <div class="fsend-lbl">Your client sees this</div>
@@ -473,18 +533,17 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
                 <div class="fsend-field" style="color:var(--subtle);font-style:italic">Type your answer...<span class="cur"></span></div>
               </div>
             </div>
-            <div class="fsend-link"><span style="font-size:13px">🔗</span><span class="fsend-link-txt">yourco.brief.app/b/website-relaunch</span><button class="fsend-copy">Copy</button></div>
-            <div class="fsend-sent">✓ Brief sent · Client notified</div>
+            <div class="fsend-link"><span style="font-size:13px">&#x1F517;</span><span class="fsend-link-txt">yourco.brief.app/b/website-relaunch</span><button class="fsend-copy">Copy</button></div>
+            <div class="fsend-sent">&#x2713; Brief sent &middot; Client notified</div>
           </div>
         </div>
-        <!-- Frame 2: Dashboard -->
         <div class="how-frame" id="hf2">
           <div class="frame-dash">
             <div class="fdash-lbl">Your dashboard</div>
             <div class="fdash-card">
-              <div class="fdash-top"><div class="fdash-name">Website Relaunch — Apex Digital</div><div class="fdash-done">✓ Completed</div></div>
+              <div class="fdash-top"><div class="fdash-name">Website Relaunch &mdash; Apex Digital</div><div class="fdash-done">&#x2713; Completed</div></div>
               <div class="fdash-track"><div class="fdash-fill"></div></div>
-              <div class="fdash-meta">6/6 questions answered · 1.8d avg response</div>
+              <div class="fdash-meta">6/6 questions answered &middot; 1.8d avg response</div>
             </div>
             <div class="fdash-stats">
               <div class="fdash-stat"><div class="fdash-n">6/6</div><div class="fdash-l">Answered</div></div>
@@ -503,7 +562,7 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
   </div>
 </section>
 
-<!-- BENTO — 2 rows -->
+<!-- BENTO FEATURES -->
 <section class="bento-section" id="features">
   <div class="wrap">
     <div class="rv" style="text-align:center">
@@ -511,34 +570,31 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
       <h2 class="serif h2">Everything you need.<br>Nothing you don't.</h2>
     </div>
     <div class="bento">
-      <!-- Row 1 -->
       <div class="bc bc-ink s7 rv d1">
-        <div class="bc-ey">✨ AI Generator</div>
+        <div class="bc-ey">&#x2728; AI Generator</div>
         <div class="bc-ttl" style="font-size:22px;color:white">Generate a full brief<br>from one sentence</div>
         <div class="ai-gen-visual">
-          <div class="ai-gen-input"><span style="font-size:14px;flex-shrink:0;opacity:.5">✨</span><div style="line-height:1.5">"Website relaunch for a B2B SaaS, focus on lead generation"<span class="cur"></span></div></div>
-          <div class="ai-gen-arrow">↓</div>
+          <div class="ai-gen-input">&#x2728;&nbsp; "Website relaunch for a B2B SaaS, focus on lead generation"<span class="cur"></span></div>
           <div class="ai-gen-output">
-            <div class="ai-gen-row"><div class="ai-gen-dot" style="background:#22C55E"></div><div class="ai-gen-text">Project overview &amp; goals</div><div class="ai-gen-ck">✓</div></div>
-            <div class="ai-gen-row"><div class="ai-gen-dot" style="background:#22C55E"></div><div class="ai-gen-text">Target audience &amp; personas</div><div class="ai-gen-ck">✓</div></div>
-            <div class="ai-gen-row"><div class="ai-gen-dot" style="background:var(--blue-m)"></div><div class="ai-gen-text">Deliverables &amp; timeline<span class="cur"></span></div><div class="ai-gen-ck" style="opacity:.3">✓</div></div>
+            <div class="ai-gen-row"><div class="ai-gen-dot" style="background:#22C55E"></div><div class="ai-gen-text">Project overview &amp; goals</div><div class="ai-gen-ck">&#x2713;</div></div>
+            <div class="ai-gen-row"><div class="ai-gen-dot" style="background:#22C55E"></div><div class="ai-gen-text">Target audience &amp; personas</div><div class="ai-gen-ck">&#x2713;</div></div>
+            <div class="ai-gen-row"><div class="ai-gen-dot" style="background:var(--blue-m)"></div><div class="ai-gen-text">Deliverables &amp; timeline<span class="cur"></span></div><div class="ai-gen-ck" style="opacity:.3">&#x2713;</div></div>
           </div>
         </div>
       </div>
       <div class="bc s5 rv d2">
-        <div class="bc-ey">📡 Live Status</div>
-        <div class="bc-ttl">Know where every<br>brief stands</div>
+        <div class="bc-ey">&#x1F4E1; Live Status</div>
+        <div class="bc-ttl">Know exactly where every brief stands.</div>
         <div class="status-visual">
-          <div class="st-row"><div class="st-acc" style="background:var(--blue)"></div><div class="st-inf"><div class="st-nm">Rebrand Q3 — Apex Digital</div><div class="st-meta">Sent Jun 12 · Sarah K.</div></div><div class="st-pill" style="background:#EEF2FF;color:#4338CA">In Review</div></div>
-          <div class="st-row"><div class="st-acc" style="background:#22C55E"></div><div class="st-inf"><div class="st-nm">Website Launch — Nova Startup</div><div class="st-meta">Jun 8 · 6/6 answered</div></div><div class="st-pill" style="background:#F0FDF4;color:#166534">Done ✓</div></div>
-          <div class="st-row"><div class="st-acc" style="background:#8B5CF6"></div><div class="st-inf"><div class="st-nm">Summer Campaign</div><div class="st-meta">In Progress · 55%</div></div><div class="st-pill" style="background:var(--blue-l);color:var(--blue-d)">Active</div></div>
-          <div class="st-row"><div class="st-acc" style="background:#F59E0B"></div><div class="st-inf"><div class="st-nm">Content Strategy</div><div class="st-meta">Draft · Edited today</div></div><div class="st-pill" style="background:#FFFBEB;color:#92400E">Draft</div></div>
+          <div class="st-row"><div class="st-acc" style="background:var(--blue)"></div><div class="st-inf"><div class="st-nm">Rebrand Q3 &mdash; Apex Digital</div><div class="st-meta">Sent Jun 12 &middot; Sarah K.</div></div><div class="st-pill" style="background:#EEF2FF;color:#4338CA">In Review</div></div>
+          <div class="st-row"><div class="st-acc" style="background:#22C55E"></div><div class="st-inf"><div class="st-nm">Website Launch &mdash; Nova Startup</div><div class="st-meta">Jun 8 &middot; 6/6 answered</div></div><div class="st-pill" style="background:#F0FDF4;color:#166534">Done &#x2713;</div></div>
+          <div class="st-row"><div class="st-acc" style="background:#8B5CF6"></div><div class="st-inf"><div class="st-nm">Summer Campaign</div><div class="st-meta">In Progress &middot; 55%</div></div><div class="st-pill" style="background:var(--blue-l);color:var(--blue-d)">Active</div></div>
+          <div class="st-row"><div class="st-acc" style="background:#F59E0B"></div><div class="st-inf"><div class="st-nm">Content Strategy</div><div class="st-meta">Draft &middot; Edited today</div></div><div class="st-pill" style="background:#FFFBEB;color:#92400E">Draft</div></div>
         </div>
       </div>
-      <!-- Row 2 -->
-      <div class="bc bc-blue s4 rv d1">
-        <div class="bc-ey" style="color:var(--blue-d)">🎨 Branding</div>
-        <div class="bc-ttl">Your brand, not ours</div>
+      <div class="bc bc-blue s3 rv d1">
+        <div class="bc-ey" style="color:var(--blue-d)">&#x1F3A8; Branding</div>
+        <div class="bc-ttl">Your brand.<br>Not ours.</div>
         <div class="brand-visual">
           <div class="brand-browser">
             <div class="brand-bar"><div class="brand-logo-b">YC</div><div class="brand-url">yourco.brief.app</div></div>
@@ -555,26 +611,129 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
           </div>
         </div>
       </div>
-      <div class="bc s4 rv d2">
-        <div class="bc-ey">⚡ Workflows</div>
-        <div class="bc-ttl">Never miss a follow-up</div>
-        <div class="wf-visual">
-          <div class="wf-nd"><div class="wf-ic">📤</div><div class="wf-lbl">Brief sent</div><div class="wf-badge">Trigger</div></div>
-          <div class="wf-conn"></div>
-          <div class="wf-nd"><div class="wf-ic">⏰</div><div class="wf-lbl">Wait 2 days</div><div class="wf-badge">Delay</div></div>
-          <div class="wf-conn"></div>
-          <div class="wf-nd"><div class="wf-ic">💌</div><div class="wf-lbl">Send reminder</div><div class="wf-badge">Auto</div></div>
+      <div class="bc s3 rv d2">
+        <div class="bc-ey">&#x1F4E4; Sharing</div>
+        <div class="bc-ttl">Send in<br>one click.</div>
+        <div class="send-visual">
+          <div class="send-link-box">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-linecap="round"><path d="M5 2.5H3a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V9M7.5 1H12M12 1v4.5M12 1L5.5 7.5"/></svg>
+            <span class="send-link-txt">yourco.brief.app/b/apex-q3</span>
+            <button class="send-copy-btn">Copy</button>
+          </div>
+          <div class="send-pills">
+            <div class="send-pill" style="background:#F0FDF4;color:#16A34A">&#x2713; Delivered</div>
+            <div class="send-pill" style="background:var(--blue-l);color:var(--blue-d)">Seen</div>
+          </div>
         </div>
       </div>
-      <div class="bc s4 rv d3">
-        <div class="bc-ey">💬 Client Inbox</div>
-        <div class="bc-ttl">One link. No friction.</div>
-        <div class="inbox-visual">
-          <div class="inbox-m out"><div class="inbox-sender">Sarah K. · Apex</div>"Any existing brand guidelines?"</div>
-          <div class="inbox-m in"><div class="inbox-sender">You · Reply</div>"Yes — attaching them now."</div>
-          <div class="inbox-m out"><div class="inbox-sender">Sarah K.</div>"Perfect, that's all I needed!"</div>
-          <div class="inbox-compose"><span class="inbox-compose-input">Reply...<span class="cur"></span></span><div class="inbox-send-btn">↑</div></div>
+      <div class="bc s3 rv d3">
+        <div class="bc-ey">&#x1F4CB; Templates</div>
+        <div class="bc-ttl">Start from<br>a template.</div>
+        <div class="bc-tmpl-grid">
+          <div class="bc-tmpl-c"><div class="bc-tmpl-stripe" style="background:#1558FF"></div><div class="bc-tmpl-lines"><div class="bc-tmpl-line"></div><div class="bc-tmpl-line s"></div></div><div class="bc-tmpl-lbl">Website</div></div>
+          <div class="bc-tmpl-c"><div class="bc-tmpl-stripe" style="background:#8B5CF6"></div><div class="bc-tmpl-lines"><div class="bc-tmpl-line"></div><div class="bc-tmpl-line s"></div></div><div class="bc-tmpl-lbl">Brand</div></div>
+          <div class="bc-tmpl-c"><div class="bc-tmpl-stripe" style="background:#22C55E"></div><div class="bc-tmpl-lines"><div class="bc-tmpl-line"></div><div class="bc-tmpl-line s"></div></div><div class="bc-tmpl-lbl">Social</div></div>
+          <div class="bc-tmpl-c" style="border-style:dashed;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted);font-weight:600">+ More</div>
         </div>
+      </div>
+      <div class="bc s3 rv d4">
+        <div class="bc-ey">&#x26A1; Workflows</div>
+        <div class="bc-ttl">Never miss<br>a deadline.</div>
+        <div class="wf-visual">
+          <div class="wf-nd"><div class="wf-ic">&#x1F4E4;</div><div class="wf-lbl">Brief sent</div><div class="wf-badge">Trigger</div></div>
+          <div class="wf-conn"></div>
+          <div class="wf-nd"><div class="wf-ic">&#x23F0;</div><div class="wf-lbl">Wait 2 days</div><div class="wf-badge">Delay</div></div>
+          <div class="wf-conn"></div>
+          <div class="wf-nd"><div class="wf-ic">&#x1F4AC;</div><div class="wf-lbl">Send reminder</div><div class="wf-badge">Auto</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD TABS -->
+<section class="dash-tabs-sec" id="dashboard">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:44px">
+      <span class="ey"><span class="ey-dot"></span> Dashboard</span>
+      <h2 class="serif h2">Everything in one place.</h2>
+    </div>
+    <div class="dash-screen-wrap rv" id="dashScreen">
+      <img id="dashImg" src="dashboard-1.png" alt="Dashboard" onerror="this.style.display='none';document.getElementById('dashFb').style.display='flex'">
+      <div id="dashFb" class="dash-screen-fallback" style="display:none">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="4" y="8" width="56" height="48" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="4" y="8" width="56" height="12" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="12" y="28" width="18" height="3" rx="1.5" fill="#E2E8F0"/><rect x="12" y="35" width="28" height="3" rx="1.5" fill="#E2E8F0"/><rect x="12" y="42" width="22" height="3" rx="1.5" fill="#E2E8F0"/><rect x="38" y="28" width="18" height="20" rx="4" fill="#E2E8F0"/></svg>
+        <span>Dashboard Preview</span>
+      </div>
+    </div>
+    <div class="dash-tabs-row rv d1">
+      <div class="dash-tab active" onclick="switchDashTab(0,this)" data-img="dashboard-1.png">
+        <div class="dash-tab-icon"><svg viewBox="0 0 18 18"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="10" y="2" width="6" height="6" rx="1.5"/><rect x="2" y="10" width="6" height="6" rx="1.5"/><rect x="10" y="10" width="6" height="6" rx="1.5"/></svg></div>
+        <div class="dash-tab-title">Your briefs. All in one place</div>
+        <div class="dash-tab-sub">One dashboard. Every brief you've ever sent.</div>
+      </div>
+      <div class="dash-tab" onclick="switchDashTab(1,this)" data-img="dashboard-2.png">
+        <div class="dash-tab-icon"><svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2.5 2.5"/></svg></div>
+        <div class="dash-tab-title">Always know what's happening.</div>
+        <div class="dash-tab-sub">Live status on every brief you send.</div>
+      </div>
+      <div class="dash-tab" onclick="switchDashTab(2,this)" data-img="dashboard-3.png">
+        <div class="dash-tab-icon"><svg viewBox="0 0 18 18"><path d="M3 4h12M3 9h9M3 14h6"/><path d="M15 11l-3 3-1.5-1.5"/></svg></div>
+        <div class="dash-tab-title">Answers, structured and ready</div>
+        <div class="dash-tab-sub">Client responses land clean and organised.</div>
+      </div>
+      <div class="dash-tab" onclick="switchDashTab(3,this)" data-img="dashboard-4.png">
+        <div class="dash-tab-icon"><svg viewBox="0 0 18 18"><path d="M9 2v14M2 9h14"/><path d="M5 5l8 8M13 5l-8 8" style="display:none"/><path d="M4 7l5-5 5 5M4 11l5 5 5-5"/></svg></div>
+        <div class="dash-tab-title">Send and track in one click</div>
+        <div class="dash-tab-sub">Share by link or email. See when it's opened.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact-sec">
+  <div class="wrap">
+    <div class="impact-quote-block rv">
+      <span class="impact-quote-mark">&ldquo;</span>
+      <p class="impact-quote-text">We built Brief because we were tired of starting projects on the wrong foot. We use it for every client &mdash; and it changed how we work from day one.</p>
+      <div class="impact-quote-attr">The Brief team</div>
+    </div>
+    <div class="impact-metrics">
+      <div class="impact-m rv d1">
+        <div class="impact-m-chart">
+          <svg viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect x="24" y="12" width="38" height="50" rx="6" fill="#E8ECF4"/>
+            <rect x="76" y="32" width="38" height="30" rx="6" fill="var(--blue-l)"/>
+            <line x1="64" y1="4" x2="64" y2="68" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3"/>
+            <text x="43" y="69" text-anchor="middle" font-size="9" fill="var(--subtle)" font-family="Plus Jakarta Sans,sans-serif" font-weight="600">Before</text>
+            <text x="95" y="69" text-anchor="middle" font-size="9" fill="var(--blue)" font-family="Plus Jakarta Sans,sans-serif" font-weight="600">With Brief</text>
+          </svg>
+        </div>
+        <div class="impact-num">2.5x</div>
+        <div class="impact-desc">Fewer revision rounds when projects start with a structured brief.</div>
+      </div>
+      <div class="impact-m rv d2">
+        <div class="impact-m-chart">
+          <svg viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect x="10" y="28" width="180" height="16" rx="8" fill="var(--border)"/>
+            <rect x="10" y="28" width="108" height="16" rx="8" fill="var(--blue)"/>
+            <circle cx="118" cy="36" r="10" fill="white" stroke="var(--blue)" stroke-width="2"/>
+            <text x="118" y="40" text-anchor="middle" font-size="9" fill="var(--blue)" font-family="Plus Jakarta Sans,sans-serif" font-weight="800">60%</text>
+          </svg>
+        </div>
+        <div class="impact-num">60%</div>
+        <div class="impact-desc">Less time spent on back-and-forth before work can begin.</div>
+      </div>
+      <div class="impact-m rv d3">
+        <div class="impact-m-chart">
+          <svg viewBox="0 0 200 72" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect x="24" y="50" width="38" height="12" rx="4" fill="var(--blue-l)"/>
+            <rect x="82" y="32" width="38" height="30" rx="4" fill="var(--blue-m)" opacity=".7"/>
+            <rect x="140" y="12" width="38" height="50" rx="4" fill="var(--blue)"/>
+          </svg>
+        </div>
+        <div class="impact-num">3x</div>
+        <div class="impact-desc">More likely to deliver on time and on budget with a complete brief from day one.</div>
       </div>
     </div>
   </div>
@@ -588,25 +747,16 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
       <h2 class="serif h2">Anyone who briefs clients.</h2>
     </div>
     <div class="fw-grid">
-      <div class="fw-c rv d1"><span class="fw-em">🏢</span><div class="fw-nm">Agencies</div><div class="fw-dsc">White-label portals, multi-workspace, team management.</div><div class="fw-tags"><span class="fw-tag">Multi-client</span><span class="fw-tag">White-label</span></div></div>
-      <div class="fw-c rv d2"><span class="fw-em">👤</span><div class="fw-nm">Freelancers</div><div class="fw-dsc">Look professional from day one. Impress clients before the project starts.</div><div class="fw-tags"><span class="fw-tag">Templates</span><span class="fw-tag">AI</span></div></div>
-      <div class="fw-c rv d3"><span class="fw-em">📣</span><div class="fw-nm">Marketing Teams</div><div class="fw-dsc">Brief agencies and stakeholders clearly, fast, every time.</div><div class="fw-tags"><span class="fw-tag">Collaboration</span><span class="fw-tag">PDF export</span></div></div>
-      <div class="fw-c rv d4"><span class="fw-em">🚀</span><div class="fw-nm">Startups &amp; Companies</div><div class="fw-dsc">Scale briefing across teams with SSO, API, and enterprise controls.</div><div class="fw-tags"><span class="fw-tag">Enterprise</span><span class="fw-tag">SSO / API</span></div></div>
+      <div class="fw-c rv d1"><span class="fw-em">&#x1F3E2;</span><div class="fw-nm">Agencies</div><div class="fw-dsc">White-label portals, multi-workspace, team management.</div><div class="fw-tags"><span class="fw-tag">Multi-client</span><span class="fw-tag">White-label</span></div></div>
+      <div class="fw-c rv d2"><span class="fw-em">&#x1F464;</span><div class="fw-nm">Freelancers</div><div class="fw-dsc">Look professional from day one. Impress clients before the project starts.</div><div class="fw-tags"><span class="fw-tag">Templates</span><span class="fw-tag">AI</span></div></div>
+      <div class="fw-c rv d3"><span class="fw-em">&#x1F4E3;</span><div class="fw-nm">Marketing Teams</div><div class="fw-dsc">Brief agencies and stakeholders clearly, fast, every time.</div><div class="fw-tags"><span class="fw-tag">Collaboration</span><span class="fw-tag">PDF export</span></div></div>
+      <div class="fw-c rv d4"><span class="fw-em">&#x1F680;</span><div class="fw-nm">Startups &amp; Companies</div><div class="fw-dsc">Scale briefing across teams with SSO, API, and enterprise controls.</div><div class="fw-tags"><span class="fw-tag">Enterprise</span><span class="fw-tag">SSO / API</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats-sec">
-  <div class="stats-grid">
-    <div class="stat-item rv"><div class="stat-n" data-val="75">0%</div><div class="stat-lbl">of agencies say a tight brief is the #1 success factor</div><div class="stat-src">HubSpot Agency Report 2024</div></div>
-    <div class="stat-item rv d1"><div class="stat-n" data-val="30">0%</div><div class="stat-lbl">of marketing budget wasted on poorly briefed projects</div><div class="stat-src">ISBA / PwC Pathways to Growth</div></div>
-    <div class="stat-item rv d2"><div class="stat-n">1 in 3</div><div class="stat-lbl">marketers can't write a proper agency brief</div><div class="stat-src">The Drum Industry Report</div></div>
-  </div>
-</section>
-
 <!-- PRICING -->
-<section class="section" id="pricing">
+<section class="section" id="pricing" style="background:var(--surface);padding-top:128px;padding-bottom:128px">
   <div class="wrap">
     <div class="rv" style="text-align:center">
       <span class="ey"><span class="ey-dot"></span> Pricing</span>
@@ -615,70 +765,87 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
     <div class="bill-row rv">
       <div class="bill-toggle">
         <button class="bill-btn" onclick="setBill('mo',this)">Monthly</button>
-        <button class="bill-btn on" onclick="setBill('yr',this)">Yearly <span class="bill-save">–20%</span></button>
+        <button class="bill-btn on" onclick="setBill('yr',this)">Yearly <span class="bill-save">2 months free</span></button>
       </div>
     </div>
     <div class="plans rv d1">
       <div class="plan">
         <div class="plan-name">Free</div>
-        <div class="plan-price"><sup>€</sup>0</div>
-        <div class="plan-cycle">forever free</div>
+        <div class="plan-price"><sup>&#x20AC;</sup>0</div>
+        <div class="plan-price-sub">forever free</div>
         <hr class="plan-rule">
         <div class="plan-fs">
-          <div class="plan-f"><span class="pf-ok">✓</span> 3 active briefs</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> 1 template · Shareable link</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> Basic dashboard</div>
-          <div class="plan-f" style="opacity:.32"><span class="pf-no">✗</span> Custom branding</div>
-          <div class="plan-f" style="opacity:.32"><span class="pf-no">✗</span> AI generator · Workflows</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Up to 3 active briefings</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> 1 template</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> 3 email sends / month</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Shareable link &middot; Basic dashboard</div>
+          <div class="plan-f" style="opacity:.32"><span class="pf-no">&#x2717;</span> Custom branding</div>
+          <div class="plan-f" style="opacity:.32"><span class="pf-no">&#x2717;</span> AI generator &middot; Workflows</div>
         </div>
-        <button class="plan-cta">Get started free</button>
+        <a href="https://briefapp.base44.app/" class="plan-cta">Get started free <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
       <div class="plan hi">
         <div class="plan-rec">Most popular</div>
         <div class="plan-name">Pro</div>
-        <div class="plan-price" id="pp"><sup>€</sup>19</div>
-        <div class="plan-cycle" id="pc">/ month · billed yearly</div>
+        <div class="plan-price" id="pp"><sup>&#x20AC;</sup>15</div>
+        <div class="plan-price-sub" id="ps">&#x20AC;182 / year &middot; 2 months free</div>
         <hr class="plan-rule">
         <div class="plan-fs">
-          <div class="plan-f"><span class="pf-ok">✓</span> Unlimited briefs &amp; sends</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> Full custom branding + domain</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> AI generator (100 credits/mo)</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> Auto workflows · Real-time status</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> Client inbox · PDF export · 3 workspaces</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Unlimited briefings &amp; sends</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Unlimited templates</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Full custom branding + domain</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Real-time status tracking</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Auto workflows &middot; AI generator</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> PDF export &middot; Client inbox</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> &ldquo;Made with Brief&rdquo; removed</div>
         </div>
-        <button class="plan-cta">Start Pro →</button>
+        <a href="https://briefapp.base44.app/" class="plan-cta">Start Pro <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
       <div class="plan">
-        <div class="plan-name">Agency</div>
-        <div class="plan-price" id="ap"><sup>€</sup>47</div>
-        <div class="plan-cycle" id="ac">/ month · billed yearly</div>
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price" id="ep"><sup>&#x20AC;</sup>38</div>
+        <div class="plan-price-sub" id="es">&#x20AC;451 / year &middot; 2 months free</div>
         <hr class="plan-rule">
         <div class="plan-fs">
-          <div class="plan-f"><span class="pf-ok">✓</span> Everything in Pro</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> 5 team seats · Unlimited workspaces</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> Unlimited AI credits</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> Brand templates per workspace</div>
-          <div class="plan-f"><span class="pf-ok">✓</span> Priority support</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Everything in Pro</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> 3 team seats</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Client management</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Unlimited workspaces</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Brand templates per workspace</div>
+          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Priority support</div>
         </div>
-        <button class="plan-cta">Start Agency ></button>
+        <a href="https://briefapp.base44.app/" class="plan-cta">Get started <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
     </div>
+    <!-- Coupon redeem -->
+    <div class="pricing-coupon-row rv d2">
+      <div class="pricing-coupon-inner">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/><rect x="1" y="4" width="5" height="6" rx="1.5"/></svg>
+        <span class="pricing-coupon-label">Have a promo code?</span>
+        <input type="text" id="pcInput" class="pricing-coupon-input" placeholder="e.g. FOUNDING" autocomplete="off">
+        <button class="pricing-coupon-btn" id="pcBtn" onclick="applyPricingCode()">
+          Apply
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="pricing-coupon-hint" id="pcHint"></div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section faq-sec" id="faq" style="padding-top:72px;padding-bottom:72px">
+<section class="section faq-sec" id="faq" style="padding-top:80px;padding-bottom:80px">
   <div class="wrap">
     <div class="rv" style="text-align:center">
       <span class="ey"><span class="ey-dot"></span> FAQ</span>
-      <h2 class="serif h2" style="font-size:clamp(24px,3.5vw,40px)">Quick answers.</h2>
+      <h2 class="serif h2" style="font-size:clamp(26px,3.5vw,42px)">Quick answers.</h2>
     </div>
     <div class="faq-list rv d1">
       <div class="faq-item"><button class="faq-q" onclick="faq(this)">Does my client need an account?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">No. Clients get a link and fill the brief in their browser. No sign-up, no login, no friction.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Can I use my own logo and colors?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Yes — on Pro and Agency you can upload your logo, set brand colors, and use a custom domain. Clients see your brand, not Brief.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">How does the AI generator work?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Describe your project in a sentence. Brief generates a full structure with sections, fields, and questions. Edit anything before sending.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">What if my client doesn't respond?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Set automated reminders — Brief follows up at the right time, automatically. No manual chasing needed.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Is there a free trial for Pro?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Every account gets a 14-day Pro trial — no credit card required. Upgrade or stay on Free after 14 days.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">How is Brief different from Typeform or Google Forms?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Brief is purpose-built for agency briefings, not surveys. You get custom branding, real-time status, a structured dashboard, and a client experience that reflects your quality. Typeform doesn't know what a creative brief is. Brief does.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Can I use my own logo and colors?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Yes &mdash; on Pro and Enterprise you can upload your logo, set brand colors, and use a custom domain. Clients see your brand, not Brief.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">What if my client doesn't respond?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Set automated reminders &mdash; Brief follows up at the right time, automatically. No manual chasing needed.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Is there a free trial for Pro?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Every account gets a 14-day Pro trial &mdash; no credit card required. Upgrade or stay on Free after 14 days.</div></div>
     </div>
   </div>
 </section>
@@ -690,10 +857,10 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
     <div class="cta-inner">
       <span class="ey"><span class="ey-dot"></span> Get started</span>
       <h2 class="serif cta-h2">Your next project starts<br>with a better brief.</h2>
-      <p class="cta-sub">Free forever · No credit card · Setup in 3 minutes</p>
+      <p class="cta-sub">Free forever &middot; No credit card &middot; Setup in 3 minutes</p>
       <div class="cta-btns">
-        <button class="btn-white btn-lg">Start for free →</button>
-        <button class="btn-gw btn-lg">See how it works</button>
+        <a href="https://briefapp.base44.app/" class="btn-white btn-lg">Start for free <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg></a>
+        <button class="btn-gw btn-lg" onclick="location.href='#how'">See how it works</button>
       </div>
     </div>
   </div>
@@ -703,73 +870,159 @@ footer{border-top:1px solid var(--border);padding:28px 40px;max-width:1100px;mar
 <footer>
   <div class="foot-l">
     <img src="Group 4.png" class="foot-logo" alt="Brief">
-    <span class="foot-copy">© 2025 Brief</span>
+    <span class="foot-copy">&copy; 2025 Brief</span>
   </div>
   <div class="foot-links">
-    <a href="#">Changelog</a>
+    <a href="https://briefapp.base44.app/">Changelog</a>
     <a href="#">Privacy</a>
     <a href="#">Imprint</a>
   </div>
 </footer>
 
+<!-- FOUNDING POPUP -->
+<div class="fp-overlay" id="fpOverlay">
+  <div class="fp-coupon">
+    <button class="fp-close" onclick="closePopup()" aria-label="Close">&#x2715;</button>
+    <div class="fp-left">
+      <span class="fp-eyebrow"><span class="fp-eyebrow-dot"></span> Limited Offer</span>
+      <h2 class="fp-h2">Founding Member<br>Offer</h2>
+      <p class="fp-desc">Be one of the first to use Brief. Get 1 month of Pro completely free &mdash; no strings attached.</p>
+      <div class="fp-features">
+        <div class="fp-feat"><div class="fp-feat-check">&#x2713;</div>Unlimited briefings &amp; sends</div>
+        <div class="fp-feat"><div class="fp-feat-check">&#x2713;</div>Full custom branding + domain</div>
+        <div class="fp-feat"><div class="fp-feat-check">&#x2713;</div>AI generator included</div>
+      </div>
+      <a href="https://briefapp.base44.app/" class="fp-cta">Claim 1 month free <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
+      <p class="fp-hint">No credit card required</p>
+    </div>
+    <div class="fp-right">
+      <div class="fp-code-label">Use code</div>
+      <div class="fp-code-wrap">
+        <div class="fp-code" id="fpCode">FOUNDING</div>
+        <button class="fp-copy-btn" id="fpCopyBtn" onclick="copyFoundingCode()">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><path d="M8 4V2.5A1.5 1.5 0 006.5 1H2.5A1.5 1.5 0 001 2.5V6.5A1.5 1.5 0 002.5 8H4"/></svg>
+          Copy code
+        </button>
+      </div>
+      <div class="fp-coupon-tag">Valid for new accounts only &middot; 1 month Pro free</div>
+    </div>
+  </div>
+</div>
+
 <script>
-/* scroll reveal */
+/* ── Scroll reveal ── */
 document.querySelectorAll('.rv').forEach(el =>
-  new IntersectionObserver(([e])=>{ if(e.isIntersecting) e.target.classList.add('in'); },{threshold:.07,rootMargin:'0px 0px -28px 0px'}).observe(el)
+  new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('in'); },
+    { threshold: .07, rootMargin: '0px 0px -28px 0px' }).observe(el)
 );
 
-/* nav scroll */
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>24),{passive:true});
+/* ── Nav ── */
+window.addEventListener('scroll', () =>
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 24), { passive: true });
 
-/* how it works sticky */
-const howSteps = document.querySelectorAll('.how-step-item');
-const howFrames = document.querySelectorAll('.how-frame');
-const howObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const i=parseInt(e.target.dataset.step);
-      howSteps.forEach((s,j)=>s.classList.toggle('active',i===j));
-      howFrames.forEach((f,j)=>f.classList.toggle('active',i===j));
-    }
+/* ── How it works: scroll-position based ── */
+const howSteps = Array.from(document.querySelectorAll('.how-step-item'));
+const howFrames = Array.from(document.querySelectorAll('.how-frame'));
+let howRaf = false;
+
+function updateHowStep() {
+  const viewMid = window.innerHeight * 0.42;
+  let bestIdx = 0, bestDist = Infinity;
+  howSteps.forEach((s, i) => {
+    const r = s.getBoundingClientRect();
+    if (r.bottom < 80 || r.top > window.innerHeight - 80) return;
+    const d = Math.abs(r.top + r.height * .5 - viewMid);
+    if (d < bestDist) { bestDist = d; bestIdx = i; }
   });
-},{threshold:.55,rootMargin:'-15% 0px -15% 0px'});
-howSteps.forEach(s=>howObs.observe(s));
+  howSteps.forEach((s, i) => s.classList.toggle('active', i === bestIdx));
+  howFrames.forEach((f, i) => f.classList.toggle('active', i === bestIdx));
+}
 
-/* billing */
-function setBill(t,btn){
-  document.querySelectorAll('.bill-btn').forEach(b=>b.classList.remove('on'));
+window.addEventListener('scroll', () => {
+  if (!howRaf) { requestAnimationFrame(() => { updateHowStep(); howRaf = false; }); howRaf = true; }
+}, { passive: true });
+window.addEventListener('load', updateHowStep);
+
+/* ── Dashboard tabs ── */
+function switchDashTab(idx, el) {
+  document.querySelectorAll('.dash-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+  const img = document.getElementById('dashImg');
+  const fb = document.getElementById('dashFb');
+  img.style.display = 'block'; fb.style.display = 'none';
+  img.src = el.getAttribute('data-img');
+  img.onerror = () => { img.style.display = 'none'; fb.style.display = 'flex'; };
+}
+
+/* ── Billing ── */
+function setBill(t, btn) {
+  document.querySelectorAll('.bill-btn').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
-  document.getElementById('pp').innerHTML=t==='yr'?'<sup>€</sup>19':'<sup>€</sup>24';
-  document.getElementById('pc').textContent=t==='yr'?'/ month · billed yearly':'/ month · billed monthly';
-  document.getElementById('ap').innerHTML=t==='yr'?'<sup>€</sup>47':'<sup>€</sup>59';
-  document.getElementById('ac').textContent=t==='yr'?'/ month · billed yearly':'/ month · billed monthly';
+  const yr = t === 'yr';
+  document.getElementById('pp').innerHTML = yr ? '<sup>&#x20AC;</sup>15' : '<sup>&#x20AC;</sup>19';
+  document.getElementById('ps').innerHTML = yr ? '&#x20AC;182 / year &middot; 2 months free' : '&#x20AC;19 / month';
+  document.getElementById('ep').innerHTML = yr ? '<sup>&#x20AC;</sup>38' : '<sup>&#x20AC;</sup>47';
+  document.getElementById('es').innerHTML = yr ? '&#x20AC;451 / year &middot; 2 months free' : '&#x20AC;47 / month';
 }
 
-/* faq */
-function faq(btn){
-  const item=btn.closest('.faq-item'),open=item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
-  if(!open) item.classList.add('open');
+/* ── FAQ ── */
+function faq(btn) {
+  const item = btn.closest('.faq-item'), open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!open) item.classList.add('open');
 }
 
-/* stats counter */
-let counted=false;
-new IntersectionObserver(([e])=>{
-  if(e.isIntersecting&&!counted){
-    counted=true;
-    document.querySelectorAll('.stat-n[data-val]').forEach(el=>{
-      const target=parseInt(el.getAttribute('data-val'));
-      let start=null,dur=1300;
-      const step=ts=>{
-        if(!start)start=ts;
-        const p=Math.min((ts-start)/dur,1),ease=1-Math.pow(1-p,3);
-        el.textContent=Math.floor(ease*target)+'%';
-        if(p<1)requestAnimationFrame(step);else el.textContent=target+'%';
-      };
-      requestAnimationFrame(step);
-    });
+/* ── Pricing coupon ── */
+function applyPricingCode() {
+  const val = document.getElementById('pcInput').value.trim().toUpperCase();
+  const btn = document.getElementById('pcBtn');
+  const hint = document.getElementById('pcHint');
+  if (val === 'FOUNDING') {
+    btn.textContent = 'Applied!';
+    btn.classList.add('success');
+    hint.textContent = '\u2713 Code applied \u2014 1 month Pro free will be credited to your account.';
+    hint.style.color = '#16A34A';
+    document.getElementById('pcInput').disabled = true;
+    setTimeout(() => location.href = 'https://briefapp.base44.app/', 1200);
+  } else {
+    hint.textContent = 'Code not recognised. Try FOUNDING for 1 month free.';
+    hint.style.color = 'var(--muted)';
   }
-},{threshold:.3}).observe(document.querySelector('.stats-sec'));
+}
+document.getElementById('pcInput').addEventListener('keydown', e => { if (e.key === 'Enter') applyPricingCode(); });
+
+/* ── Popup ── */
+let popupShown = false;
+function showPopup() {
+  if (popupShown) return;
+  popupShown = true;
+  document.getElementById('fpOverlay').classList.add('show');
+}
+function closePopup() { document.getElementById('fpOverlay').classList.remove('show'); }
+
+document.addEventListener('mouseleave', e => { if (e.clientY <= 0) showPopup(); });
+setTimeout(showPopup, 18000);
+document.getElementById('fpOverlay').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
+
+/* ── Copy founding code ── */
+async function copyFoundingCode() {
+  try {
+    await navigator.clipboard.writeText('FOUNDING');
+  } catch(e) {
+    const r = document.createRange();
+    r.selectNode(document.getElementById('fpCode'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+  }
+  const btn = document.getElementById('fpCopyBtn');
+  btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg> Copied!';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><path d="M8 4V2.5A1.5 1.5 0 006.5 1H2.5A1.5 1.5 0 001 2.5V6.5A1.5 1.5 0 002.5 8H4"/></svg> Copy code';
+    btn.classList.remove('copied');
+  }, 2500);
+}
 </script>
 </body>
 </html>
