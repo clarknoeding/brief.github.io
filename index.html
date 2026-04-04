@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Brief — The Briefing Platform</title>
-  <!-- Tab icon / favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060D1F'/%3E%3Crect x='7' y='8' width='12' height='2.4' rx='1.2' fill='%231558FF'/%3E%3Crect x='7' y='13' width='18' height='2.4' rx='1.2' fill='white'/%3E%3Crect x='7' y='18' width='14' height='2.4' rx='1.2' fill='white' opacity='.6'/%3E%3Crect x='7' y='23' width='9' height='2.4' rx='1.2' fill='white' opacity='.35'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Brief — Send better client briefs</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060D1F'/%3E%3Crect x='7' y='8' width='12' height='2.4' rx='1.2' fill='%231558FF'/%3E%3Crect x='7' y='13' width='18' height='2.4' rx='1.2' fill='white'/%3E%3Crect x='7' y='18' width='14' height='2.4' rx='1.2' fill='white' opacity='.6'/%3E%3Crect x='7' y='23' width='9' height='2.4' rx='1.2' fill='white' opacity='.35'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -13,354 +12,195 @@
   --blue:#1558FF;--blue-d:#0A3ACC;--blue-l:#EEF3FF;--blue-m:#6B9BFF;
   --ink:#060D1F;--muted:#6B7A99;--subtle:#A8B4CC;
   --border:#E8ECF4;--surface:#F5F7FC;--white:#fff;
-  --r:16px;--r-lg:22px;
+  --r:18px;--r-lg:24px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Manrope',sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;font-size:15px}
-img{display:block;max-width:100%}
-button,a{font-family:inherit;cursor:pointer;text-decoration:none}
-.serif{font-family:'Instrument Serif',serif;font-weight:400;line-height:1.07;letter-spacing:-.025em}
-.wrap{max-width:1100px;margin:0 auto;padding:0 48px}
-.section{padding:128px 0}
-hr.rule{border:none;border-top:1px solid var(--border)}
-.ey{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:16px}
-.ey-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0}
-.h2{font-size:clamp(30px,4vw,50px);line-height:1.1;font-family:'Instrument Serif',serif;font-weight:400;letter-spacing:-.02em}
-.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;border:none;border-radius:100px;padding:12px 26px;transition:all .22s cubic-bezier(.16,1,.3,1)}
-.btn-lg{font-size:15px;padding:14px 32px}
-.btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 18px rgba(21,88,255,.3)}
-.btn-primary:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,88,255,.42)}
-.btn-ghost{background:white;color:var(--ink);border:1.5px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.btn-ghost:hover{border-color:var(--blue-m)}
-.rv{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
-.rv.in{opacity:1;transform:none}
-.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+body{font-family:'Manrope',sans-serif;background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+a,button{font-family:inherit;cursor:pointer;text-decoration:none}
+.serif{font-family:'Instrument Serif',serif;font-weight:400;letter-spacing:-.025em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 44px}
+.section{padding:120px 0}
 
-/* ─── NAV ─── */
-.nav-shell{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:500;width:calc(100% - 28px);max-width:1080px;animation:navIn .6s .1s cubic-bezier(.16,1,.3,1) both}
-@keyframes navIn{from{opacity:0;transform:translateX(-50%) translateY(-16px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-nav{background:rgba(255,255,255,.9);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(232,236,244,.9);border-radius:100px;padding:7px 8px 7px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(6,13,31,.06);transition:box-shadow .4s,background .4s}
-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
-.nav-l{display:flex;align-items:center;padding-right:8px}
-.nav-logo-img{height:26px;width:auto;object-fit:contain}
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.18s}.d3{transition-delay:.26s}.d4{transition-delay:.34s}
+
+/* SECTION LABELS */
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:16px}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.section-h2{font-size:clamp(30px,4vw,50px);line-height:1.08;letter-spacing:-.025em}
+
+/* ── NAV ── */
+.nav-shell{position:fixed;top:0;left:0;right:0;z-index:600;animation:navIn .5s .1s cubic-bezier(.16,1,.3,1) both}
+@keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+nav{
+  max-width:1080px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 44px;
+  transition:all .35s;
+}
+nav.up{
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 1px 24px rgba(6,13,31,.06);
+  padding:12px 44px;
+}
+.nav-logo-img{height:24px;width:auto;object-fit:contain}
 .nav-links{display:flex;list-style:none;gap:2px}
 .nav-links a{font-size:13px;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:100px;transition:all .18s}
-.nav-links a:hover{background:var(--surface);color:var(--ink)}
-.nav-r{display:flex;align-items:center;gap:6px}
-.btn-nav-ghost{font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;padding:8px 14px;border-radius:100px;transition:color .18s}
-.btn-nav-ghost:hover{color:var(--ink)}
-.btn-nav-cta{font-size:13px;font-weight:700;background:var(--blue);color:#fff;border:none;padding:9px 22px;border-radius:100px;box-shadow:0 2px 10px rgba(21,88,255,.28);transition:all .22s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;gap:7px}
-.btn-nav-cta:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 4px 16px rgba(21,88,255,.4)}
+.nav-links a:hover{background:rgba(0,0,0,.04);color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:6px}
+.btn-login{font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;padding:8px 14px;border-radius:100px;transition:color .18s}
+.btn-login:hover{color:var(--ink)}
+.btn-start{font-size:13px;font-weight:700;background:var(--blue);color:white;border:none;padding:10px 22px;border-radius:100px;box-shadow:0 2px 12px rgba(21,88,255,.28);transition:all .22s;display:inline-flex;align-items:center;gap:7px}
+.btn-start:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 4px 18px rgba(21,88,255,.42)}
 
-/* ─── HERO ─── */
-.hero{background:linear-gradient(165deg,#E9EEFF 0%,#F1F5FF 32%,#F8F9FD 62%,#fff 100%);display:flex;flex-direction:column;align-items:center;padding-top:140px;overflow:hidden;position:relative}
-.hero-grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(21,88,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(21,88,255,.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,black 40%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,black 40%,transparent 100%)}
-.hero-inner{position:relative;z-index:2;max-width:720px;text-align:center;padding:0 24px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid var(--border);border-radius:100px;padding:5px 15px 5px 7px;font-size:12px;font-weight:600;color:var(--muted);box-shadow:0 2px 12px rgba(6,13,31,.06);margin-bottom:32px;animation:fdUp .6s ease both}
-.hero-badge-pill{background:var(--blue);color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase}
-.hero-h1{font-size:clamp(48px,7.5vw,84px);margin-bottom:22px;animation:fdUp .7s .08s cubic-bezier(.16,1,.3,1) both;line-height:1.05}
-.hero-p{font-size:17px;color:var(--muted);line-height:1.72;max-width:480px;margin:0 auto 36px;animation:fdUp .7s .15s cubic-bezier(.16,1,.3,1) both}
-.hero-btns{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;animation:fdUp .7s .22s cubic-bezier(.16,1,.3,1) both}
-.hero-hint{font-size:12px;color:var(--subtle);animation:fdIn .8s .35s both;margin-bottom:52px}
-.hero-hint span{margin:0 6px;opacity:.4}
-@keyframes fdUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+/* ── HERO ── */
+.hero{padding:120px 0 0;background:linear-gradient(170deg,#EBF0FF 0%,#F4F7FF 38%,#F9FAFE 68%,#fff 100%);position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(21,88,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(21,88,255,.04) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,black 40%,transparent 100%);pointer-events:none}
+.hero-text{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;padding:0 24px}
+.hero-kicker{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--border);border-radius:100px;padding:5px 14px 5px 7px;font-size:12px;font-weight:600;color:var(--muted);box-shadow:0 2px 10px rgba(6,13,31,.05);margin-bottom:30px;animation:fdUp .6s ease both}
+.hero-kicker-dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
+@keyframes fdUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes fdIn{from{opacity:0}to{opacity:1}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-h1{font-size:clamp(44px,7.5vw,82px);line-height:1.05;margin-bottom:24px;animation:fdUp .75s .08s cubic-bezier(.16,1,.3,1) both}
+.hero-sub{font-size:18px;color:var(--muted);line-height:1.72;max-width:500px;margin:0 auto 38px;animation:fdUp .75s .16s cubic-bezier(.16,1,.3,1) both}
+.hero-actions{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;animation:fdUp .75s .24s cubic-bezier(.16,1,.3,1) both;margin-bottom:14px}
+.btn-hero{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;padding:14px 30px;border-radius:100px;border:none;transition:all .22s cubic-bezier(.16,1,.3,1)}
+.btn-p{background:var(--blue);color:white;box-shadow:0 4px 18px rgba(21,88,255,.32)}
+.btn-p:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,88,255,.42)}
+.btn-g{background:white;color:var(--ink);border:1.5px solid var(--border)}
+.btn-g:hover{border-color:rgba(21,88,255,.35)}
+.hero-hint{font-size:12px;color:var(--subtle);animation:fdIn .8s .38s both;margin-bottom:64px}
+.hero-hint span{margin:0 6px;opacity:.4}
+/* hero screen */
+.hero-screen-wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 44px}
+.hero-screen{background:var(--surface);border:1px solid var(--border);border-bottom:none;border-radius:20px 20px 0 0;min-height:320px;overflow:hidden;box-shadow:0 -6px 52px rgba(6,13,31,.08);display:flex;align-items:center;justify-content:center}
+.hero-screen img{width:100%;display:block;border-radius:20px 20px 0 0}
+.screen-ph{display:flex;flex-direction:column;align-items:center;gap:14px;padding:64px 0}
+.screen-ph svg{opacity:.2}
+.screen-ph span{font-size:13px;font-weight:600;color:var(--subtle)}
 
-/* Hero image — top border visible, flush at bottom */
-.hero-img-outer{position:relative;z-index:2;width:100%;max-width:1040px;padding:0 28px}
-.hero-img-win{border-radius:var(--r-lg) var(--r-lg) 0 0;overflow:hidden;border:1px solid var(--border);border-bottom:none;box-shadow:0 -4px 48px rgba(6,13,31,.07);background:var(--surface)}
+/* ── HOW ── */
+.how-section{padding:120px 0;border-top:1px solid var(--border)}
+.how-header{max-width:540px;margin-bottom:64px}
+.how-header h2{margin-bottom:12px}
+.how-header p{font-size:16px;color:var(--muted)}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.how-step{padding:44px 40px;position:relative;border-right:1px solid var(--border)}
+.how-step:last-child{border-right:none}
+.how-step-num{font-family:'Instrument Serif',serif;font-size:52px;color:var(--blue-l);line-height:.9;display:block;margin-bottom:22px}
+.how-step h3{font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.25}
+.how-step p{font-size:13px;color:var(--muted);line-height:1.7}
+/* connector arrow between steps */
+.how-step:not(:last-child)::after{content:'';position:absolute;right:-13px;top:52px;width:26px;height:26px;background:white;border:1px solid var(--border);border-radius:50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2 6h8M6 2l4 4-4 4' stroke='%23A8B4CC' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:12px;z-index:2}
+/* simple illustration inside each step */
+.how-step-illo{width:100%;height:120px;margin-bottom:24px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 
-
-
-
-
-
-
-
-.hero-img-fallback{display:flex;flex-direction:column;align-items:center;gap:10px;padding:60px 0}
-.hero-img-fallback svg{opacity:.2}
-.hero-img-fallback span{font-size:13px;font-weight:600;color:var(--subtle)}
-
-/* ─── PROBLEM ─── */
-.prob-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
-.prob-c{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:28px 24px;transition:all .25s}
-.prob-c:hover{background:white;box-shadow:0 10px 36px rgba(6,13,31,.07);transform:translateY(-2px)}
-.prob-ic{width:40px;height:40px;border-radius:10px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.prob-ic svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.prob-ttl{font-size:14px;font-weight:700;margin-bottom:7px}
-.prob-dsc{font-size:13px;color:var(--muted);line-height:1.65}
-
-/* ─── HOW IT WORKS ─── */
-.how-section{padding:0}
-.how-sticky-wrap{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start;max-width:1100px;margin:0 auto;padding:128px 48px}
-.how-steps-col{display:flex;flex-direction:column}
-.how-intro{margin-bottom:52px}
-.how-step-item{min-height:42vh;display:flex;flex-direction:column;justify-content:center;padding:48px 0;border-bottom:1px solid var(--border);opacity:.25;transition:opacity .5s cubic-bezier(.16,1,.3,1)}
-.how-step-item:last-child{border-bottom:none}
-.how-step-item.active{opacity:1}
-.how-step-num{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.how-step-num::after{content:'';flex:1;height:1px;background:var(--blue-l);max-width:40px;transition:background .4s}
-.how-step-item.active .how-step-num::after{background:var(--blue)}
-.how-ttl{font-size:22px;font-family:'Instrument Serif',serif;font-weight:400;margin-bottom:12px;line-height:1.2}
-.how-dsc{font-size:14px;color:var(--muted);line-height:1.72;max-width:340px}
-.how-visual-col{position:sticky;top:120px}
-.how-visual-frame{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;height:460px;position:relative}
-
-/* How-to slides — animated */
-.how-frame{position:absolute;inset:0;opacity:0;transform:scale(.97) translateY(10px);transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1);pointer-events:none}
-.how-frame.active{opacity:1;transform:none;pointer-events:auto}
-.how-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px;opacity:0;transform:translateY(8px);transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1);pointer-events:none}
-.how-slide.s-on{opacity:1;transform:none;pointer-events:auto}
-
-/* Frame 0 — Build slides */
-.bld-blocks{width:100%;display:flex;flex-direction:column;gap:10px}
-.bld-block{background:white;border:1.5px solid var(--border);border-radius:10px;transition:all .3s}
-.bld-block-inner{padding:14px 16px;display:flex;align-items:center;gap:10px}
-.bld-block-icon{width:28px;height:28px;border-radius:7px;background:var(--blue-l);flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.bld-block-icon svg{width:14px;height:14px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round}
-.bld-block-text{font-size:12px;font-weight:600;flex:1}
-.bld-block-lines{padding:0 16px 14px;display:flex;flex-direction:column;gap:5px}
-.bld-line{height:3px;background:var(--border);border-radius:2px}
-.bld-line.s{width:60%}
-
-.ai-input-slide{width:100%;display:flex;flex-direction:column;gap:12px}
-.ai-inp-wrap{background:white;border:1.5px solid var(--blue-m);border-radius:14px;padding:16px 18px;box-shadow:0 0 0 4px rgba(21,88,255,.07);display:flex;align-items:center;gap:12px;position:relative;overflow:hidden}
-.ai-inp-wrap::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(21,88,255,.03),transparent);pointer-events:none}
-.ai-inp-spark{width:28px;height:28px;background:linear-gradient(135deg,var(--blue-l),#D6E4FF);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ai-inp-spark svg{width:14px;height:14px;fill:var(--blue)}
-.ai-inp-text{font-size:13px;color:var(--muted);flex:1;font-style:italic}
-.ai-inp-btn{background:var(--blue);color:white;border:none;border-radius:9px;padding:8px 16px;font-size:12px;font-weight:700;font-family:inherit;display:flex;align-items:center;gap:6px;flex-shrink:0;box-shadow:0 4px 14px rgba(21,88,255,.35)}
-.ai-inp-btn svg{width:12px;height:12px;fill:white}
-.ai-inp-prog{display:flex;flex-direction:column;gap:6px;background:white;border:1px solid var(--border);border-radius:12px;padding:14px 16px}
-.ai-prog-row{display:flex;align-items:center;gap:8px}
-.ai-prog-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.ai-prog-bar-wrap{flex:1;height:4px;background:var(--border);border-radius:99px;overflow:hidden}
-.ai-prog-bar{height:100%;border-radius:99px;background:var(--blue-l)}
-.ai-prog-bar.done{background:var(--blue)}
-
-.ftmpl-slide{width:100%}
-.ftmpl-hd{font-size:11px;font-weight:700;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
-.ftmpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.ftmpl-card{background:white;border:1.5px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all .2s;position:relative}
-.ftmpl-card.sel{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,88,255,.1)}
-.ftmpl-sel{position:absolute;top:9px;right:9px;width:17px;height:17px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;font-weight:800;opacity:0;transition:opacity .2s}
-.ftmpl-card.sel .ftmpl-sel{opacity:1}
-.ftmpl-stripe{height:4px;border-radius:2px;margin-bottom:10px}
-.ftmpl-lines{display:flex;flex-direction:column;gap:4px;margin-bottom:6px}
-.ftmpl-line{height:3px;background:var(--border);border-radius:2px}
-.ftmpl-line.s{width:60%}
-.ftmpl-name{font-size:11px;font-weight:700;color:var(--ink)}
-
-/* Frame 1 — 3D Send button */
-.send-frame-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;width:100%;height:100%;min-height:300px}
-.send-3d-outer{perspective:600px}
-.send-3d-btn{
-  display:inline-flex;align-items:center;gap:10px;
-  background:linear-gradient(170deg,#2468FF,#1558FF 50%,#0A3ACC);
-  color:white;border:none;border-radius:18px;padding:20px 44px;
-  font-size:18px;font-weight:700;font-family:inherit;cursor:pointer;
-  box-shadow:0 8px 0 #0831B8,0 14px 36px rgba(21,88,255,.45);
-  transform:rotateX(12deg);transform-style:preserve-3d;
-  transition:all .15s cubic-bezier(.16,1,.3,1);
-  position:relative;
+/* ── FEATURES (bento) ── */
+.features-section{padding:120px 0;background:var(--surface);border-top:1px solid var(--border)}
+.features-header{text-align:center;margin-bottom:56px}
+.features-header h2{margin-bottom:12px}
+.features-header p{font-size:16px;color:var(--muted);max-width:440px;margin:0 auto}
+/* Bento: single unified rectangle border wrapping all cells */
+.bento{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  border:1.5px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--border);
+  gap:1px;
 }
-.send-3d-btn::before{content:'';position:absolute;inset:0;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.15),transparent);pointer-events:none}
-.send-3d-btn:active{transform:rotateX(12deg) translateY(4px);box-shadow:0 4px 0 #0831B8,0 8px 20px rgba(21,88,255,.35)}
-.send-3d-btn svg{width:20px;height:20px;fill:white;flex-shrink:0}
-.send-3d-hint{font-size:12px;color:var(--subtle);font-weight:500}
+.bc{background:white;padding:32px;overflow:hidden;transition:background .22s;position:relative;min-height:220px;display:flex;flex-direction:column}
+.bc:hover{background:#FAFBFF}
+.bc-wide{grid-column:span 2}
+.bc-dark{background:var(--ink)}
+.bc-dark:hover{background:#0D1628}
+.bc-blue{background:linear-gradient(140deg,#F0F5FF,#E4EEFF)}
+.bc-blue:hover{background:linear-gradient(140deg,#E8F0FF,#D6E5FF)}
+/* card text */
+.bc-eyebrow{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--blue);margin-bottom:10px}
+.bc-eyebrow-ic{width:16px;height:16px;flex-shrink:0}
+.bc-eyebrow-ic svg{width:100%;height:100%;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.bc-dark .bc-eyebrow{color:var(--blue-m)}
+.bc-dark .bc-eyebrow-ic svg{stroke:var(--blue-m)}
+.bc-blue .bc-eyebrow{color:#0A3ACC}
+.bc-blue .bc-eyebrow-ic svg{stroke:#0A3ACC}
+.bc-title{font-family:'Instrument Serif',serif;font-size:20px;font-weight:400;line-height:1.2;margin-bottom:5px}
+.bc-dark .bc-title{color:white}
+.bc-desc{font-size:12px;color:var(--muted);line-height:1.65}
+.bc-dark .bc-desc{color:rgba(255,255,255,.4)}
+.bc-illo{margin-top:auto;padding-top:20px;flex-shrink:0}
 
-/* Frame 2 — Confidence slides */
-.tags-slide{width:100%;display:flex;flex-direction:column;gap:14px;align-items:center}
-.tags-slide-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-.tags-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.ctag{font-size:13px;font-weight:700;padding:8px 18px;border-radius:100px;white-space:nowrap}
-.ctag-sent{background:#EEF2FF;color:#4338CA}
-.ctag-seen{background:#F0F9FF;color:#0369A1}
-.ctag-prog{background:#EFF6FF;color:#1D4ED8}
-.ctag-done{background:#F0FDF4;color:#166534}
-.ctag-draft{background:#FFFBEB;color:#92400E}
+/* ── Bento illustrations (simple SVG only) ── */
+.ai-cursor{display:inline-block;width:2px;height:12px;background:var(--blue-m);border-radius:1px;animation:blink 1s infinite;vertical-align:middle;margin-left:1px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+/* status pills row */
+.status-pills{display:flex;flex-wrap:wrap;gap:6px}
+.sp{font-size:11px;font-weight:600;padding:5px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:5px;border:1.5px solid transparent}
+.sp::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.sp-sent{background:#EEF2FF;color:#4338CA;border-color:#C7D2FE}.sp-sent::before{background:#4338CA}
+.sp-seen{background:#F0F9FF;color:#0369A1;border-color:#BAE6FD}.sp-seen::before{background:#0EA5E9}
+.sp-prog{background:var(--blue-l);color:var(--blue-d);border-color:#BDD0FF}.sp-prog::before{background:var(--blue)}
+.sp-done{background:#F0FDF4;color:#166534;border-color:#BBF7D0}.sp-done::before{background:#22C55E}
+.sp-draft{background:#FFFBEB;color:#92400E;border-color:#FDE68A}.sp-draft::before{background:#F59E0B}
+/* ba panels */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ba-panel{border-radius:10px;padding:14px}
+.ba-panel.b4{background:#FFF5F5;border:1px solid #FFE0E0}
+.ba-panel.af{background:#F0FDF4;border:1px solid #BBF7D0}
+.ba-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:9px}
+.ba-panel.b4 .ba-lbl{color:#DC2626}
+.ba-panel.af .ba-lbl{color:#16A34A}
+.ba-row{display:flex;align-items:flex-start;gap:6px;font-size:11px;color:var(--muted);margin-bottom:6px;line-height:1.4}
+.ba-row:last-child{margin-bottom:0}
+.ba-d{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.ba-panel.b4 .ba-d{background:#DC2626}
+.ba-panel.af .ba-d{background:#16A34A}
 
-.listing-slide{width:100%;display:flex;flex-direction:column;gap:7px}
-.ls-row{display:flex;align-items:center;gap:9px;background:white;border:1px solid var(--border);border-radius:9px;padding:10px 13px}
-.ls-acc{width:3px;height:28px;border-radius:2px;flex-shrink:0}
-.ls-inf{flex:1;min-width:0}
-.ls-nm{font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ls-meta{font-size:10px;color:var(--muted);margin-top:1px}
-.ls-pill{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;flex-shrink:0}
+/* ── FOR WHO ── */
+.who-section{padding:120px 0;border-top:1px solid var(--border)}
+.who-header{text-align:center;margin-bottom:52px}
+.who-header h2{margin-bottom:12px}
+.who-header p{font-size:17px;color:var(--muted)}
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.who-card{border:1.5px solid var(--border);border-radius:var(--r);padding:28px 22px;background:white;transition:all .25s}
+.who-card:hover{border-color:rgba(21,88,255,.25);box-shadow:0 8px 32px rgba(21,88,255,.09);transform:translateY(-2px)}
+.who-em{font-size:28px;margin-bottom:14px;display:block}
+.who-name{font-family:'Instrument Serif',serif;font-size:20px;margin-bottom:8px}
+.who-desc{font-size:13px;color:var(--muted);line-height:1.65}
 
-.activity-slide{width:100%;display:flex;flex-direction:column;gap:10px}
-.act-card{background:white;border:1.5px solid var(--border);border-radius:12px;padding:16px}
-.act-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.act-card-name{font-size:12px;font-weight:700}
-.act-last-seen{font-size:10px;font-weight:700;background:var(--blue-l);color:var(--blue-d);padding:3px 9px;border-radius:20px}
-.act-track{height:5px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:5px}
-.act-fill{height:100%;width:72%;border-radius:99px;background:linear-gradient(90deg,#22C55E,#16A34A)}
-.act-meta{font-size:10px;color:var(--muted);margin-bottom:10px}
-.act-feed{display:flex;flex-direction:column;gap:5px}
-.act-row{display:flex;align-items:center;gap:7px;font-size:11px}
-.act-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.act-t{color:var(--muted);flex:1}
-.act-tm{color:var(--subtle);font-size:10px}
-
-/* ─── BENTO ─── */
-.bento-section{background:var(--surface);padding:100px 0}
-.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:52px}
-.s7{grid-column:span 7}.s5{grid-column:span 5}.s3{grid-column:span 3}
-.bc{background:white;border:1.5px solid var(--border);border-radius:var(--r);padding:26px;overflow:hidden;position:relative;transition:box-shadow .25s,transform .25s}
-.bc:hover{box-shadow:0 12px 44px rgba(6,13,31,.08);transform:translateY(-2px)}
-.bc-blue{background:linear-gradient(140deg,#EAF0FF,#D6E3FF);border-color:#BDD0FF}
-
-/* Bento label row with SVG icon */
-.bc-label{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.bc-label-icon{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.bc-label-icon svg{width:14px;height:14px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.bc-blue .bc-label-icon svg{stroke:var(--blue-d)}
-.bc-ey{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--blue)}
-.bc-blue .bc-ey{color:var(--blue-d)}
-.bc-ttl{font-size:20px;font-family:'Instrument Serif',serif;font-weight:400;line-height:1.2;margin-bottom:5px}
-
-/* AI bento — white bg, blue shimmer */
-.bc-ai{background:white;border-color:rgba(21,88,255,.15);position:relative;overflow:hidden}
-.bc-ai::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% -10%,rgba(21,88,255,.06),transparent);pointer-events:none}
-.bc-ai::after{content:'';position:absolute;top:0;left:-80%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(21,88,255,.04),transparent);animation:bcShimmer 4s ease-in-out infinite;pointer-events:none}
-@keyframes bcShimmer{0%{left:-80%}100%{left:160%}}
-.ai-bento-input{margin-top:16px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:10px;position:relative}
-.ai-bento-input:focus-within,.ai-bento-input:hover{border-color:var(--blue-m);box-shadow:0 0 0 3px rgba(21,88,255,.07)}
-.ai-bento-spark{width:24px;height:24px;background:var(--blue-l);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ai-bento-spark svg{width:12px;height:12px;fill:var(--blue)}
-.ai-bento-text{font-size:12px;color:var(--muted);flex:1;font-style:italic}
-.ai-bento-rows{margin-top:10px;display:flex;flex-direction:column;gap:5px}
-.ai-bento-row{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
-.ai-bento-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.ai-bento-txt{font-size:11px;color:var(--muted);flex:1}
-.ai-bento-ck{font-size:10px;color:var(--blue-m);font-weight:700}
-
-.status-tags-wrap{margin-top:20px;display:flex;flex-wrap:wrap;gap:7px}
-.stag{font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border:1.5px solid transparent}
-.stag::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.stag-sent{background:#EEF2FF;color:#4338CA;border-color:#C7D2FE}.stag-sent::before{background:#4338CA}
-.stag-seen{background:#F0F9FF;color:#0369A1;border-color:#BAE6FD}.stag-seen::before{background:#0EA5E9}
-.stag-prog{background:var(--blue-l);color:var(--blue-d);border-color:#BDD0FF}.stag-prog::before{background:var(--blue)}
-.stag-done{background:#F0FDF4;color:#166534;border-color:#BBF7D0}.stag-done::before{background:#22C55E}
-.stag-draft{background:#FFFBEB;color:#92400E;border-color:#FDE68A}.stag-draft::before{background:#F59E0B}
-
-/* Branding bento */
-.brand-visual{margin-top:16px}
-.brand-browser{background:white;border:1.5px solid #BDD0FF;border-radius:11px;overflow:hidden}
-.brand-bar{background:var(--blue);padding:9px 12px;display:flex;align-items:center;gap:7px}
-.brand-logo-b{width:18px;height:18px;border-radius:5px;background:rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:white}
-.brand-url{font-size:10px;color:rgba(255,255,255,.7);font-weight:500}
-.brand-body-b{padding:12px}
-.brand-title-b{height:4px;border-radius:2px;background:var(--blue);width:45%;margin-bottom:10px}
-.brand-lines-b{display:flex;flex-direction:column;gap:3px}
-.brand-line-b{height:3px;background:#BDD0FF;border-radius:2px}
-.color-swatch-row{display:flex;gap:6px;margin-top:12px}
-.color-swatch{height:20px;border-radius:6px;flex:1}
-
-/* Send bento — just button */
-.send-bento-wrap{margin-top:auto;padding-top:32px;display:flex;justify-content:flex-start}
-.send-bento-btn{
-  display:inline-flex;align-items:center;gap:9px;
-  background:linear-gradient(170deg,#2468FF,#1558FF 60%,#0A3ACC);
-  color:white;border:none;border-radius:13px;padding:14px 28px;
-  font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;
-  box-shadow:0 5px 0 #0831B8,0 10px 24px rgba(21,88,255,.4);
-  transition:all .15s;position:relative;overflow:hidden;
-}
-.send-bento-btn::before{content:'';position:absolute;inset:0;border-radius:13px;background:linear-gradient(180deg,rgba(255,255,255,.12),transparent);pointer-events:none}
-.send-bento-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #0831B8,0 5px 14px rgba(21,88,255,.3)}
-.send-bento-btn svg{width:16px;height:16px;fill:white}
-
-/* Template bento */
-.bc-tmpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:16px}
-.bc-tmpl-c{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px;transition:border-color .2s}
-.bc:hover .bc-tmpl-c:first-child{border-color:var(--blue-m)}
-.bc-tmpl-stripe{height:3px;border-radius:2px;margin-bottom:7px}
-.bc-tmpl-lines{display:flex;flex-direction:column;gap:3px}
-.bc-tmpl-line{height:2px;background:var(--border);border-radius:2px}
-.bc-tmpl-line.s{width:55%}
-.bc-tmpl-lbl{font-size:9px;font-weight:600;color:var(--muted);margin-top:5px}
-
-/* Workflow bento */
-.wf-visual{margin-top:16px;display:flex;flex-direction:column}
-.wf-nd{display:flex;align-items:center;gap:10px;background:var(--surface);border:1.5px solid var(--border);border-radius:9px;padding:9px 12px;transition:all .22s}
-.bc:hover .wf-nd{border-color:rgba(21,88,255,.2)}
-.wf-conn{width:1px;height:14px;background:var(--border);margin-left:18px}
-.wf-ic{font-size:13px;flex-shrink:0;width:24px;height:24px;background:var(--blue-l);border-radius:7px;display:flex;align-items:center;justify-content:center}
-.wf-lbl{font-size:12px;font-weight:600;flex:1}
-.wf-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;background:var(--blue-l);color:var(--blue-d)}
-
-/* ─── DASHBOARD TABS ─── */
-.dash-tabs-sec{padding:100px 0}
-.dash-screen-wrap{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:0 20px 64px rgba(6,13,31,.09);background:var(--surface);min-height:460px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.dash-screen-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-.dash-screen-fallback{display:flex;flex-direction:column;align-items:center;gap:12px}
-.dash-screen-fallback svg{opacity:.18}
-.dash-screen-fallback span{font-size:13px;font-weight:600;color:var(--subtle)}
-.dash-tabs-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
-.dash-tab{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:22px 20px;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-.dash-tab:hover{background:white;border-color:var(--blue-m);box-shadow:0 4px 16px rgba(21,88,255,.08)}
-.dash-tab.active{background:white;border-color:var(--blue);box-shadow:0 4px 20px rgba(21,88,255,.1)}
-.dash-tab-icon{width:36px;height:36px;border-radius:10px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;transition:background .25s}
-.dash-tab.active .dash-tab-icon{background:var(--blue)}
-.dash-tab-icon svg{width:17px;height:17px;stroke:var(--blue);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s}
-.dash-tab.active .dash-tab-icon svg{stroke:white}
-.dash-tab-title{font-size:14px;font-weight:700;color:var(--ink);line-height:1.3}
-.dash-tab-sub{font-size:12px;color:var(--muted);line-height:1.5}
-.dash-tab.active .dash-tab-title{color:var(--blue)}
-
-/* ─── IMPACT ─── */
-.impact-sec{background:var(--surface);padding:100px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.impact-header{text-align:center;margin-bottom:52px}
-.impact-quote-block{text-align:center;max-width:600px;margin:0 auto 72px}
-.impact-quote-mark{font-family:'Instrument Serif',serif;font-size:72px;color:var(--blue-l);line-height:.7;display:block;margin-bottom:12px}
-.impact-quote-text{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;font-style:italic;color:var(--ink);line-height:1.6}
-.impact-quote-attr{font-size:13px;color:var(--subtle);margin-top:16px;font-weight:600}
-.impact-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.impact-m{background:white;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:36px 32px;transition:all .28s}
-.impact-m:hover{border-color:var(--blue);box-shadow:0 8px 36px rgba(21,88,255,.1);transform:translateY(-2px)}
-.impact-m-chart{height:72px;margin-bottom:24px}
-.impact-num{font-family:'Instrument Serif',serif;font-size:52px;color:var(--blue);line-height:1;margin-bottom:10px;letter-spacing:-2px}
-.impact-desc{font-size:14px;color:var(--muted);line-height:1.65}
-
-/* ─── FOR WHO ─── */
-.fw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px}
-.fw-c{background:white;border:1.5px solid var(--border);border-radius:var(--r);padding:26px 22px;transition:all .25s}
-.fw-c:hover{border-color:var(--blue);box-shadow:0 10px 36px rgba(21,88,255,.09);transform:translateY(-2px)}
-.fw-em{font-size:26px;margin-bottom:14px;display:block}
-.fw-nm{font-family:'Instrument Serif',serif;font-size:20px;margin-bottom:8px}
-.fw-dsc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:13px}
-.fw-tags{display:flex;flex-wrap:wrap;gap:5px}
-.fw-tag{font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;background:var(--blue-l);color:var(--blue-d)}
-
-/* ─── PRICING ─── */
-.bill-row{display:flex;justify-content:center;margin:28px 0 48px}
-.bill-toggle{display:inline-flex;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:4px}
-.bill-btn{font-family:inherit;font-size:13px;font-weight:600;padding:8px 22px;border-radius:100px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
-.bill-btn.on{background:white;color:var(--ink);box-shadow:0 2px 8px rgba(6,13,31,.08)}
-.bill-save{color:var(--blue);font-size:11px;font-weight:700}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.plan{border-radius:var(--r-lg);padding:36px 32px;border:1.5px solid var(--border);background:white;position:relative;transition:all .25s}
-.plan:hover{box-shadow:0 16px 52px rgba(6,13,31,.08)}
+/* ── PRICING ── */
+.price-section{padding:120px 0;background:var(--surface);border-top:1px solid var(--border)}
+.price-header{text-align:center;margin-bottom:20px}
+.price-header h2{margin-bottom:10px}
+.price-header p{font-size:17px;color:var(--muted)}
+.toggle-row{display:flex;justify-content:center;margin:24px 0 44px}
+.price-toggle{display:inline-flex;background:white;border:1px solid var(--border);border-radius:100px;padding:4px}
+.pt-btn{font-family:inherit;font-size:13px;font-weight:600;padding:8px 22px;border-radius:100px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.pt-btn.on{background:var(--ink);color:white;box-shadow:0 2px 8px rgba(6,13,31,.15)}
+.pt-save{font-size:11px;font-weight:700;color:#16A34A}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan{background:white;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:34px 30px;position:relative;transition:all .25s}
+.plan:hover{box-shadow:0 16px 48px rgba(6,13,31,.08)}
 .plan.hi{background:var(--ink);border-color:var(--ink)}
-.plan-rec{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:white;font-size:10px;font-weight:800;padding:4px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.04em}
-.plan-name{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
-.plan.hi .plan-name{color:var(--blue-m)}
-.plan-price{font-family:'Instrument Serif',serif;font-size:54px;line-height:1;letter-spacing:-2px;color:var(--ink)}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:white;font-size:10px;font-weight:800;padding:4px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.04em}
+.plan-tier{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+.plan.hi .plan-tier{color:rgba(107,155,255,.8)}
+.plan-price{font-family:'Instrument Serif',serif;font-size:56px;line-height:1;letter-spacing:-2px;color:var(--ink);margin-bottom:2px}
 .plan.hi .plan-price{color:white}
-.plan-price sup{font-size:23px;letter-spacing:0;vertical-align:top;margin-top:11px}
-.plan-price-meta{display:flex;align-items:center;gap:8px;margin-top:4px;margin-bottom:22px}
-.plan-cycle{font-size:12px;color:var(--subtle)}
+.plan-price sup{font-size:24px;vertical-align:top;margin-top:12px;letter-spacing:0}
+.plan-cycle{font-size:12px;color:var(--subtle);margin-bottom:22px}
 .plan.hi .plan-cycle{color:rgba(255,255,255,.3)}
-.plan-yr-badge{font-size:10px;font-weight:800;background:#F0FDF4;color:#16A34A;padding:2px 9px;border-radius:100px;white-space:nowrap}
-.plan.hi .plan-yr-badge{background:rgba(34,197,94,.15);color:#4ADE80}
 .plan-rule{border:none;border-top:1px solid var(--border);margin:0 0 20px}
 .plan.hi .plan-rule{border-color:rgba(255,255,255,.1)}
-.plan-fs{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-.plan-f{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--muted)}
-.plan.hi .plan-f{color:rgba(255,255,255,.5)}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.plan-features li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--muted)}
+.plan.hi .plan-features li{color:rgba(255,255,255,.5)}
 .pf-ok{color:var(--blue);font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px}
 .plan.hi .pf-ok{color:var(--blue-m)}
 .pf-no{color:var(--border);font-size:12px;flex-shrink:0;margin-top:1px}
@@ -368,160 +208,94 @@ nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31
 .plan-cta:hover{background:var(--surface)}
 .plan.hi .plan-cta{background:var(--blue);border-color:var(--blue);color:white}
 .plan.hi .plan-cta:hover{background:var(--blue-d);box-shadow:0 4px 18px rgba(21,88,255,.4)}
+/* founding coupon row */
+.founding-strip{margin-top:28px;background:white;border:1.5px dashed rgba(21,88,255,.25);border-radius:16px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.founding-l{display:flex;align-items:center;gap:12px}
+.founding-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);background:var(--blue-l);padding:3px 9px;border-radius:100px;white-space:nowrap}
+.founding-text{font-size:14px;font-weight:600;color:var(--ink)}
+.founding-text span{font-weight:400;color:var(--muted);font-size:13px}
+.founding-r{display:flex;align-items:center;gap:10px}
+.founding-code{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.08em;background:var(--surface);border:1px solid var(--border);padding:7px 16px;border-radius:8px}
+.founding-cta-btn{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:white;font-size:13px;font-weight:700;padding:9px 20px;border-radius:100px;border:none;cursor:pointer;transition:all .22s;font-family:inherit;box-shadow:0 2px 10px rgba(21,88,255,.3)}
+.founding-cta-btn:hover{background:var(--blue-d)}
 
-/* Founding coupon card under plans */
-.founding-coupon{
-  margin-top:32px;
-  border:1.5px dashed rgba(21,88,255,.35);
-  border-radius:var(--r-lg);
-  background:linear-gradient(135deg,#F8FAFF,#EEF3FF);
-  display:flex;align-items:stretch;overflow:hidden;
-  position:relative;
-}
-.founding-coupon::before{
-  content:'';position:absolute;
-  inset:0;
-  background:radial-gradient(ellipse 60% 80% at 0% 50%,rgba(21,88,255,.06),transparent);
-  pointer-events:none;
-}
-.fcc-left{flex:1;padding:28px 32px;position:relative;z-index:1}
-.fcc-tag{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:10px}
-.fcc-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--blue)}
-.fcc-headline{font-family:'Instrument Serif',serif;font-size:20px;font-weight:400;color:var(--ink);margin-bottom:6px;line-height:1.25}
-.fcc-desc{font-size:13px;color:var(--muted);line-height:1.6}
-.fcc-divider{
-  width:1px;
-  background:repeating-linear-gradient(to bottom,transparent,transparent 5px,rgba(21,88,255,.25) 5px,rgba(21,88,255,.25) 11px);
-  flex-shrink:0;align-self:stretch;margin:16px 0;
-}
-.fcc-right{width:220px;flex-shrink:0;padding:28px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;z-index:1}
-.fcc-code-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--subtle)}
-.fcc-code{background:white;border:1.5px solid var(--border);padding:12px 20px;border-radius:10px;text-align:center}
-.fcc-cta{display:inline-flex;align-items:center;gap:7px;background:var(--blue);color:white;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;border:none;cursor:pointer;font-family:inherit;transition:all .22s;box-shadow:0 4px 14px rgba(21,88,255,.3)}
-.fcc-cta:hover{background:var(--blue-d);transform:translateY(-1px)}
-
-/* ─── FAQ ─── */
-.faq-sec{background:var(--surface)}
-.faq-list{max-width:700px;margin:52px auto 0}
-.faq-item{border-bottom:1px solid var(--border)}
-.faq-item:first-child{border-top:1px solid var(--border)}
-.faq-q{width:100%;background:none;border:none;text-align:left;font-family:inherit;font-size:15px;font-weight:600;color:var(--ink);padding:22px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:color .2s}
-.faq-q:hover{color:var(--blue)}
-.faq-ic{width:26px;height:26px;min-width:26px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s}
-.faq-ic svg{width:10px;height:10px;transition:transform .3s}
-.faq-item.open .faq-ic{background:var(--blue);border-color:var(--blue);color:white}
-.faq-item.open .faq-ic svg{transform:rotate(45deg)}
-.faq-a{font-size:14px;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;padding:0;transition:max-height .4s cubic-bezier(.16,1,.3,1),padding .4s}
-.faq-item.open .faq-a{max-height:220px;padding-bottom:22px}
-
-/* ─── CTA ─── */
-.cta-outer{padding:0 48px 112px}
-.cta-box{background:var(--ink);border-radius:24px;padding:100px 60px;text-align:center;position:relative;overflow:hidden}
-.cta-glow{position:absolute;width:600px;height:400px;background:radial-gradient(ellipse,rgba(21,88,255,.22) 0%,transparent 65%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+/* ── CTA ── */
+.cta-section{padding:112px 0}
+.cta-box{background:var(--ink);border-radius:24px;padding:92px 60px;text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;width:560px;height:400px;background:radial-gradient(ellipse,rgba(21,88,255,.22) 0%,transparent 65%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .cta-inner{position:relative;z-index:1}
-.cta-inner .ey{color:var(--blue-m);justify-content:center}
-.cta-inner .ey-dot{background:var(--blue-m)}
-.cta-h2{font-size:clamp(28px,4.5vw,52px);color:white;margin-bottom:14px}
-.cta-sub{font-size:15px;color:rgba(255,255,255,.38);margin-bottom:38px}
+.cta-ey{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(107,155,255,.8);margin-bottom:18px}
+.cta-ey-dot{width:5px;height:5px;border-radius:50%;background:rgba(107,155,255,.8)}
+.cta-h2{font-size:clamp(30px,5vw,54px);color:white;line-height:1.08;margin-bottom:14px}
+.cta-sub{font-size:16px;color:rgba(255,255,255,.4);margin-bottom:38px}
 .cta-btns{display:flex;align-items:center;justify-content:center;gap:12px}
-.btn-white{background:white;color:var(--ink);font-family:inherit;font-size:15px;font-weight:700;padding:14px 32px;border-radius:100px;border:none;cursor:pointer;transition:all .22s;display:inline-flex;align-items:center;gap:8px}
-.btn-white:hover{box-shadow:0 8px 28px rgba(255,255,255,.22);transform:translateY(-2px)}
-.btn-gw{background:transparent;color:rgba(255,255,255,.55);font-family:inherit;font-size:15px;font-weight:600;padding:14px 26px;border-radius:100px;border:1.5px solid rgba(255,255,255,.16);cursor:pointer;transition:all .22s}
-.btn-gw:hover{border-color:rgba(255,255,255,.4);color:white}
+.btn-cta-w{background:white;color:var(--ink);font-family:inherit;font-size:15px;font-weight:700;padding:14px 30px;border-radius:100px;border:none;cursor:pointer;transition:all .22s;display:inline-flex;align-items:center;gap:8px}
+.btn-cta-w:hover{box-shadow:0 8px 28px rgba(255,255,255,.22);transform:translateY(-2px)}
+.btn-cta-gh{background:transparent;color:rgba(255,255,255,.6);font-family:inherit;font-size:15px;font-weight:600;padding:14px 24px;border-radius:100px;border:1.5px solid rgba(255,255,255,.16);cursor:pointer;transition:all .22s}
+.btn-cta-gh:hover{border-color:rgba(255,255,255,.4);color:white}
 
-/* ─── FOOTER ─── */
-footer{border-top:1px solid var(--border);padding:32px 48px;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .foot-l{display:flex;align-items:center;gap:8px}
-.foot-logo{height:24px;width:auto;object-fit:contain}
-.foot-copy{font-size:12px;color:var(--subtle);margin-left:14px}
+.foot-copy{font-size:12px;color:var(--subtle);margin-left:12px}
 .foot-links{display:flex;gap:20px}
 .foot-links a{font-size:12px;color:var(--subtle);transition:color .18s}
 .foot-links a:hover{color:var(--muted)}
 
-/* ─── FOUNDING POPUP — redesigned ─── */
+/* ── POPUP ── */
 .fp-overlay{position:fixed;inset:0;background:rgba(6,13,31,.48);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.16,1,.3,1);backdrop-filter:blur(6px)}
 .fp-overlay.show{opacity:1;pointer-events:auto}
-.fp-coupon{
-  background:white;border-radius:22px;
-  max-width:520px;width:100%;
-  box-shadow:0 32px 80px rgba(6,13,31,.2),0 0 0 1px rgba(6,13,31,.05);
-  overflow:hidden;position:relative;
-  animation:couponIn .4s .05s cubic-bezier(.16,1,.3,1) both;
-}
-@keyframes couponIn{from{opacity:0;transform:scale(.93) translateY(18px)}to{opacity:1;transform:none}}
-/* Top accent strip */
-.fp-top-strip{height:4px;background:linear-gradient(90deg,var(--blue),var(--blue-m),var(--blue));background-size:200% 100%;animation:stripShimmer 3s linear infinite}
-@keyframes stripShimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
-.fp-body{padding:36px 36px 32px}
-.fp-close{position:absolute;top:14px;right:14px;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-size:14px;color:var(--muted);line-height:1;z-index:1}
+.fp-card{background:white;border-radius:22px;max-width:500px;width:100%;overflow:hidden;box-shadow:0 32px 80px rgba(6,13,31,.2),0 0 0 1px rgba(6,13,31,.05);position:relative;animation:popIn .4s .05s cubic-bezier(.16,1,.3,1) both}
+@keyframes popIn{from{opacity:0;transform:scale(.93) translateY(18px)}to{opacity:1;transform:none}}
+.fp-strip{height:4px;background:linear-gradient(90deg,var(--blue),var(--blue-m),var(--blue));background-size:200%;animation:stripAnim 3s linear infinite}
+@keyframes stripAnim{0%{background-position:0%}100%{background-position:200%}}
+.fp-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-size:14px;color:var(--muted);line-height:1;z-index:1}
 .fp-close:hover{background:var(--border);color:var(--ink)}
-.fp-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:14px}
-.fp-eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--blue)}
-.fp-h2{font-family:'Instrument Serif',serif;font-size:30px;font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:10px}
-.fp-desc{font-size:14px;color:var(--muted);line-height:1.68;margin-bottom:24px}
-.fp-features{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
-.fp-feat{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
-.fp-feat-check{width:18px;height:18px;background:var(--blue-l);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.fp-feat-check svg{width:10px;height:10px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-/* Code section — redesigned to fit properly */
-.fp-code-section{
-  background:var(--surface);border:1.5px solid var(--border);
-  border-radius:14px;padding:16px 20px;margin-bottom:20px;
-  display:flex;align-items:center;gap:14px;
-}
-.fp-code-section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--subtle);white-space:nowrap}
-.fp-code-display{
-  flex:1;background:white;border:1.5px solid rgba(21,88,255,.2);
-  border-radius:9px;padding:10px 16px;
-  font-family:'Manrope',monospace;font-size:18px;font-weight:800;
-  letter-spacing:.08em;color:var(--blue-d);text-align:center;
-  min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-}
-.fp-copy-btn{
-  background:var(--blue);color:white;border:none;border-radius:9px;
-  padding:10px 18px;font-size:12px;font-weight:700;font-family:inherit;
-  cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:6px;
-  flex-shrink:0;white-space:nowrap;
-}
-.fp-copy-btn:hover{background:var(--blue-d)}
-.fp-copy-btn.copied{background:#22C55E}
-.fp-copy-btn svg{width:12px;height:12px;stroke:white;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.fp-cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--blue);color:white;font-size:14px;font-weight:700;padding:14px 26px;border-radius:100px;border:none;cursor:pointer;transition:all .22s;box-shadow:0 4px 18px rgba(21,88,255,.3);font-family:inherit}
-.fp-cta:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,88,255,.4)}
+.fp-body{padding:38px 36px 34px}
+.fp-ey{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:14px}
+.fp-ey-dot{width:5px;height:5px;border-radius:50%;background:var(--blue)}
+.fp-h{font-family:'Instrument Serif',serif;font-size:30px;line-height:1.1;color:var(--ink);margin-bottom:10px}
+.fp-desc{font-size:14px;color:var(--muted);line-height:1.68;margin-bottom:22px}
+.fp-perks{display:flex;flex-direction:column;gap:8px;margin-bottom:26px}
+.fp-perk{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
+.fp-perk-ic{width:18px;height:18px;border-radius:5px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fp-perk-ic svg{width:10px;height:10px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+/* code row inside popup */
+.fp-code-row{background:var(--surface);border:1.5px solid var(--border);border-radius:13px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.fp-code-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--subtle);white-space:nowrap}
+.fp-code-val{flex:1;text-align:center;font-family:'Manrope',monospace;font-size:17px;font-weight:600;color:var(--muted);letter-spacing:.1em}
+.fp-copy{background:var(--blue);color:white;border:none;border-radius:9px;padding:9px 16px;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0}
+.fp-copy:hover{background:var(--blue-d)}
+.fp-copy.ok{background:#22C55E}
+.fp-copy svg{width:12px;height:12px;stroke:white;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.fp-cta-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:white;font-size:14px;font-weight:700;padding:14px;border-radius:100px;border:none;cursor:pointer;transition:all .22s;font-family:inherit;box-shadow:0 4px 18px rgba(21,88,255,.3)}
+.fp-cta-btn:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,88,255,.4)}
 .fp-hint{font-size:11px;color:var(--subtle);text-align:center;margin-top:10px}
 
-
-/* Build animation */
-.bld-anim{transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
-.bld-anim.bld-in{opacity:1!important;transform:none!important}
-.bld-line{transition:width .6s cubic-bezier(.16,1,.3,1)}
-/* ─── RESPONSIVE ─── */
-@media(max-width:1020px){
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .how-steps{grid-template-columns:1fr}
+  .how-step{border-right:none;border-bottom:1px solid var(--border)}
+  .how-step:last-child{border-bottom:none}
+  .how-step:not(:last-child)::after{display:none}
   .bento{grid-template-columns:1fr 1fr}
-  .s7,.s5,.s3{grid-column:span 2}
-  .prob-cards,.fw-grid,.plans{grid-template-columns:1fr 1fr}
-  .impact-metrics{grid-template-columns:1fr 1fr}
-  .dash-tabs-row{grid-template-columns:1fr 1fr}
-  .how-sticky-wrap{grid-template-columns:1fr;gap:0}
-  .how-visual-col{position:static;margin-top:40px}
-  .how-visual-frame{height:400px}
-  .founding-coupon{flex-direction:column}
-  .fcc-divider{width:auto;height:1px;margin:0 16px;background:repeating-linear-gradient(to right,transparent,transparent 5px,rgba(21,88,255,.25) 5px,rgba(21,88,255,.25) 11px)}
-  .fcc-right{width:100%;flex-direction:row;padding:20px 28px 24px}
+  .s7,.s5,.s4,.s8{grid-column:span 2}
+  .who-grid{grid-template-columns:1fr 1fr}
+  .plans{grid-template-columns:1fr}
+  .founding-strip{flex-direction:column;align-items:flex-start}
 }
-@media(max-width:680px){
+@media(max-width:600px){
   .wrap{padding:0 20px}
-  .how-sticky-wrap{padding:80px 20px}
+  .hero-screen-wrap{padding:0 20px}
   .nav-links{display:none}
   .bento{grid-template-columns:1fr}
-  .s7,.s5,.s3{grid-column:span 1}
-  .prob-cards,.fw-grid,.plans,.impact-metrics{grid-template-columns:1fr}
-  .dash-tabs-row{grid-template-columns:1fr 1fr}
-  .how-step-item{min-height:30vh}
-  .cta-outer{padding:0 18px 80px}
+  .s7,.s5,.s4,.s8{grid-column:span 1}
+  .who-grid{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr}
   .cta-box{padding:64px 24px}
-  footer{flex-direction:column;align-items:flex-start;gap:14px;padding:28px 20px}
-  .fp-code-section{flex-direction:column;align-items:stretch}
+  footer{flex-direction:column;align-items:flex-start;padding:28px 20px}
+  .fp-body{padding:28px 24px 26px}
+  .fp-code-row{flex-wrap:wrap}
 }
 </style>
 </head>
@@ -530,17 +304,14 @@ footer{border-top:1px solid var(--border);padding:32px 48px;max-width:1100px;mar
 <!-- NAV -->
 <div class="nav-shell">
   <nav id="nav">
-    <div class="nav-l">
-      <img src="Group 4.png" class="nav-logo-img" alt="Brief">
-    </div>
+    <img src="Group 4.png" class="nav-logo-img" alt="Brief">
     <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
       <li><a href="#how">How it works</a></li>
       <li><a href="#pricing">Pricing</a></li>
     </ul>
-    <div class="nav-r">
-      <button class="btn-nav-ghost" onclick="location.href='https://briefapp.base44.app/'">Log in</button>
-      <button class="btn-nav-cta" onclick="location.href='https://briefapp.base44.app/'">
+    <div class="nav-cta">
+      <button class="btn-login" onclick="location.href='https://briefapp.base44.app/'">Log in</button>
+      <button class="btn-start" onclick="location.href='https://briefapp.base44.app/'">
         Start for free
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
       </button>
@@ -550,538 +321,368 @@ footer{border-top:1px solid var(--border);padding:32px 48px;max-width:1100px;mar
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-inner">
-    <div class="hero-badge"><span class="hero-badge-pill">New</span> The briefing platform</div>
-    <h1 class="serif hero-h1">Bad briefs kill<br>good work.</h1>
-    <p class="hero-p">Build beautiful, branded briefings your clients actually engage with &mdash; from first question to final answer.</p>
-    <div class="hero-btns">
-      <a href="https://briefapp.base44.app/" class="btn btn-primary btn-lg">Start for free <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg></a>
-      <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
+  <div class="hero-grid"></div>
+  <div class="hero-text">
+    <div class="hero-kicker"><span class="hero-kicker-dot"></span>The briefing platform</div>
+    <h1 class="serif hero-h1">The simplest way<br>to brief a client.</h1>
+    <p class="hero-sub">Send a beautiful, branded form. Your client fills it in. You get structured answers &mdash; no back-and-forth.</p>
+    <div class="hero-actions">
+      <a href="https://briefapp.base44.app/" class="btn-hero btn-p">
+        Start for free
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg>
+      </a>
+      <a href="#how" class="btn-hero btn-g">See how it works</a>
     </div>
-    <p class="hero-hint">No credit card <span>&middot;</span> Setup in 3 minutes</p>
+    <p class="hero-hint">No credit card <span>&middot;</span> Free to start <span>&middot;</span> 3 minutes to set up</p>
   </div>
-  <div class="hero-img-outer">
-    <div class="hero-img-win">
-      <img src="dashboard.png" alt="Brief dashboard" onerror="this.style.display='none';document.getElementById('hFb').style.display='flex'" style="width:100%;display:block;border-radius:var(--r-lg) var(--r-lg) 0 0">
-      <div id="hFb" class="hero-img-fallback" style="display:none;min-height:320px;align-items:center;justify-content:center;flex-direction:column;gap:10px">
-        <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect x="4" y="8" width="48" height="40" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="11" y="20" width="15" height="3" rx="1.5" fill="#E2E8F0"/><rect x="11" y="27" width="24" height="3" rx="1.5" fill="#E2E8F0"/><rect x="11" y="34" width="18" height="3" rx="1.5" fill="#E2E8F0"/><rect x="32" y="18" width="17" height="22" rx="3" fill="#E2E8F0"/></svg>
-        <span style="font-size:13px;font-weight:600;color:var(--subtle)">Dashboard Preview</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<!-- PROBLEM -->
-<section class="section">
-  <div class="wrap">
-    <div class="rv" style="text-align:center">
-      <span class="ey"><span class="ey-dot"></span> Before Brief</span>
-      <h2 class="h2">You shouldn't need three tools<br>to start a project.</h2>
-    </div>
-    <div class="prob-cards">
-      <div class="prob-c rv d1">
-        <div class="prob-ic"><svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2.5 2.5"/></svg></div>
-        <div class="prob-ttl">Building a brief takes hours</div>
-        <div class="prob-dsc">Copy-paste from old docs, reformat, send the wrong version.</div>
-      </div>
-      <div class="prob-c rv d2">
-        <div class="prob-ic"><svg viewBox="0 0 18 18"><path d="M3 4h12M3 9h9M3 14h5"/><circle cx="14" cy="14" r="3"/><path d="M14 12.5v1.5l1 1"/></svg></div>
-        <div class="prob-ttl">You sent it. Now you wonder.</div>
-        <div class="prob-dsc">No idea if they opened it. Follow-up. Then another. Then a call.</div>
-      </div>
-      <div class="prob-c rv d3">
-        <div class="prob-ic"><svg viewBox="0 0 18 18"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="10" y="2" width="6" height="6" rx="1.5"/><rect x="2" y="10" width="6" height="6" rx="1.5"/><rect x="10" y="10" width="6" height="6" rx="1.5"/></svg></div>
-        <div class="prob-ttl">Three tools, zero flow</div>
-        <div class="prob-dsc">Form builder + email tool + spreadsheet. Still feels unprofessional.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
-  <div class="how-sticky-wrap">
-    <div class="how-steps-col">
-      <div class="how-intro rv">
-        <span class="ey"><span class="ey-dot"></span> How it works</span>
-        <h2 class="h2">From zero to briefed<br>in minutes.</h2>
-      </div>
-      <div class="how-step-item active" data-step="0">
-        <div class="how-step-num">01</div>
-        <div class="how-ttl">Build your brief</div>
-        <div class="how-dsc">Pick a template, start from scratch, or let AI generate the structure &mdash; done in minutes, not hours.</div>
-      </div>
-      <div class="how-step-item" data-step="1">
-        <div class="how-step-num">02</div>
-        <div class="how-ttl">Send in one click</div>
-        <div class="how-dsc">Your client gets a branded link. No account, no login, no friction. They open it in seconds.</div>
-      </div>
-      <div class="how-step-item" data-step="2">
-        <div class="how-step-num">03</div>
-        <div class="how-ttl">Start with confidence</div>
-        <div class="how-dsc">Answers land structured in your dashboard. Live status, auto-reminders, full history. Ready to act on instantly.</div>
-      </div>
-    </div>
-    <div class="how-visual-col">
-      <div class="how-visual-frame">
-
-        <!-- Frame 0: Build — animated slides -->
-        <div class="how-frame active" id="hf0">
-          <!-- Slide A: Animated block building -->
-          <div class="how-slide s-on" id="hf0s0">
-            <div class="bld-blocks" id="bldBlocks">
-              <div class="bld-block bld-anim" id="blk0" style="opacity:0;transform:translateY(16px)">
-                <div class="bld-block-inner">
-                  <div class="bld-block-icon"><svg viewBox="0 0 14 14"><path d="M7 2L9 7l5 2-5 2-2 5-2-5-5-2 5-2z"/></svg></div>
-                  <div class="bld-block-text">Project Overview</div>
-                </div>
-                <div class="bld-block-lines"><div class="bld-line" id="bl0a"></div><div class="bld-line s" id="bl0b"></div></div>
-              </div>
-              <div class="bld-block bld-anim" id="blk1" style="opacity:0;transform:translateY(16px)">
-                <div class="bld-block-inner">
-                  <div class="bld-block-icon"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5"/><path d="M7 4v3l2 1.5"/></svg></div>
-                  <div class="bld-block-text">Target Audience</div>
-                </div>
-                <div class="bld-block-lines"><div class="bld-line" id="bl1a"></div><div class="bld-line s" id="bl1b"></div></div>
-              </div>
-              <div class="bld-block bld-anim" id="blk2" style="opacity:0;transform:translateY(16px)">
-                <div class="bld-block-inner">
-                  <div class="bld-block-icon"><svg viewBox="0 0 14 14"><rect x="1" y="3" width="12" height="8" rx="1.5"/><path d="M4 6h6M4 9h4"/></svg></div>
-                  <div class="bld-block-text">Deliverables</div>
-                </div>
-                <div class="bld-block-lines"><div class="bld-line" id="bl2a"></div><div class="bld-line s" id="bl2b"></div></div>
-              </div>
-            </div>
-          </div>
-          <!-- Slide B: AI input -->
-          <div class="how-slide" id="hf0s1">
-            <div class="ai-input-slide">
-              <div class="ai-inp-wrap">
-                <div class="ai-inp-spark">
-                  <svg viewBox="0 0 14 14"><path d="M7 1L8.5 5.5 13 7 8.5 8.5 7 13 5.5 8.5 1 7 5.5 5.5Z"/></svg>
-                </div>
-                <div class="ai-inp-text">Website relaunch for B2B SaaS<span style="display:inline-block;width:2px;height:13px;background:var(--blue);border-radius:1px;animation:pulse 1s infinite;vertical-align:middle;margin-left:2px"></span></div>
-                <div class="ai-inp-btn">
-                  <svg viewBox="0 0 12 12"><path d="M1 1L11 6 1 11V1z"/></svg>
-                  Build
-                </div>
-              </div>
-              <div class="ai-inp-prog">
-                <div class="ai-prog-row"><div class="ai-prog-dot" style="background:#22C55E"></div><div class="ai-prog-bar-wrap"><div class="ai-prog-bar done" style="width:100%"></div></div></div>
-                <div class="ai-prog-row"><div class="ai-prog-dot" style="background:#22C55E"></div><div class="ai-prog-bar-wrap"><div class="ai-prog-bar done" style="width:100%"></div></div></div>
-                <div class="ai-prog-row"><div class="ai-prog-dot" style="background:var(--blue-m)"></div><div class="ai-prog-bar-wrap"><div class="ai-prog-bar" style="width:65%;background:var(--blue-l);animation:grow 2s ease-in-out infinite alternate"></div></div></div>
-              </div>
-            </div>
-          </div>
-          <!-- Slide C: Template picker -->
-          <div class="how-slide" id="hf0s2">
-            <div class="ftmpl-slide">
-              <div class="ftmpl-hd">Choose a template</div>
-              <div class="ftmpl-grid">
-                <div class="ftmpl-card sel"><div class="ftmpl-sel">&#x2713;</div><div class="ftmpl-stripe" style="background:#1558FF"></div><div class="ftmpl-lines"><div class="ftmpl-line"></div><div class="ftmpl-line s"></div></div><div class="ftmpl-name">Website Relaunch</div></div>
-                <div class="ftmpl-card"><div class="ftmpl-sel">&#x2713;</div><div class="ftmpl-stripe" style="background:#8B5CF6"></div><div class="ftmpl-lines"><div class="ftmpl-line"></div><div class="ftmpl-line s"></div></div><div class="ftmpl-name">Brand Identity</div></div>
-                <div class="ftmpl-card"><div class="ftmpl-sel">&#x2713;</div><div class="ftmpl-stripe" style="background:#22C55E"></div><div class="ftmpl-lines"><div class="ftmpl-line"></div><div class="ftmpl-line s"></div></div><div class="ftmpl-name">Social Campaign</div></div>
-                <div class="ftmpl-card" style="border-style:dashed;display:flex;align-items:center;justify-content:center;gap:5px;color:var(--muted);font-size:11px;font-weight:600;min-height:72px"><span style="font-size:16px;opacity:.3">+</span> AI Generate</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Frame 1: Send — 3D button, no cycling -->
-        <div class="how-frame" id="hf1" style="display:flex;align-items:center;justify-content:center">
-          <div class="send-frame-wrap">
-            <div class="send-3d-outer">
-              <button class="send-3d-btn" onclick="location.href='https://briefapp.base44.app/'">
-                <svg viewBox="0 0 20 20"><path d="M3 10L17 3 10 17V10H3Z"/></svg>
-                Send Brief
-              </button>
-            </div>
-            <div class="send-3d-hint">One click &middot; Branded link &middot; No friction</div>
-          </div>
-        </div>
-
-        <!-- Frame 2: Confidence — animated slides -->
-        <div class="how-frame" id="hf2">
-          <!-- Slide A: Status tags -->
-          <div class="how-slide s-on" id="hf2s0">
-            <div class="tags-slide">
-              <div class="tags-slide-label">Live brief status</div>
-              <div class="tags-grid">
-                <div class="ctag ctag-sent">Sent</div>
-                <div class="ctag ctag-seen">Seen</div>
-                <div class="ctag ctag-prog">In Progress</div>
-                <div class="ctag ctag-done">Completed</div>
-                <div class="ctag ctag-draft">Draft</div>
-              </div>
-              <div style="font-size:12px;color:var(--subtle);text-align:center;margin-top:6px">Real-time &middot; Automatic &middot; Always on</div>
-            </div>
-          </div>
-          <!-- Slide B: Brief listing -->
-          <div class="how-slide" id="hf2s1">
-            <div class="listing-slide">
-              <div class="ls-row"><div class="ls-acc" style="background:var(--blue)"></div><div class="ls-inf"><div class="ls-nm">Rebrand Q3 &mdash; Apex Digital</div><div class="ls-meta">Sent Jun 12 &middot; Sarah K.</div></div><div class="ls-pill" style="background:#EEF2FF;color:#4338CA">In Review</div></div>
-              <div class="ls-row"><div class="ls-acc" style="background:#22C55E"></div><div class="ls-inf"><div class="ls-nm">Website Launch &mdash; Nova Startup</div><div class="ls-meta">Jun 8 &middot; 6/6 answered</div></div><div class="ls-pill" style="background:#F0FDF4;color:#166534">Done &#x2713;</div></div>
-              <div class="ls-row"><div class="ls-acc" style="background:#8B5CF6"></div><div class="ls-inf"><div class="ls-nm">Summer Campaign</div><div class="ls-meta">In Progress &middot; 55%</div></div><div class="ls-pill" style="background:var(--blue-l);color:var(--blue-d)">Active</div></div>
-            </div>
-          </div>
-          <!-- Slide C: Activity/Last seen -->
-          <div class="how-slide" id="hf2s2">
-            <div class="activity-slide">
-              <div class="act-card">
-                <div class="act-card-top"><div class="act-card-name">Website Relaunch &mdash; Apex</div><div class="act-last-seen">Last seen 2 min ago</div></div>
-                <div class="act-track"><div class="act-fill"></div></div>
-                <div class="act-meta">5 of 6 answered &middot; 1.8d avg response</div>
-              </div>
-              <div class="act-feed">
-                <div class="act-row"><div class="act-dot" style="background:#22C55E"></div><div class="act-t">Sarah K. submitted answers</div><div class="act-tm">2 min ago</div></div>
-                <div class="act-row"><div class="act-dot" style="background:var(--blue)"></div><div class="act-t">Brief opened</div><div class="act-tm">1h ago</div></div>
-                <div class="act-row"><div class="act-dot" style="background:var(--subtle)"></div><div class="act-t">Brief delivered</div><div class="act-tm">yesterday</div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BENTO -->
-<section class="bento-section" id="features">
-  <div class="wrap">
-    <div class="rv" style="text-align:center">
-      <span class="ey"><span class="ey-dot"></span> Features</span>
-      <h2 class="h2">Everything you need.<br>Nothing you don't.</h2>
-    </div>
-    <div class="bento">
-      <!-- AI Generator (white + shimmer) -->
-      <div class="bc bc-ai s7 rv d1">
-        <div class="bc-label">
-          <div class="bc-label-icon"><svg viewBox="0 0 14 14"><path d="M7 1L8.5 5.5 13 7 8.5 8.5 7 13 5.5 8.5 1 7 5.5 5.5Z" stroke-width="1.4"/></svg></div>
-          <span class="bc-ey">AI Generator</span>
-        </div>
-        <div class="bc-ttl">Generate a full brief<br>from one sentence</div>
-        <div class="ai-bento-input">
-          <div class="ai-bento-spark"><svg viewBox="0 0 12 12"><path d="M6 1L7 4.5 10.5 6 7 7.5 6 11 5 7.5 1.5 6 5 4.5Z"/></svg></div>
-          <div class="ai-bento-text">Describe your project...<span style="display:inline-block;width:2px;height:12px;background:var(--blue-m);border-radius:1px;animation:pulse 1s infinite;vertical-align:middle;margin-left:1px"></span></div>
-        </div>
-
-      </div>
-      <!-- Live Status -->
-      <div class="bc s5 rv d2">
-        <div class="bc-label">
-          <div class="bc-label-icon"><svg viewBox="0 0 14 14"><path d="M2 10L5 6 7.5 8.5 10 4 12 6"/><circle cx="2" cy="10" r="1.5" stroke-width="0" fill="var(--blue)"/><circle cx="5" cy="6" r="1.5" stroke-width="0" fill="var(--blue)"/><circle cx="7.5" cy="8.5" r="1.5" stroke-width="0" fill="var(--blue)"/><circle cx="10" cy="4" r="1.5" stroke-width="0" fill="var(--blue)"/><circle cx="12" cy="6" r="1.5" stroke-width="0" fill="var(--blue)"/></svg></div>
-          <span class="bc-ey">Live Status</span>
-        </div>
-        <div class="bc-ttl">Know exactly where every brief stands.</div>
-        <div class="status-tags-wrap">
-          <div class="stag stag-sent">Sent</div>
-          <div class="stag stag-seen">Seen</div>
-          <div class="stag stag-prog">In Progress</div>
-          <div class="stag stag-done">Completed</div>
-          <div class="stag stag-draft">Draft</div>
-        </div>
-      </div>
-      <!-- Branding -->
-      <div class="bc bc-blue s3 rv d1">
-        <div class="bc-label">
-          <div class="bc-label-icon"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5"/><path d="M7 4c0 0-2.5 2.5 0 3s2.5 3 0 3"/></svg></div>
-          <span class="bc-ey" style="color:var(--blue-d)">Your Brand</span>
-        </div>
-        <div class="bc-ttl">Your brand.<br>Not ours.</div>
-        <div class="brand-visual">
-          <div class="brand-browser">
-            <div class="brand-bar"><div class="brand-logo-b">YC</div><div class="brand-url">yourco.brief.app</div></div>
-            <div class="brand-body-b"><div class="brand-title-b"></div><div class="brand-lines-b"><div class="brand-line-b"></div><div class="brand-line-b" style="width:75%"></div><div class="brand-line-b" style="width:55%"></div></div></div>
-          </div>
-          <div class="color-swatch-row"><div class="color-swatch" style="background:#1558FF"></div><div class="color-swatch" style="background:#060D1F"></div><div class="color-swatch" style="background:#6B9BFF"></div><div class="color-swatch" style="background:#E8ECF4"></div></div>
-        </div>
-      </div>
-      <!-- Send -->
-      <div class="bc s3 rv d2">
-        <div class="bc-label">
-          <div class="bc-label-icon"><svg viewBox="0 0 14 14"><path d="M13 1L6 8M13 1L9 13 6 8 1 5 13 1Z"/></svg></div>
-          <span class="bc-ey">One-click Send</span>
-        </div>
-        <div class="bc-ttl">Send in<br>one click.</div>
-        <div class="send-bento-wrap">
-          <button class="send-bento-btn" onclick="location.href='https://briefapp.base44.app/'">
-            <svg viewBox="0 0 16 16"><path d="M3 8L13 2 8 14V8H3Z"/></svg>
-            Send Brief
-          </button>
-        </div>
-      </div>
-      <!-- Templates -->
-      <div class="bc s3 rv d3">
-        <div class="bc-label">
-          <div class="bc-label-icon"><svg viewBox="0 0 14 14"><rect x="1" y="1" width="5" height="5" rx="1.5"/><rect x="8" y="1" width="5" height="5" rx="1.5"/><rect x="1" y="8" width="5" height="5" rx="1.5"/><rect x="8" y="8" width="5" height="5" rx="1.5"/></svg></div>
-          <span class="bc-ey">Templates</span>
-        </div>
-        <div class="bc-ttl">Start from<br>a template.</div>
-        <div class="bc-tmpl-grid">
-          <div class="bc-tmpl-c"><div class="bc-tmpl-stripe" style="background:#1558FF"></div><div class="bc-tmpl-lines"><div class="bc-tmpl-line"></div><div class="bc-tmpl-line s"></div></div><div class="bc-tmpl-lbl">Website</div></div>
-          <div class="bc-tmpl-c"><div class="bc-tmpl-stripe" style="background:#8B5CF6"></div><div class="bc-tmpl-lines"><div class="bc-tmpl-line"></div><div class="bc-tmpl-line s"></div></div><div class="bc-tmpl-lbl">Brand</div></div>
-          <div class="bc-tmpl-c"><div class="bc-tmpl-stripe" style="background:#22C55E"></div><div class="bc-tmpl-lines"><div class="bc-tmpl-line"></div><div class="bc-tmpl-line s"></div></div><div class="bc-tmpl-lbl">Social</div></div>
-          <div class="bc-tmpl-c" style="border-style:dashed;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted);font-weight:600">+ More</div>
-        </div>
-      </div>
-      <!-- Workflow -->
-      <div class="bc s3 rv d4">
-        <div class="bc-label">
-          <div class="bc-label-icon"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5"/><path d="M7 4v3l2 1.5"/></svg></div>
-          <span class="bc-ey">Workflows</span>
-        </div>
-        <div class="bc-ttl">Never miss<br>a deadline.</div>
-        <div class="wf-visual">
-          <div class="wf-nd"><div class="wf-ic">&#x1F4E4;</div><div class="wf-lbl">Brief sent</div><div class="wf-badge">Trigger</div></div>
-          <div class="wf-conn"></div>
-          <div class="wf-nd"><div class="wf-ic">&#x23F0;</div><div class="wf-lbl">Wait 2 days</div><div class="wf-badge">Delay</div></div>
-          <div class="wf-conn"></div>
-          <div class="wf-nd"><div class="wf-ic">&#x1F4AC;</div><div class="wf-lbl">Send reminder</div><div class="wf-badge">Auto</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DASHBOARD TABS -->
-<section class="dash-tabs-sec" id="dashboard">
-  <div class="wrap">
-    <div class="rv" style="text-align:center;margin-bottom:44px">
-      <span class="ey"><span class="ey-dot"></span> Dashboard</span>
-      <h2 class="h2">Everything in one place.</h2>
-    </div>
-    <div class="dash-screen-wrap rv" id="dashScreen">
-      <img id="dashImg" src="dashboard-1.png" alt="Dashboard" onerror="this.style.display='none';document.getElementById('dashFb').style.display='flex'">
-      <div id="dashFb" class="dash-screen-fallback" style="display:none">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="4" y="8" width="56" height="48" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="4" y="8" width="56" height="12" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="12" y="28" width="18" height="3" rx="1.5" fill="#E2E8F0"/><rect x="12" y="35" width="28" height="3" rx="1.5" fill="#E2E8F0"/><rect x="12" y="42" width="22" height="3" rx="1.5" fill="#E2E8F0"/><rect x="38" y="28" width="18" height="20" rx="4" fill="#E2E8F0"/></svg>
+  <div class="hero-screen-wrap">
+    <div class="hero-screen">
+      <img src="dashboard.png" alt="Brief dashboard" onerror="this.style.display='none';document.getElementById('sph').style.display='flex'">
+      <div id="sph" class="screen-ph" style="display:none">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="4" y="8" width="52" height="44" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="4" y="8" width="52" height="11" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="12" y="26" width="16" height="3" rx="1.5" fill="#E2E8F0"/><rect x="12" y="33" width="26" height="3" rx="1.5" fill="#E2E8F0"/><rect x="12" y="40" width="20" height="3" rx="1.5" fill="#E2E8F0"/><rect x="36" y="26" width="16" height="17" rx="3" fill="#E2E8F0"/></svg>
         <span>Dashboard Preview</span>
       </div>
     </div>
-    <div class="dash-tabs-row rv d1">
-      <div class="dash-tab active" onclick="switchDashTab(0,this)" data-img="1.png">
-        <div class="dash-tab-icon"><svg viewBox="0 0 18 18"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="10" y="2" width="6" height="6" rx="1.5"/><rect x="2" y="10" width="6" height="6" rx="1.5"/><rect x="10" y="10" width="6" height="6" rx="1.5"/></svg></div>
-        <div class="dash-tab-title">Your briefs. All in one place</div>
-        <div class="dash-tab-sub">One dashboard. Every brief you've ever sent.</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="wrap">
+    <div class="how-header rv">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>How it works</span>
+      <h2 class="serif section-h2" style="margin-bottom:12px">Three steps.<br>That's it.</h2>
+      <p style="font-size:16px;color:var(--muted)">Brief is designed to be obvious — for you and your client.</p>
+    </div>
+    <div class="how-steps rv d1">
+
+      <div class="how-step">
+        <!-- illustration: document being built -->
+        <div class="how-step-illo" style="background:#F0F5FF">
+          <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="10" width="56" height="60" rx="6" fill="white" stroke="#E8ECF4" stroke-width="1.5"/>
+            <rect x="30" y="22" width="36" height="3" rx="1.5" fill="#1558FF"/>
+            <rect x="30" y="30" width="36" height="2.5" rx="1.25" fill="#E8ECF4"/>
+            <rect x="30" y="36" width="28" height="2.5" rx="1.25" fill="#E8ECF4"/>
+            <rect x="30" y="46" width="36" height="2.5" rx="1.25" fill="#E8ECF4"/>
+            <rect x="30" y="52" width="24" height="2.5" rx="1.25" fill="#E8ECF4"/>
+            <!-- AI spark -->
+            <circle cx="86" cy="24" r="16" fill="#EEF3FF"/>
+            <path d="M86 17l1.8 5.2L93 24l-5.2 1.8L86 31l-1.8-5.2L79 24l5.2-1.8Z" fill="#1558FF"/>
+          </svg>
+        </div>
+        <span class="how-step-num">1</span>
+        <h3>Build your brief</h3>
+        <p>Pick a template or describe your project to AI. Add your logo. Your brief is ready in 3 minutes.</p>
       </div>
-      <div class="dash-tab" onclick="switchDashTab(1,this)" data-img="2.png">
-        <div class="dash-tab-icon"><svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2.5 2.5"/></svg></div>
-        <div class="dash-tab-title">Always know what's happening.</div>
-        <div class="dash-tab-sub">Live status on every brief you send.</div>
+
+      <div class="how-step">
+        <!-- illustration: send arrow -->
+        <div class="how-step-illo" style="background:#F0FDF4">
+          <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- link pill -->
+            <rect x="14" y="30" width="68" height="20" rx="10" fill="white" stroke="#E8ECF4" stroke-width="1.5"/>
+            <rect x="22" y="36" width="32" height="3" rx="1.5" fill="#A8B4CC"/>
+            <rect x="62" y="34" width="12" height="7" rx="3.5" fill="#22C55E"/>
+            <!-- arrow -->
+            <path d="M88 40h14M97 35l5 5-5 5" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- phone hint -->
+            <rect x="92" y="14" width="20" height="28" rx="4" fill="white" stroke="#E8ECF4" stroke-width="1.5"/>
+            <rect x="96" y="18" width="12" height="2" rx="1" fill="#E8ECF4"/>
+            <rect x="96" y="22" width="12" height="2" rx="1" fill="#E8ECF4"/>
+            <rect x="96" y="26" width="8" height="2" rx="1" fill="#E8ECF4"/>
+          </svg>
+        </div>
+        <span class="how-step-num">2</span>
+        <h3>Send a link</h3>
+        <p>One click. Your client opens it in their browser — no account needed. They just fill it in.</p>
       </div>
-      <div class="dash-tab" onclick="switchDashTab(2,this)" data-img="3.png">
-        <div class="dash-tab-icon"><svg viewBox="0 0 18 18"><path d="M3 4h12M3 9h9M3 14h6"/><path d="M15 11l-3 3-1.5-1.5"/></svg></div>
-        <div class="dash-tab-title">Answers, structured and ready</div>
-        <div class="dash-tab-sub">Client responses land clean and organised.</div>
+
+      <div class="how-step">
+        <!-- illustration: inbox with check -->
+        <div class="how-step-illo" style="background:#FFFBEB">
+          <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- dashboard card -->
+            <rect x="14" y="15" width="72" height="50" rx="6" fill="white" stroke="#E8ECF4" stroke-width="1.5"/>
+            <rect x="22" y="24" width="40" height="2.5" rx="1.25" fill="#060D1F" opacity=".7"/>
+            <rect x="22" y="31" width="56" height="2" rx="1" fill="#E8ECF4"/>
+            <rect x="22" y="37" width="44" height="2" rx="1" fill="#E8ECF4"/>
+            <rect x="22" y="43" width="50" height="2" rx="1" fill="#E8ECF4"/>
+            <!-- progress bar -->
+            <rect x="22" y="52" width="56" height="4" rx="2" fill="#F5F7FC"/>
+            <rect x="22" y="52" width="48" height="4" rx="2" fill="#22C55E"/>
+            <!-- check badge -->
+            <circle cx="93" cy="32" r="15" fill="#F0FDF4"/>
+            <circle cx="93" cy="32" r="14" stroke="#BBF7D0" stroke-width="1"/>
+            <path d="M86 32l5 5 8-9" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="how-step-num">3</span>
+        <h3>Get the answers</h3>
+        <p>Answers land structured in your dashboard. You see exactly when it was opened and completed.</p>
       </div>
-      <div class="dash-tab" onclick="switchDashTab(3,this)" data-img="4.png">
-        <div class="dash-tab-icon"><svg viewBox="0 0 18 18"><path d="M16 3L9 10M16 3L11 16 9 10 3 8 16 3Z"/></svg></div>
-        <div class="dash-tab-title">Send and track in one click</div>
-        <div class="dash-tab-sub">Share by link or email. See when it's opened.</div>
-      </div>
+
     </div>
   </div>
 </section>
 
-<!-- IMPACT -->
-<section class="impact-sec">
+<!-- FEATURES BENTO -->
+<section class="features-section" id="features">
   <div class="wrap">
-    <div class="impact-top rv" style="display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:center;margin-bottom:64px">
-      <div>
-        <span class="ey"><span class="ey-dot"></span> Impact</span>
-        <h2 class="h2" style="margin-bottom:0">Not features.<br>Outcomes.</h2>
-      </div>
-      <div style="border-left:2px solid var(--border);padding-left:40px">
-        <span style="font-family:'Instrument Serif',serif;font-size:42px;color:var(--blue-l);line-height:.7;display:block;margin-bottom:8px">&ldquo;</span>
-        <p style="font-family:'Instrument Serif',serif;font-size:17px;font-style:italic;color:var(--muted);line-height:1.65">We built Brief because we were tired of starting projects on the wrong foot. We use it for every client &mdash; and it changed how we work from day one.</p>
-        <div style="font-size:12px;color:var(--subtle);margin-top:14px;font-weight:600">The Brief team</div>
-      </div>
+    <div class="features-header rv">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>What you get</span>
+      <h2 class="serif section-h2" style="margin-bottom:12px">Everything a brief needs.</h2>
+      <p>No more PDFs in email chains. No more chasing.</p>
     </div>
-    <div class="impact-metrics">
-      <div class="impact-m rv d1">
-        <div class="impact-m-chart">
-          <svg viewBox="0 0 200 72" fill="none" width="100%" height="100%">
-            <rect x="24" y="12" width="38" height="50" rx="6" fill="#E8ECF4"/>
-            <rect x="76" y="34" width="38" height="28" rx="6" fill="var(--blue-l)"/>
-            <line x1="64" y1="4" x2="64" y2="68" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3"/>
-            <text x="43" y="69" text-anchor="middle" font-size="9" fill="var(--subtle)" font-family="Manrope,sans-serif" font-weight="600">Before</text>
-            <text x="95" y="69" text-anchor="middle" font-size="9" fill="var(--blue)" font-family="Manrope,sans-serif" font-weight="600">With Brief</text>
-          </svg>
+    <!-- Bento: 3-col grid, 2 rows, forms one solid rectangle -->
+    <div class="bento rv d1">
+
+      <!-- Row 1 col 1: AI Generator (dark) -->
+      <div class="bc bc-dark">
+        <div class="bc-eyebrow">
+          <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14"><path d="M7 1L8.5 5.5 13 7 8.5 8.5 7 13 5.5 8.5 1 7 5.5 5.5Z" stroke-width="1.4"/></svg></span>
+          AI Generator
         </div>
-        <div class="impact-num">2.5x</div>
-        <div class="impact-desc">Fewer revision rounds when projects start with a structured brief.</div>
-      </div>
-      <div class="impact-m rv d2">
-        <div class="impact-m-chart">
-          <svg viewBox="0 0 200 72" fill="none" width="100%" height="100%">
-            <rect x="10" y="28" width="180" height="16" rx="8" fill="var(--border)"/>
-            <rect x="10" y="28" width="108" height="16" rx="8" fill="var(--blue)"/>
-            <circle cx="118" cy="36" r="10" fill="white" stroke="var(--blue)" stroke-width="2.5"/>
-          </svg>
+        <div class="bc-title" style="color:white">Write a brief<br>in 60 seconds</div>
+        <div class="bc-illo">
+          <!-- simple: input bar + 2 clean output lines -->
+          <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:9px;margin-bottom:8px">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="white" opacity=".6"><path d="M6.5 1L7.8 5 12 6.5 7.8 8 6.5 12 5.2 8 1 6.5 5.2 5Z"/></svg>
+            <span style="font-size:11px;color:rgba(255,255,255,.45);font-style:italic;flex:1">Describe your project...<span class="ai-cursor"></span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="display:flex;align-items:center;gap:7px;padding:7px 10px;background:rgba(255,255,255,.05);border-radius:7px">
+              <div style="width:5px;height:5px;border-radius:50%;background:#22C55E;flex-shrink:0"></div>
+              <span style="font-size:11px;color:rgba(255,255,255,.45);flex:1">Project overview &amp; goals</span>
+              <span style="font-size:10px;color:var(--blue-m);font-weight:700">&#x2713;</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:7px;padding:7px 10px;background:rgba(255,255,255,.05);border-radius:7px">
+              <div style="width:5px;height:5px;border-radius:50%;background:rgba(107,155,255,.5);flex-shrink:0"></div>
+              <span style="font-size:11px;color:rgba(255,255,255,.3);flex:1">Deliverables &amp; timeline<span class="ai-cursor"></span></span>
+              <span style="font-size:10px;color:rgba(107,155,255,.3);font-weight:700">&#x2713;</span>
+            </div>
+          </div>
         </div>
-        <div class="impact-num">60%</div>
-        <div class="impact-desc">Less time spent on back-and-forth before work can begin.</div>
       </div>
-      <div class="impact-m rv d3">
-        <div class="impact-m-chart">
-          <svg viewBox="0 0 200 72" fill="none" width="100%" height="100%">
-            <rect x="22" y="52" width="36" height="12" rx="4" fill="var(--blue-l)"/>
-            <rect x="80" y="32" width="36" height="32" rx="4" fill="var(--blue-m)" opacity=".65"/>
-            <rect x="138" y="10" width="36" height="54" rx="4" fill="var(--blue)"/>
-          </svg>
+
+      <!-- Row 1 col 2: Live Status -->
+      <div class="bc">
+        <div class="bc-eyebrow">
+          <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5"/><path d="M7 4v3l2 1.5"/></svg></span>
+          Live Status
         </div>
-        <div class="impact-num">3x</div>
-        <div class="impact-desc">More likely to deliver on time and on budget with a complete brief from day one.</div>
+        <div class="bc-title">Always know<br>what's happening.</div>
+        <div class="bc-illo">
+          <div class="status-pills">
+            <div class="sp sp-sent">Sent</div>
+            <div class="sp sp-seen">Seen</div>
+            <div class="sp sp-prog">In Progress</div>
+            <div class="sp sp-done">Completed</div>
+            <div class="sp sp-draft">Draft</div>
+          </div>
+        </div>
       </div>
+
+      <!-- Row 1 col 3: Your Brand (blue) -->
+      <div class="bc bc-blue">
+        <div class="bc-eyebrow">
+          <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14" stroke="#0A3ACC"><rect x="2" y="2" width="10" height="10" rx="2"/><path d="M5 7h4M5 5h2"/></svg></span>
+          <span style="color:#0A3ACC">Your Brand</span>
+        </div>
+        <div class="bc-title">Your brand.<br>Not ours.</div>
+        <div class="bc-illo">
+          <!-- minimal browser bar -->
+          <div style="background:var(--blue);border-radius:8px 8px 0 0;padding:8px 12px;display:flex;align-items:center;gap:7px">
+            <div style="width:14px;height:14px;border-radius:4px;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:6px;font-weight:800;color:white">B</div>
+            <span style="font-size:10px;color:rgba(255,255,255,.7);font-weight:500">yourco.brief.app</span>
+          </div>
+          <div style="background:white;border:1px solid #BDD0FF;border-top:none;border-radius:0 0 8px 8px;padding:10px 12px">
+            <div style="height:3px;background:var(--blue);border-radius:2px;width:40%;margin-bottom:7px"></div>
+            <div style="height:2px;background:#BDD0FF;border-radius:2px;margin-bottom:4px"></div>
+            <div style="height:2px;background:#BDD0FF;border-radius:2px;width:70%"></div>
+          </div>
+          <div style="display:flex;gap:5px;margin-top:10px">
+            <div style="height:16px;border-radius:5px;flex:1;background:#1558FF"></div>
+            <div style="height:16px;border-radius:5px;flex:1;background:#060D1F"></div>
+            <div style="height:16px;border-radius:5px;flex:1;background:#6B9BFF"></div>
+            <div style="height:16px;border-radius:5px;flex:1;background:#E8ECF4"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2 col 1: Workflows / Never miss -->
+      <div class="bc">
+        <div class="bc-eyebrow">
+          <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14"><path d="M7 1v3M7 10v3M1 7h3M10 7h3"/><circle cx="7" cy="7" r="2.5"/></svg></span>
+          Workflows
+        </div>
+        <div class="bc-title">Never miss<br>a follow-up.</div>
+        <div class="bc-illo">
+          <!-- simple flow: 3 small nodes with connectors -->
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 11px;font-size:11px;font-weight:600">
+              <div style="width:20px;height:20px;background:var(--blue-l);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px">📤</div>
+              Brief sent
+              <span style="margin-left:auto;font-size:9px;font-weight:700;background:var(--blue-l);color:var(--blue-d);padding:2px 6px;border-radius:20px">Trigger</span>
+            </div>
+            <div style="width:1px;height:10px;background:var(--border);margin-left:14px"></div>
+            <div style="display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 11px;font-size:11px;font-weight:600">
+              <div style="width:20px;height:20px;background:var(--blue-l);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px">⏰</div>
+              Wait 2 days
+              <span style="margin-left:auto;font-size:9px;font-weight:700;background:var(--blue-l);color:var(--blue-d);padding:2px 6px;border-radius:20px">Auto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2 col 2–3: Before / After (wide) -->
+      <div class="bc bc-wide">
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start">
+          <div style="min-width:140px">
+            <div class="bc-eyebrow">
+              <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14"><path d="M2 7h10M7 2v10"/></svg></span>
+              Before &amp; After
+            </div>
+            <div class="bc-title">The old way<br>vs. Brief</div>
+          </div>
+          <div class="ba-grid">
+            <div class="ba-panel b4">
+              <div class="ba-lbl">Before</div>
+              <div class="ba-row"><span class="ba-d"></span>90 min in Google Docs</div>
+              <div class="ba-row"><span class="ba-d"></span>No idea if they saw it</div>
+              <div class="ba-row"><span class="ba-d"></span>3 follow-up emails</div>
+              <div class="ba-row"><span class="ba-d"></span>Answers in email threads</div>
+            </div>
+            <div class="ba-panel af">
+              <div class="ba-lbl">With Brief</div>
+              <div class="ba-row"><span class="ba-d"></span>3 min with AI</div>
+              <div class="ba-row"><span class="ba-d"></span>Live: Sent → Seen → Done</div>
+              <div class="ba-row"><span class="ba-d"></span>Auto reminders</div>
+              <div class="ba-row"><span class="ba-d"></span>Structured dashboard</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- FOR WHO -->
-<section class="section">
+<section class="who-section">
   <div class="wrap">
-    <div class="rv" style="text-align:center">
-      <span class="ey"><span class="ey-dot"></span> Built for</span>
-      <h2 class="h2">Anyone who briefs clients.</h2>
+    <div class="who-header rv">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Who it's for</span>
+      <h2 class="serif section-h2" style="margin-bottom:12px">Anyone who starts<br>projects with clients.</h2>
+      <p style="font-size:17px;color:var(--muted)">Brief fits your workflow, whatever it looks like.</p>
     </div>
-    <div class="fw-grid">
-      <div class="fw-c rv d1"><span class="fw-em">&#x1F3E2;</span><div class="fw-nm">Agencies</div><div class="fw-dsc">White-label portals, multi-workspace, team management.</div><div class="fw-tags"><span class="fw-tag">Multi-client</span><span class="fw-tag">White-label</span></div></div>
-      <div class="fw-c rv d2"><span class="fw-em">&#x1F464;</span><div class="fw-nm">Freelancers</div><div class="fw-dsc">Look professional from day one. Impress clients before the project starts.</div><div class="fw-tags"><span class="fw-tag">Templates</span><span class="fw-tag">AI</span></div></div>
-      <div class="fw-c rv d3"><span class="fw-em">&#x1F4E3;</span><div class="fw-nm">Marketing Teams</div><div class="fw-dsc">Brief agencies and stakeholders clearly, fast, every time.</div><div class="fw-tags"><span class="fw-tag">Collaboration</span><span class="fw-tag">PDF export</span></div></div>
-      <div class="fw-c rv d4"><span class="fw-em">&#x1F680;</span><div class="fw-nm">Startups &amp; Companies</div><div class="fw-dsc">Scale briefing across teams with SSO, API, and enterprise controls.</div><div class="fw-tags"><span class="fw-tag">Enterprise</span><span class="fw-tag">SSO / API</span></div></div>
+    <div class="who-grid">
+      <div class="who-card rv d1"><span class="who-em">🏢</span><div class="who-name">Agencies</div><div class="who-desc">Standardize how you intake every client. White-label portals, team seats, multi-workspace.</div></div>
+      <div class="who-card rv d2"><span class="who-em">👤</span><div class="who-name">Freelancers</div><div class="who-desc">Look professional from day one. A branded brief impresses clients before the work starts.</div></div>
+      <div class="who-card rv d3"><span class="who-em">📣</span><div class="who-name">Marketing Teams</div><div class="who-desc">Brief your agency partners and internal stakeholders with the same system, every time.</div></div>
+      <div class="who-card rv d4"><span class="who-em">🚀</span><div class="who-name">Startups</div><div class="who-desc">No briefing experience? Brief guides your clients through it automatically.</div></div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="section" id="pricing" style="background:var(--surface)">
+<section class="price-section" id="pricing">
   <div class="wrap">
-    <div class="rv" style="text-align:center">
-      <span class="ey"><span class="ey-dot"></span> Pricing</span>
-      <h2 class="h2">Start free. Scale when ready.</h2>
+    <div class="price-header rv">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Pricing</span>
+      <h2 class="serif section-h2" style="margin-bottom:10px">Start free. No catch.</h2>
+      <p style="font-size:17px;color:var(--muted)">Upgrade when you're ready. Cancel anytime.</p>
     </div>
-    <div class="bill-row rv">
-      <div class="bill-toggle">
-        <button class="bill-btn" onclick="setBill('mo',this)">Monthly</button>
-        <button class="bill-btn on" onclick="setBill('yr',this)">Yearly &nbsp;<span class="bill-save">Save 20%</span></button>
+    <div class="toggle-row rv">
+      <div class="price-toggle">
+        <button class="pt-btn" onclick="setBill('mo',this)">Monthly</button>
+        <button class="pt-btn on" onclick="setBill('yr',this)">Yearly &nbsp;<span class="pt-save">Save 20%</span></button>
       </div>
     </div>
     <div class="plans rv d1">
       <div class="plan">
-        <div class="plan-name">Free</div>
-        <div class="plan-price"><sup>&#x20AC;</sup>0</div>
-        <div class="plan-price-meta"><span class="plan-cycle">forever free</span></div>
+        <div class="plan-tier">Free</div>
+        <div class="plan-price"><sup>&euro;</sup>0</div>
+        <div class="plan-cycle">forever free</div>
         <hr class="plan-rule">
-        <div class="plan-fs">
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Up to 3 active briefings</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> 1 template</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> 3 email sends / month</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Shareable link &middot; Basic dashboard</div>
-          <div class="plan-f" style="opacity:.32"><span class="pf-no">&#x2717;</span> Custom branding</div>
-          <div class="plan-f" style="opacity:.32"><span class="pf-no">&#x2717;</span> AI generator &middot; Workflows</div>
-        </div>
+        <ul class="plan-features">
+          <li><span class="pf-ok">&#x2713;</span> Up to 3 active briefs</li>
+          <li><span class="pf-ok">&#x2713;</span> 1 template</li>
+          <li><span class="pf-ok">&#x2713;</span> 3 email sends / month</li>
+          <li><span class="pf-ok">&#x2713;</span> Shareable link</li>
+          <li style="opacity:.35"><span class="pf-no">&#x2717;</span> Custom branding</li>
+          <li style="opacity:.35"><span class="pf-no">&#x2717;</span> AI generator</li>
+        </ul>
         <a href="https://briefapp.base44.app/" class="plan-cta">Get started free <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
       <div class="plan hi">
-        <div class="plan-rec">Most popular</div>
-        <div class="plan-name">Pro</div>
-        <div class="plan-price" id="pp"><sup>&#x20AC;</sup>15</div>
-        <div class="plan-price-meta">
-          <span class="plan-cycle" id="pc">/ month</span>
-          <span class="plan-yr-badge" id="pb">&#x20AC;182 / yr &middot; 2 mo free</span>
-        </div>
+        <div class="plan-badge">Most popular</div>
+        <div class="plan-tier">Pro</div>
+        <div class="plan-price" id="pp"><sup>&euro;</sup>15</div>
+        <div class="plan-cycle" id="pc">/ month &middot; billed yearly</div>
         <hr class="plan-rule">
-        <div class="plan-fs">
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Unlimited briefings &amp; sends</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Unlimited templates</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Full custom branding + domain</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Real-time status tracking</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Auto workflows &middot; AI generator</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> PDF export &middot; Client inbox</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> &ldquo;Made with Brief&rdquo; removed</div>
-        </div>
+        <ul class="plan-features">
+          <li><span class="pf-ok">&#x2713;</span> Unlimited briefs &amp; sends</li>
+          <li><span class="pf-ok">&#x2713;</span> Unlimited templates</li>
+          <li><span class="pf-ok">&#x2713;</span> Full branding + custom domain</li>
+          <li><span class="pf-ok">&#x2713;</span> Real-time status tracking</li>
+          <li><span class="pf-ok">&#x2713;</span> Auto follow-up reminders</li>
+          <li><span class="pf-ok">&#x2713;</span> AI brief generator</li>
+          <li><span class="pf-ok">&#x2713;</span> PDF export &middot; Client inbox</li>
+        </ul>
         <a href="https://briefapp.base44.app/" class="plan-cta">Start Pro <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
       <div class="plan">
-        <div class="plan-name">Enterprise</div>
-        <div class="plan-price" id="ep"><sup>&#x20AC;</sup>38</div>
-        <div class="plan-price-meta">
-          <span class="plan-cycle" id="ec">/ month</span>
-          <span class="plan-yr-badge" id="eb">&#x20AC;451 / yr &middot; 2 mo free</span>
-        </div>
+        <div class="plan-tier">Enterprise</div>
+        <div class="plan-price" id="ep"><sup>&euro;</sup>38</div>
+        <div class="plan-cycle" id="ec">/ month &middot; billed yearly</div>
         <hr class="plan-rule">
-        <div class="plan-fs">
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Everything in Pro</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> 3 team seats</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Client management</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Unlimited workspaces</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Brand templates per workspace</div>
-          <div class="plan-f"><span class="pf-ok">&#x2713;</span> Priority support</div>
-        </div>
+        <ul class="plan-features">
+          <li><span class="pf-ok">&#x2713;</span> Everything in Pro</li>
+          <li><span class="pf-ok">&#x2713;</span> 3 team seats</li>
+          <li><span class="pf-ok">&#x2713;</span> Client management portal</li>
+          <li><span class="pf-ok">&#x2713;</span> Unlimited workspaces</li>
+          <li><span class="pf-ok">&#x2713;</span> Priority support</li>
+        </ul>
         <a href="https://briefapp.base44.app/" class="plan-cta">Get started <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
     </div>
-
-    <!-- Founding Member Coupon Card -->
-    <div class="founding-coupon rv d2">
-      <div class="fcc-left">
-        <div class="fcc-tag"><span class="fcc-tag-dot"></span> Founding Member Offer</div>
-        <div class="fcc-headline">Get your first month of Pro — completely free.</div>
-        <div class="fcc-desc">For early adopters who want to start projects the right way. Limited time only.</div>
+    <!-- founding coupon strip -->
+    <div class="founding-strip rv d2">
+      <div class="founding-l">
+        <span class="founding-badge">Founding Offer</span>
+        <div class="founding-text">Get your first month of Pro free <span>&mdash; for early adopters only</span></div>
       </div>
-      <div class="fcc-divider"></div>
-      <div class="fcc-right">
-        <div class="fcc-code-label">Use code at signup</div>
-        <div class="fcc-code"><span style="font-size:11px;font-weight:500;color:var(--subtle);letter-spacing:.04em;display:block;margin-bottom:3px">Promo code</span><span style="font-size:20px;font-weight:600;color:var(--muted);letter-spacing:.12em">FOUNDING</span></div>
-        <a href="https://briefapp.base44.app/" class="fcc-cta">Claim offer <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      <div class="founding-r">
+        <div class="founding-code">FOUNDING</div>
+        <a href="https://briefapp.base44.app/" class="founding-cta-btn">Claim offer <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section faq-sec" id="faq" style="padding-top:80px;padding-bottom:80px">
-  <div class="wrap">
-    <div class="rv" style="text-align:center">
-      <span class="ey"><span class="ey-dot"></span> FAQ</span>
-      <h2 class="h2" style="font-size:clamp(26px,3.5vw,42px)">Quick answers.</h2>
-    </div>
-    <div class="faq-list rv d1">
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Does my client need an account?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">No. Clients get a link and fill the brief in their browser. No sign-up, no login, no friction.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">How is Brief different from Typeform or Google Forms?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Brief is purpose-built for agency briefings, not surveys. You get custom branding, real-time status, a structured dashboard, and a client experience that reflects your quality.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Can I use my own logo and colors?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Yes &mdash; on Pro and Enterprise you can upload your logo, set brand colors, and use a custom domain. Clients see your brand, not Brief.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">What if my client doesn't respond?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Set automated reminders &mdash; Brief follows up at the right time, automatically. No manual chasing needed.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Is there a free trial for Pro?<div class="faq-ic"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div></button><div class="faq-a">Every account gets a 14-day Pro trial &mdash; no credit card required. Upgrade or stay on Free after 14 days.</div></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<div class="cta-outer">
-  <div class="cta-box rv">
-    <div class="cta-glow"></div>
-    <div class="cta-inner">
-      <span class="ey"><span class="ey-dot"></span> Get started</span>
-      <h2 class="h2 cta-h2" style="font-size:clamp(28px,4.5vw,52px);color:white;margin-bottom:14px">Your next project starts<br>with a better brief.</h2>
-      <p class="cta-sub">Free forever &middot; No credit card &middot; Setup in 3 minutes</p>
-      <div class="cta-btns">
-        <a href="https://briefapp.base44.app/" class="btn-white btn-lg">Start for free <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg></a>
-        <button class="btn-gw btn-lg" onclick="location.href='#how'">See how it works</button>
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-box rv">
+      <div class="cta-glow"></div>
+      <div class="cta-inner">
+        <div class="cta-ey"><span class="cta-ey-dot"></span> Ready?</div>
+        <h2 class="serif cta-h2">Start your next project<br>the right way.</h2>
+        <p class="cta-sub">Free forever &middot; No credit card &middot; 3 minutes to set up</p>
+        <div class="cta-btns">
+          <a href="https://briefapp.base44.app/" class="btn-cta-w">Start for free <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg></a>
+          <button class="btn-cta-gh" onclick="location.href='#how'">See how it works</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
   <div class="foot-l">
-    <img src="Group 4.png" class="foot-logo" alt="Brief">
+    <img src="Group 4.png" style="height:22px;width:auto;object-fit:contain" alt="Brief">
     <span class="foot-copy">&copy; 2025 Brief</span>
   </div>
   <div class="foot-links">
@@ -1093,193 +694,81 @@ footer{border-top:1px solid var(--border);padding:32px 48px;max-width:1100px;mar
 
 <!-- FOUNDING POPUP -->
 <div class="fp-overlay" id="fpOverlay">
-  <div class="fp-coupon">
-    <div class="fp-top-strip"></div>
-    <button class="fp-close" onclick="closePopup()" aria-label="Close">&#x2715;</button>
+  <div class="fp-card">
+    <div class="fp-strip"></div>
+    <button class="fp-close" onclick="closePopup()">&#x2715;</button>
     <div class="fp-body">
-      <span class="fp-eyebrow"><span class="fp-eyebrow-dot"></span> Limited Offer</span>
-      <h2 class="fp-h2">Founding Member<br>Offer</h2>
-      <p class="fp-desc">Be one of the first to use Brief. Get 1 month of Pro completely free &mdash; no strings attached.</p>
-      <div class="fp-features">
-        <div class="fp-feat"><div class="fp-feat-check"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>Unlimited briefings &amp; sends</div>
-        <div class="fp-feat"><div class="fp-feat-check"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>Full custom branding + domain</div>
-        <div class="fp-feat"><div class="fp-feat-check"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>AI generator included</div>
+      <div class="fp-ey"><span class="fp-ey-dot"></span> Limited Offer</div>
+      <h2 class="fp-h">Founding Member Offer</h2>
+      <p class="fp-desc">Be one of the first agencies on Brief. Get your first month of Pro completely free &mdash; no strings, no card needed.</p>
+      <div class="fp-perks">
+        <div class="fp-perk"><div class="fp-perk-ic"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>Unlimited briefs &amp; sends</div>
+        <div class="fp-perk"><div class="fp-perk-ic"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>Full custom branding + domain</div>
+        <div class="fp-perk"><div class="fp-perk-ic"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>AI generator included</div>
       </div>
-      <div class="fp-code-section">
-        <span class="fp-code-section-label">Code</span>
-        <div class="fp-code-display" id="fpCode" style="font-weight:600;color:var(--muted);letter-spacing:.1em;font-size:17px">FOUNDING</div>
-        <button class="fp-copy-btn" id="fpCopyBtn" onclick="copyFoundingCode()">
-          <svg id="fpCopyIc" viewBox="0 0 12 12"><rect x="4" y="4" width="7" height="7" rx="1.5"/><path d="M8 4V2.5A1.5 1.5 0 006.5 1H2.5A1.5 1.5 0 001 2.5V6.5A1.5 1.5 0 002.5 8H4"/></svg>
-          <span id="fpCopyTxt">Copy</span>
+      <div class="fp-code-row">
+        <span class="fp-code-label">Code</span>
+        <div class="fp-code-val">FOUNDING</div>
+        <button class="fp-copy" id="fpCopyBtn" onclick="copyCode()">
+          <svg id="fpIc" viewBox="0 0 12 12"><rect x="4" y="4" width="7" height="7" rx="1.5"/><path d="M8 4V2.5A1.5 1.5 0 006.5 1H2.5A1.5 1.5 0 001 2.5V6.5A1.5 1.5 0 002.5 8H4"/></svg>
+          <span id="fpTxt">Copy</span>
         </button>
       </div>
-      <a href="https://briefapp.base44.app/" class="fp-cta">Claim 1 month free <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
-      <p class="fp-hint">No credit card required &middot; New accounts only</p>
+      <a href="https://briefapp.base44.app/" class="fp-cta-btn">
+        Claim 1 month free
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
+      </a>
+      <p class="fp-hint">No credit card &middot; New accounts only</p>
     </div>
   </div>
 </div>
 
 <script>
-/* ── Reveal ── */
+/* Reveal */
 document.querySelectorAll('.rv').forEach(el =>
-  new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('in'); },
-    { threshold: .07, rootMargin: '0px 0px -28px 0px' }).observe(el)
+  new IntersectionObserver(([e]) => { if(e.isIntersecting) el.classList.add('in') },
+    { threshold:.07, rootMargin:'0px 0px -24px 0px' }).observe(el)
 );
 
-/* ── Nav ── */
+/* Nav */
 window.addEventListener('scroll', () =>
-  document.getElementById('nav').classList.toggle('scrolled', scrollY > 24), { passive: true });
+  document.getElementById('nav').classList.toggle('up', scrollY > 24), { passive:true }
+);
 
-/* ── How-to: scroll-position based ── */
-const howSteps = Array.from(document.querySelectorAll('.how-step-item'));
-const howFrames = Array.from(document.querySelectorAll('.how-frame'));
-let howRaf = false, howTimers = {};
-
-function startSlides(frameId) {
-  if (howTimers[frameId]) return;
-  const slides = Array.from(document.querySelectorAll('#' + frameId + ' .how-slide'));
-  if (slides.length <= 1) return;
-  let idx = 0;
-  howTimers[frameId] = setInterval(() => {
-    slides[idx].classList.remove('s-on');
-    idx = (idx + 1) % slides.length;
-    slides[idx].classList.add('s-on');
-  }, 2800);
-}
-function stopSlides(frameId) {
-  clearInterval(howTimers[frameId]);
-  delete howTimers[frameId];
-  // reset to first slide
-  const slides = Array.from(document.querySelectorAll('#' + frameId + ' .how-slide'));
-  slides.forEach((s, i) => s.classList.toggle('s-on', i === 0));
-}
-
-function updateHowStep() {
-  const viewMid = window.innerHeight * 0.42;
-  let bestIdx = 0, bestDist = Infinity;
-  howSteps.forEach((s, i) => {
-    const r = s.getBoundingClientRect();
-    if (r.bottom < 80 || r.top > window.innerHeight - 80) return;
-    const d = Math.abs(r.top + r.height * .5 - viewMid);
-    if (d < bestDist) { bestDist = d; bestIdx = i; }
-  });
-  howSteps.forEach((s, i) => s.classList.toggle('active', i === bestIdx));
-  howFrames.forEach((f, i) => {
-    const wasActive = f.classList.contains('active');
-    const isActive = i === bestIdx;
-    f.classList.toggle('active', isActive);
-    const fid = 'hf' + i;
-    if (isActive && !wasActive) startSlides(fid);
-    if (!isActive && wasActive) stopSlides(fid);
-  });
-}
-
-window.addEventListener('scroll', () => {
-  if (!howRaf) { requestAnimationFrame(() => { updateHowStep(); howRaf = false; }); howRaf = true; }
-}, { passive: true });
-window.addEventListener('load', () => { updateHowStep(); startSlides('hf0'); });
-
-/* ── Dashboard tabs ── */
-function switchDashTab(idx, el) {
-  document.querySelectorAll('.dash-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
-  const img = document.getElementById('dashImg'), fb = document.getElementById('dashFb');
-  img.style.display = 'block'; fb.style.display = 'none';
-  img.src = el.getAttribute('data-img');
-  img.onerror = () => { img.style.display = 'none'; fb.style.display = 'flex'; };
-}
-
-/* ── Billing ── */
+/* Billing */
 function setBill(t, btn) {
-  document.querySelectorAll('.bill-btn').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.pt-btn').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
   const yr = t === 'yr';
-  document.getElementById('pp').innerHTML = yr ? '<sup>&#x20AC;</sup>15' : '<sup>&#x20AC;</sup>19';
-  document.getElementById('pc').textContent = '/ month';
-  document.getElementById('pb').innerHTML = yr ? '&#x20AC;182 / yr &middot; 2 mo free' : '';
-  document.getElementById('pb').style.display = yr ? '' : 'none';
-  document.getElementById('ep').innerHTML = yr ? '<sup>&#x20AC;</sup>38' : '<sup>&#x20AC;</sup>47';
-  document.getElementById('ec').textContent = '/ month';
-  document.getElementById('eb').innerHTML = yr ? '&#x20AC;451 / yr &middot; 2 mo free' : '';
-  document.getElementById('eb').style.display = yr ? '' : 'none';
+  document.getElementById('pp').innerHTML = yr ? '<sup>&euro;</sup>15' : '<sup>&euro;</sup>19';
+  document.getElementById('pc').textContent = yr ? '/ month · billed yearly' : '/ month';
+  document.getElementById('ep').innerHTML = yr ? '<sup>&euro;</sup>38' : '<sup>&euro;</sup>47';
+  document.getElementById('ec').textContent = yr ? '/ month · billed yearly' : '/ month';
 }
 
-/* ── FAQ ── */
-function faq(btn) {
-  const item = btn.closest('.faq-item'), open = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!open) item.classList.add('open');
-}
-
-/* ── Popup ── */
-let popupShown = false;
-function showPopup() { if (popupShown) return; popupShown = true; document.getElementById('fpOverlay').classList.add('show'); }
-function closePopup() { document.getElementById('fpOverlay').classList.remove('show'); }
-document.addEventListener('mouseleave', e => { if (e.clientY <= 0) showPopup(); });
+/* Popup */
+let shown = false;
+function showPopup() { if(shown) return; shown=true; document.getElementById('fpOverlay').classList.add('show') }
+function closePopup() { document.getElementById('fpOverlay').classList.remove('show') }
+document.addEventListener('mouseleave', e => { if(e.clientY <= 0) showPopup() });
 setTimeout(showPopup, 18000);
-document.getElementById('fpOverlay').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
+document.getElementById('fpOverlay').addEventListener('click', function(e) { if(e.target===this) closePopup() });
 
-/* ── Copy code ── */
-async function copyFoundingCode() {
-  try { await navigator.clipboard.writeText('FOUNDING'); } catch(e) {
-    const r = document.createRange(); r.selectNode(document.getElementById('fpCode'));
+/* Copy code */
+async function copyCode() {
+  try { await navigator.clipboard.writeText('FOUNDING') } catch(e) {
+    const r = document.createRange(); r.selectNodeContents(document.querySelector('.fp-code-val'));
     window.getSelection().removeAllRanges(); window.getSelection().addRange(r);
     document.execCommand('copy'); window.getSelection().removeAllRanges();
   }
-  const btn = document.getElementById('fpCopyBtn'), txt = document.getElementById('fpCopyTxt'), ic = document.getElementById('fpCopyIc');
-  txt.textContent = 'Copied!';
+  const btn = document.getElementById('fpCopyBtn'), ic = document.getElementById('fpIc'), txt = document.getElementById('fpTxt');
+  txt.textContent = 'Copied!'; btn.classList.add('ok');
   ic.innerHTML = '<path d="M2 5l2.5 2.5L8 2.5"/>';
-  btn.classList.add('copied');
   setTimeout(() => {
-    txt.textContent = 'Copy';
+    txt.textContent = 'Copy'; btn.classList.remove('ok');
     ic.innerHTML = '<rect x="4" y="4" width="7" height="7" rx="1.5"/><path d="M8 4V2.5A1.5 1.5 0 006.5 1H2.5A1.5 1.5 0 001 2.5V6.5A1.5 1.5 0 002.5 8H4"/>';
-    btn.classList.remove('copied');
   }, 2500);
 }
-
-/* ── Block build animation ── */
-let bldTimer = null;
-function runBuildAnim() {
-  const blocks = ['blk0','blk1','blk2'];
-  const lines = [['bl0a','bl0b'],['bl1a','bl1b'],['bl2a','bl2b']];
-  // Reset
-  blocks.forEach(id => {
-    const el = document.getElementById(id);
-    if(el) { el.classList.remove('bld-in'); }
-  });
-  lines.forEach(pair => pair.forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.style.width = '0';
-  }));
-  // Animate in sequence
-  blocks.forEach((id, i) => {
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.classList.add('bld-in');
-      setTimeout(() => {
-        const la = document.getElementById(lines[i][0]);
-        const lb = document.getElementById(lines[i][1]);
-        if(la) la.style.width = '100%';
-        if(lb) lb.style.width = '55%';
-      }, 300);
-    }, i * 500 + 200);
-  });
-}
-
-// Run when frame 0 / slide 0 becomes active
-const origStartSlides = startSlides;
-window.addEventListener('load', () => {
-  // Start build anim initially since hf0 is active
-  setTimeout(runBuildAnim, 400);
-  // Loop it every ~6s (slide duration * 3)
-  setInterval(() => {
-    const s0 = document.getElementById('hf0s0');
-    if(s0 && s0.classList.contains('s-on')) {
-      runBuildAnim();
-    }
-  }, 5500);
-});
-
 </script>
 </body>
 </html>
