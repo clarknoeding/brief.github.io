@@ -12,14 +12,17 @@
   --blue:#1558FF;--blue-d:#0A3ACC;--blue-l:#EEF3FF;--blue-m:#6B9BFF;
   --ink:#060D1F;--muted:#6B7A99;--subtle:#A8B4CC;
   --border:#E8ECF4;--surface:#F5F7FC;--white:#fff;
-  --r:18px;--r-lg:24px;
+  --r:16px;--r-lg:22px;
+  --shadow-sm:0 1px 4px rgba(6,13,31,.06);
+  --shadow-md:0 4px 20px rgba(6,13,31,.08);
+  --shadow-lg:0 12px 48px rgba(6,13,31,.12);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Manrope',sans-serif;background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+body{font-family:'Manrope',sans-serif;background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.65;font-size:15px;letter-spacing:-.01em}
 a,button{font-family:inherit;cursor:pointer;text-decoration:none}
 .serif{font-family:'Instrument Serif',serif;font-weight:400;letter-spacing:-.025em}
 .wrap{max-width:1080px;margin:0 auto;padding:0 44px}
-.section{padding:120px 0}
+.section{padding:96px 0}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
@@ -27,14 +30,14 @@ a,button{font-family:inherit;cursor:pointer;text-decoration:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.18s}.d3{transition-delay:.26s}.d4{transition-delay:.34s}
 
 /* SECTION LABELS */
-.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:16px}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:16px}
 .eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0}
 .section-h2{font-size:clamp(30px,4vw,50px);line-height:1.08;letter-spacing:-.025em}
 
 /* ── NAV ── */
 .nav-shell{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:600;width:calc(100% - 28px);max-width:1080px;animation:navIn .6s .1s cubic-bezier(.16,1,.3,1) both}
 @keyframes navIn{from{opacity:0;transform:translateX(-50%) translateY(-14px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-nav{background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(232,236,244,.9);border-radius:100px;padding:8px 8px 8px 22px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 18px rgba(6,13,31,.06);transition:box-shadow .35s,background .35s}
+nav{background:rgba(255,255,255,.92);backdrop-filter:blur(24px) saturate(2);border:1px solid rgba(232,236,244,.85);border-radius:100px;padding:7px 7px 7px 22px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 24px rgba(6,13,31,.07),0 0 0 .5px rgba(255,255,255,.5);transition:box-shadow .35s,background .35s}
 nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .nav-logo-img{height:25px;width:auto;object-fit:contain}
 .nav-links{display:flex;list-style:none;gap:2px}
@@ -43,18 +46,18 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .nav-cta{display:flex;align-items:center;gap:6px}
 .btn-login{font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;padding:8px 14px;border-radius:100px;transition:color .18s}
 .btn-login:hover{color:var(--ink)}
-.btn-start{font-size:13px;font-weight:700;background:var(--blue);color:white;border:none;padding:10px 22px;border-radius:100px;box-shadow:0 2px 12px rgba(21,88,255,.3);transition:all .22s;display:inline-flex;align-items:center;gap:7px}
+.btn-start{font-size:13px;font-weight:700;background:linear-gradient(135deg,#1D63FF,#1558FF);color:white;border:none;padding:10px 22px;border-radius:100px;box-shadow:0 2px 12px rgba(21,88,255,.32),0 0 0 1px rgba(21,88,255,.15);transition:all .22s;display:inline-flex;align-items:center;gap:7px;letter-spacing:-.01em}
 .btn-start:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 4px 18px rgba(21,88,255,.42)}
 
 /* ── HERO ── */
-.hero{padding:148px 0 0;background:linear-gradient(170deg,#EBF0FF 0%,#F4F7FF 38%,#F9FAFE 68%,#fff 100%);position:relative;overflow:hidden}
+.hero{padding:148px 0 0;background:linear-gradient(170deg,#E8EEFF 0%,#F2F6FF 32%,#F8FAFF 62%,#fff 100%);position:relative;overflow:hidden}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(21,88,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(21,88,255,.04) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,black 40%,transparent 100%);pointer-events:none}
 .hero-text{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;padding:0 24px}
 .hero-kicker{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--border);border-radius:100px;padding:5px 14px 5px 7px;font-size:12px;font-weight:600;color:var(--muted);box-shadow:0 2px 10px rgba(6,13,31,.05);margin-bottom:30px;animation:fdUp .6s ease both}
 .hero-kicker-dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
 @keyframes fdUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes fdIn{from{opacity:0}to{opacity:1}}
-.hero-h1{font-size:clamp(44px,7.5vw,82px);line-height:1.05;margin-bottom:24px;animation:fdUp .75s .08s cubic-bezier(.16,1,.3,1) both}
+.hero-h1{font-size:clamp(44px,7.5vw,80px);line-height:1.04;margin-bottom:24px;animation:fdUp .75s .08s cubic-bezier(.16,1,.3,1) both;letter-spacing:-.04em}
 .hero-sub{font-size:18px;color:var(--muted);line-height:1.72;max-width:500px;margin:0 auto 38px;animation:fdUp .75s .16s cubic-bezier(.16,1,.3,1) both}
 .hero-actions{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;animation:fdUp .75s .24s cubic-bezier(.16,1,.3,1) both;margin-bottom:14px}
 .btn-hero{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;padding:14px 30px;border-radius:100px;border:none;transition:all .22s cubic-bezier(.16,1,.3,1)}
@@ -62,25 +65,25 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .btn-p:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,88,255,.42)}
 .btn-g{background:white;color:var(--ink);border:1.5px solid var(--border)}
 .btn-g:hover{border-color:rgba(21,88,255,.35)}
-.hero-hint{font-size:12px;color:var(--subtle);animation:fdIn .8s .38s both;margin-bottom:64px}
+.hero-hint{font-size:12px;color:var(--subtle);animation:fdIn .8s .38s both;margin-bottom:52px}
 .hero-hint span{margin:0 6px;opacity:.4}
 /* hero screen */
 .hero-screen-wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 44px}
-.hero-screen{background:var(--surface);border:1px solid var(--border);border-bottom:none;border-radius:20px 20px 0 0;min-height:320px;overflow:hidden;box-shadow:0 -6px 52px rgba(6,13,31,.08);display:flex;align-items:center;justify-content:center}
+.hero-screen{background:var(--surface);border:1px solid rgba(232,236,244,.9);border-bottom:none;border-radius:20px 20px 0 0;min-height:320px;overflow:hidden;box-shadow:0 -8px 64px rgba(6,13,31,.1),0 -2px 16px rgba(6,13,31,.05);display:flex;align-items:center;justify-content:center}
 .hero-screen img{width:100%;display:block;border-radius:20px 20px 0 0}
 .screen-ph{display:flex;flex-direction:column;align-items:center;gap:14px;padding:64px 0}
 .screen-ph svg{opacity:.2}
 .screen-ph span{font-size:13px;font-weight:600;color:var(--subtle)}
 
 /* ── HOW ── */
-.how-section{padding:120px 0;border-top:1px solid var(--border)}
-.how-header{max-width:540px;margin-bottom:64px}
+.how-section{padding:80px 0;border-top:1px solid var(--border)}
+.how-header{max-width:540px;margin-bottom:48px}
 .how-header h2{margin-bottom:12px}
 .how-header p{font-size:16px;color:var(--muted)}
-.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
-.how-step{padding:44px 40px;position:relative;border-right:1px solid var(--border)}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+.how-step{padding:36px 32px;position:relative;border-right:1.5px solid var(--border);background:white}
 .how-step:last-child{border-right:none}
-.how-step-num{font-family:'Instrument Serif',serif;font-size:52px;color:var(--blue-l);line-height:.9;display:block;margin-bottom:22px}
+.how-step-num{font-family:'Instrument Serif',serif;font-size:48px;color:var(--blue-l);line-height:.9;display:block;margin-bottom:20px;letter-spacing:-.02em}
 .how-step h3{font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.25}
 .how-step p{font-size:13px;color:var(--muted);line-height:1.7}
 /* connector arrow between steps */
@@ -89,29 +92,25 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .how-step-illo{width:100%;height:120px;margin-bottom:24px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 
 /* ── FEATURES (bento) ── */
-.features-section{padding:120px 0;background:var(--surface);border-top:1px solid var(--border)}
-.features-header{text-align:center;margin-bottom:56px}
+.features-section{padding:80px 0;background:white;border-top:1px solid var(--border)}
+.features-header{text-align:center;margin-bottom:36px}
 .features-header h2{margin-bottom:12px}
 .features-header p{font-size:16px;color:var(--muted);max-width:440px;margin:0 auto}
 /* Bento: single unified rectangle border wrapping all cells */
 .bento{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns:1.65fr 1fr 1fr;
   grid-template-rows:auto auto;
-  border:1.5px solid var(--border);
-  border-radius:var(--r-lg);
-  overflow:hidden;
-  background:var(--border);
-  gap:10px;
+  gap:12px;
 }
-.bc{background:white;padding:32px;overflow:hidden;transition:background .22s;position:relative;min-height:220px;display:flex;flex-direction:column}
-.bc:hover{background:#FAFBFF}
-.bc-wide{grid-column:span 2}
-.bc-wide-inner{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+.bc{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;overflow:hidden;transition:none;position:relative;display:flex;flex-direction:column;min-height:180px}
+.bc:hover{}
+.bc-tall{grid-row:span 2;min-height:0}
+.bc-wide{grid-column:span 2;min-height:0}
 .bc-dark{background:var(--ink)}
-.bc-dark:hover{background:#0D1628}
-.bc-blue{background:linear-gradient(140deg,#F0F5FF,#E4EEFF)}
-.bc-blue:hover{background:linear-gradient(140deg,#E8F0FF,#D6E5FF)}
+.bc-dark:hover{background:#0D1628;box-shadow:inset 0 0 0 1.5px rgba(107,155,255,.12)}
+.bc-blue{background:linear-gradient(145deg,#EFF4FF,#E2ECFF)}
+.bc-blue:hover{background:linear-gradient(145deg,#E8F0FF,#D8E6FF);box-shadow:inset 0 0 0 1.5px rgba(21,88,255,.15)}
 /* card text */
 .bc-eyebrow{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--blue);margin-bottom:10px}
 .bc-eyebrow-ic{width:16px;height:16px;flex-shrink:0}
@@ -120,7 +119,7 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .bc-dark .bc-eyebrow-ic svg{stroke:var(--blue-m)}
 .bc-blue .bc-eyebrow{color:#0A3ACC}
 .bc-blue .bc-eyebrow-ic svg{stroke:#0A3ACC}
-.bc-title{font-family:'Instrument Serif',serif;font-size:20px;font-weight:400;line-height:1.2;margin-bottom:5px}
+.bc-title{font-family:'Instrument Serif',serif;font-size:21px;font-weight:400;line-height:1.2;margin-bottom:6px;letter-spacing:-.015em}
 .bc-dark .bc-title{color:white}
 .bc-desc{font-size:12px;color:var(--muted);line-height:1.65}
 .bc-dark .bc-desc{color:rgba(255,255,255,.4)}
@@ -153,31 +152,31 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .ba-panel.af .ba-d{background:#16A34A}
 
 /* ── FOR WHO ── */
-.who-section{padding:120px 0;border-top:1px solid var(--border)}
-.who-header{text-align:center;margin-bottom:52px}
+.who-section{padding:96px 0;border-top:1px solid var(--border)}
+.who-header{text-align:center;margin-bottom:40px}
 .who-header h2{margin-bottom:12px}
 .who-header p{font-size:17px;color:var(--muted)}
 .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.who-card{border:1.5px solid var(--border);border-radius:var(--r);padding:28px 22px;background:white;transition:all .25s}
-.who-card:hover{border-color:rgba(21,88,255,.25);box-shadow:0 8px 32px rgba(21,88,255,.09);transform:translateY(-2px)}
+.who-card{border:1.5px solid var(--border);border-radius:20px;padding:28px 24px;background:white;transition:all .3s cubic-bezier(.16,1,.3,1)}
+.who-card:hover{border-color:rgba(21,88,255,.25);box-shadow:0 12px 40px rgba(21,88,255,.1);transform:translateY(-3px)}
 .who-em{font-size:28px;margin-bottom:14px;display:block}
 .who-name{font-family:'Instrument Serif',serif;font-size:20px;margin-bottom:8px}
 .who-desc{font-size:13px;color:var(--muted);line-height:1.65}
 
 /* ── PRICING ── */
-.price-section{padding:120px 0;background:var(--surface);border-top:1px solid var(--border)}
-.price-header{text-align:center;margin-bottom:20px}
+.price-section{padding:80px 0;background:white;border-top:1px solid var(--border)}
+.price-header{text-align:center;margin-bottom:16px}
 .price-header h2{margin-bottom:10px}
 .price-header p{font-size:17px;color:var(--muted)}
-.toggle-row{display:flex;justify-content:center;margin:24px 0 44px}
+.toggle-row{display:flex;justify-content:center;margin:20px 0 36px}
 .price-toggle{display:inline-flex;background:white;border:1px solid var(--border);border-radius:100px;padding:4px}
 .pt-btn{font-family:inherit;font-size:13px;font-weight:600;padding:8px 22px;border-radius:100px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
 .pt-btn.on{background:var(--ink);color:white;box-shadow:0 2px 8px rgba(6,13,31,.15)}
 .pt-save{font-size:11px;font-weight:700;color:#16A34A}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.plan{background:white;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:34px 30px;position:relative;transition:all .25s}
-.plan:hover{box-shadow:0 16px 48px rgba(6,13,31,.08)}
-.plan.hi{background:var(--ink);border-color:var(--ink)}
+.plan{background:white;border:1.5px solid var(--border);border-radius:20px;padding:34px 30px;position:relative;transition:all .3s cubic-bezier(.16,1,.3,1)}
+.plan:hover{box-shadow:0 16px 52px rgba(6,13,31,.1);transform:translateY(-2px)}
+.plan.hi{background:linear-gradient(145deg,#0D1628,#060D1F);border-color:transparent;box-shadow:0 8px 32px rgba(6,13,31,.2)}
 .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:white;font-size:10px;font-weight:800;padding:4px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.04em}
 .plan-tier{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
 .plan.hi .plan-tier{color:rgba(107,155,255,.8)}
@@ -199,7 +198,7 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .plan.hi .plan-cta{background:var(--blue);border-color:var(--blue);color:white}
 .plan.hi .plan-cta:hover{background:var(--blue-d);box-shadow:0 4px 18px rgba(21,88,255,.4)}
 /* founding coupon row */
-.founding-strip{margin-top:28px;background:white;border:1.5px dashed rgba(21,88,255,.25);border-radius:16px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.founding-strip{margin-top:28px;background:linear-gradient(135deg,#F8FAFF,#EFF4FF);border:1.5px dashed rgba(21,88,255,.3);border-radius:16px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;overflow:hidden}
 .founding-l{display:flex;align-items:center;gap:12px}
 .founding-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);background:var(--blue-l);padding:3px 9px;border-radius:100px;white-space:nowrap}
 .founding-text{font-size:14px;font-weight:600;color:var(--ink)}
@@ -210,8 +209,8 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .founding-cta-btn:hover{background:var(--blue-d)}
 
 /* ── CTA ── */
-.cta-section{padding:112px 0}
-.cta-box{background:var(--ink);border-radius:24px;padding:92px 60px;text-align:center;position:relative;overflow:hidden}
+.cta-section{padding:72px 0}
+.cta-box{background:linear-gradient(145deg,#0B1427 0%,#060D1F 60%,#091422 100%);border-radius:24px;padding:96px 60px;text-align:center;position:relative;overflow:hidden;box-shadow:0 24px 80px rgba(6,13,31,.2)}
 .cta-glow{position:absolute;width:560px;height:400px;background:radial-gradient(ellipse,rgba(21,88,255,.22) 0%,transparent 65%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .cta-inner{position:relative;z-index:1}
 .cta-ey{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(107,155,255,.8);margin-bottom:18px}
@@ -264,6 +263,8 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
+  .cmp-grid-stats{grid-template-columns:1fr!important}
+
   .wrap{padding:0 32px}
   .hero-screen-wrap{padding:0 32px}
   .section{padding:88px 0}
@@ -272,10 +273,9 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
   .how-step:last-child{border-bottom:none}
   .how-step:not(:last-child)::after{display:none}
   /* bento: 2-col on tablet */
-  .bento{grid-template-columns:1fr 1fr}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .bc-tall{grid-row:span 1;grid-column:span 2}
   .bc-wide{grid-column:span 2}
-  .bc-wide-inner{grid-template-columns:1fr}
-  .bc-wide-inner .ba-grid{margin-top:16px}
   .who-grid{grid-template-columns:1fr 1fr}
   .plans{grid-template-columns:1fr}
   .founding-strip{flex-direction:column;align-items:flex-start;gap:16px}
@@ -284,15 +284,18 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
 }
 @media(max-width:640px){
   .wrap{padding:0 20px}
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+  footer{padding:24px 20px!important;flex-direction:column;align-items:flex-start;gap:16px}
+  [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
   .hero-screen-wrap{padding:0 20px}
   .section{padding:72px 0}
   .nav-links{display:none}
   .hero-h1{font-size:clamp(38px,9vw,58px)}
   .hero-sub{font-size:16px}
   /* bento: 1-col on mobile */
-  .bento{grid-template-columns:1fr}
-  .bc-wide{grid-column:span 1}
-  .bc-wide-inner{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr;grid-template-rows:auto}
+  .bc-tall,.bc-wide{grid-row:span 1;grid-column:span 1}
   .bc{min-height:auto}
   .how-step-illo{height:90px}
   .who-grid{grid-template-columns:1fr}
@@ -323,8 +326,8 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
       <li><a href="#pricing">Pricing</a></li>
     </ul>
     <div class="nav-cta">
-      <button class="btn-login" onclick="location.href='https://briefapp.base44.app/'">Log in</button>
-      <button class="btn-start" onclick="location.href='https://briefapp.base44.app/'">
+      <button class="btn-login" onclick="location.href='https://app.trybrief.co/'">Log in</button>
+      <button class="btn-start" onclick="location.href='https://app.trybrief.co/'">
         Start for free
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
       </button>
@@ -338,9 +341,9 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
   <div class="hero-text">
     <div class="hero-kicker"><span class="hero-kicker-dot"></span>The briefing platform</div>
     <h1 class="serif hero-h1">The simplest way<br>to brief a client.</h1>
-    <p class="hero-sub">Send a beautiful, branded form. Your client fills it in. You get structured answers &mdash; no back-and-forth.</p>
+    <p class="hero-sub">Send a beautiful, branded form. Your client fills it in. You get structured answers — no back-and-forth.</p>
     <div class="hero-actions">
-      <a href="https://briefapp.base44.app/" class="btn-hero btn-p">
+      <a href="https://app.trybrief.co/" class="btn-hero btn-p">
         Start for free
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg>
       </a>
@@ -350,7 +353,7 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
   </div>
   <div class="hero-screen-wrap">
     <div class="hero-screen">
-      <img src="1.png" alt="Brief dashboard" onerror="this.style.display='none';document.getElementById('sph').style.display='flex'">
+      <img src="dashboard.png" alt="Brief dashboard" onerror="this.style.display='none';document.getElementById('sph').style.display='flex'">
       <div id="sph" class="screen-ph" style="display:none">
         <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="4" y="8" width="52" height="44" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="4" y="8" width="52" height="11" rx="6" stroke="#CBD5E1" stroke-width="2"/><rect x="12" y="26" width="16" height="3" rx="1.5" fill="#E2E8F0"/><rect x="12" y="33" width="26" height="3" rx="1.5" fill="#E2E8F0"/><rect x="12" y="40" width="20" height="3" rx="1.5" fill="#E2E8F0"/><rect x="36" y="26" width="16" height="17" rx="3" fill="#E2E8F0"/></svg>
         <span>Dashboard Preview</span>
@@ -449,22 +452,40 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
     </div>
     <div class="bento rv d1">
 
-      <!-- AI Generator (dark) -->
-      <div class="bc bc-dark">
+      <!-- LEFT TALL: AI Generator — spans 2 rows -->
+      <div class="bc bc-dark bc-tall">
         <div class="bc-eyebrow">
           <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14"><path d="M7 1L8.5 5.5 13 7 8.5 8.5 7 13 5.5 8.5 1 7 5.5 5.5Z" stroke-width="1.4"/></svg></span>
           AI Generator
         </div>
-        <div class="bc-title" style="color:white">Brief written<br>in 60 seconds</div>
-        <div class="bc-illo">
-          <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:10px 13px;display:flex;align-items:center;gap:8px">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="rgba(107,155,255,.8)"><path d="M6 1L7.2 4.8 11 6 7.2 7.2 6 11 4.8 7.2 1 6 4.8 4.8Z"/></svg>
-            <span style="font-size:11px;color:rgba(255,255,255,.4);font-style:italic">Describe your project...<span class="ai-cursor"></span></span>
+        <div class="bc-title" style="color:white;font-size:22px">Write a complete brief<br>in under 60 seconds.</div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-top:24px;gap:10px">
+          <!-- Input field -->
+          <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:12px 15px;display:flex;align-items:center;gap:10px">
+            <svg width="14" height="14" viewBox="0 0 12 12" fill="rgba(107,155,255,.8)" style="flex-shrink:0"><path d="M6 1L7.2 4.8 11 6 7.2 7.2 6 11 4.8 7.2 1 6 4.8 4.8Z"/></svg>
+            <span style="font-size:12px;color:rgba(255,255,255,.32);font-style:italic;flex:1">Rebrand for B2B SaaS startup, Q3 launch<span class="ai-cursor"></span></span>
+          </div>
+          <!-- Generated sections -->
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:9px 13px">
+              <div style="width:6px;height:6px;border-radius:50%;background:#22C55E;flex-shrink:0"></div>
+              <span style="font-size:12px;color:rgba(255,255,255,.5);flex:1">Project overview &amp; goals</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l2.5 2.5L10 3"/></svg>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:9px 13px">
+              <div style="width:6px;height:6px;border-radius:50%;background:#22C55E;flex-shrink:0"></div>
+              <span style="font-size:12px;color:rgba(255,255,255,.5);flex:1">Target audience &amp; context</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l2.5 2.5L10 3"/></svg>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:9px;padding:9px 13px">
+              <div style="width:6px;height:6px;border-radius:50%;border:1px solid rgba(107,155,255,.4);flex-shrink:0"></div>
+              <span style="font-size:12px;color:rgba(255,255,255,.28);flex:1">Deliverables &amp; timeline<span class="ai-cursor"></span></span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Live Status -->
+      <!-- TOP RIGHT 1: Live Status -->
       <div class="bc">
         <div class="bc-eyebrow">
           <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5"/><path d="M7 4v3l2 1.5"/></svg></span>
@@ -481,24 +502,24 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
         </div>
       </div>
 
-      <!-- Your Brand (blue) -->
+      <!-- TOP RIGHT 2: Your Brand -->
       <div class="bc bc-blue">
         <div class="bc-eyebrow">
-          <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14" stroke="#0A3ACC"><rect x="2" y="2" width="10" height="10" rx="2"/><path d="M5 7h4M5 5h2"/></svg></span>
+          <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14" stroke="#0A3ACC"><rect x="2" y="2" width="10" height="10" rx="2.5"/><path d="M5 7h4M5 5h2"/></svg></span>
           <span style="color:#0A3ACC">Your Brand</span>
         </div>
         <div class="bc-title">Your brand.<br>Not ours.</div>
         <div class="bc-illo">
-          <div style="background:var(--blue);border-radius:7px 7px 0 0;padding:7px 11px;display:flex;align-items:center;gap:6px">
-            <div style="width:12px;height:12px;border-radius:3px;background:rgba(255,255,255,.3)"></div>
-            <span style="font-size:9px;color:rgba(255,255,255,.7);font-weight:500">yourco.brief.app</span>
+          <div style="background:var(--blue);border-radius:7px 7px 0 0;padding:7px 12px;display:flex;align-items:center;gap:7px">
+            <div style="width:13px;height:13px;border-radius:3px;background:rgba(255,255,255,.28)"></div>
+            <span style="font-size:9px;color:rgba(255,255,255,.75);font-weight:600">yourco.brief.app</span>
           </div>
-          <div style="background:white;border:1px solid #BDD0FF;border-top:none;border-radius:0 0 7px 7px;padding:9px 11px">
-            <div style="height:3px;background:var(--blue);border-radius:2px;width:38%;margin-bottom:6px"></div>
+          <div style="background:white;border:1px solid #BDD0FF;border-top:none;border-radius:0 0 7px 7px;padding:10px 12px">
+            <div style="height:3px;background:var(--blue);border-radius:2px;width:40%;margin-bottom:7px"></div>
             <div style="height:2px;background:#D6E3FF;border-radius:2px;margin-bottom:4px"></div>
-            <div style="height:2px;background:#D6E3FF;border-radius:2px;width:65%"></div>
+            <div style="height:2px;background:#D6E3FF;border-radius:2px;width:68%"></div>
           </div>
-          <div style="display:flex;gap:4px;margin-top:9px">
+          <div style="display:flex;gap:5px;margin-top:10px">
             <div style="height:14px;border-radius:4px;flex:1;background:#1558FF"></div>
             <div style="height:14px;border-radius:4px;flex:1;background:#060D1F"></div>
             <div style="height:14px;border-radius:4px;flex:1;background:#6B9BFF"></div>
@@ -507,46 +528,54 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
         </div>
       </div>
 
-      <!-- Workflows -->
-      <div class="bc">
-        <div class="bc-eyebrow">
-          <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="2.5"/><path d="M7 1v2M7 11v2M1 7h2M11 7h2"/></svg></span>
-          Workflows
-        </div>
-        <div class="bc-title">Never miss<br>a follow-up.</div>
-        <div class="bc-illo">
-          <div style="display:flex;flex-direction:column;gap:3px">
-            <div style="background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:7px 10px;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:space-between">Brief sent <span style="font-size:9px;font-weight:700;background:var(--blue-l);color:var(--blue-d);padding:1px 7px;border-radius:20px">Trigger</span></div>
-            <div style="width:1px;height:8px;background:var(--border);margin-left:12px"></div>
-            <div style="background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:7px 10px;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:space-between">Reminder sent <span style="font-size:9px;font-weight:700;background:var(--blue-l);color:var(--blue-d);padding:1px 7px;border-radius:20px">+2 days</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Before / After (spans 2 cols) -->
+      <!-- BOTTOM RIGHT wide: Workflow Automation -->
       <div class="bc bc-wide">
-        <div class="bc-wide-inner">
-          <div>
-            <div class="bc-eyebrow">
-              <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14"><path d="M2 7h10M7 2v10"/></svg></span>
-              Before &amp; After
+        <div class="bc-eyebrow">
+          <span class="bc-eyebrow-ic"><svg viewBox="0 0 14 14"><circle cx="3" cy="7" r="2"/><circle cx="11" cy="3" r="2"/><circle cx="11" cy="11" r="2"/><path d="M5 7h2.5M9.2 3.8L7 6M9.2 10.2L7 8" stroke-width="1.4"/></svg></span>
+          Workflow Automation
+        </div>
+        <div class="bc-title">Follow-ups that<br>run themselves.</div>
+        <div class="bc-illo" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px">
+              <div style="width:26px;height:26px;background:var(--blue-l);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg width="12" height="12" viewBox="0 0 13 13" fill="none" stroke="var(--blue)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 1L6 6.5M11 1L7.5 11 6 6.5 1.5 5 11 1Z"/></svg>
+              </div>
+              <div><div style="font-size:11px;font-weight:700;color:var(--ink)">Brief sent</div><div style="font-size:10px;color:var(--muted)">Trigger</div></div>
             </div>
-            <div class="bc-title">The old way<br>vs. Brief</div>
+            <div style="width:2px;height:14px;background:var(--border);margin-left:21px"></div>
+            <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px">
+              <div style="width:26px;height:26px;background:#F0FDF4;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg width="12" height="12" viewBox="0 0 13 13" fill="none" stroke="#16A34A" stroke-width="1.7" stroke-linecap="round"><circle cx="6.5" cy="6.5" r="5"/><path d="M6.5 4v2.5l1.8 1.2"/></svg>
+              </div>
+              <div><div style="font-size:11px;font-weight:700;color:var(--ink)">Wait 2 days</div><div style="font-size:10px;color:var(--muted)">If not opened</div></div>
+            </div>
+            <div style="width:2px;height:14px;background:var(--border);margin-left:21px"></div>
+            <div style="background:var(--blue-l);border:1.5px solid #BDD0FF;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px">
+              <div style="width:26px;height:26px;background:white;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 1px 4px rgba(21,88,255,.15)">
+                <svg width="12" height="12" viewBox="0 0 13 13" fill="none" stroke="var(--blue)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 3.5L7.5 1H12v8l-5 3-5-3V1z"/></svg>
+              </div>
+              <div><div style="font-size:11px;font-weight:700;color:var(--blue-d)">Send reminder</div><div style="font-size:10px;color:var(--blue-m)">Automated</div></div>
+            </div>
           </div>
-          <div class="ba-grid">
-            <div class="ba-panel b4">
-              <div class="ba-lbl">Before</div>
-              <div class="ba-row"><span class="ba-d"></span>90 min in Google Docs</div>
-              <div class="ba-row"><span class="ba-d"></span>No idea if opened</div>
-              <div class="ba-row"><span class="ba-d"></span>3 follow-up emails</div>
-              <div class="ba-row"><span class="ba-d"></span>Answers in threads</div>
+          <div style="display:flex;flex-direction:column;gap:9px;padding-top:2px">
+            <div style="display:flex;align-items:flex-start;gap:9px">
+              <div style="width:17px;height:17px;background:#F0FDF4;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 4.5l2 2L7.5 2"/></svg>
+              </div>
+              <span style="font-size:12px;color:var(--muted);line-height:1.55">Auto-remind clients who haven't opened</span>
             </div>
-            <div class="ba-panel af">
-              <div class="ba-lbl">With Brief</div>
-              <div class="ba-row"><span class="ba-d"></span>3 min with AI</div>
-              <div class="ba-row"><span class="ba-d"></span>Live status tracking</div>
-              <div class="ba-row"><span class="ba-d"></span>Auto reminders</div>
-              <div class="ba-row"><span class="ba-d"></span>Structured dashboard</div>
+            <div style="display:flex;align-items:flex-start;gap:9px">
+              <div style="width:17px;height:17px;background:#F0FDF4;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 4.5l2 2L7.5 2"/></svg>
+              </div>
+              <span style="font-size:12px;color:var(--muted);line-height:1.55">Custom wait times &amp; conditions</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:9px">
+              <div style="width:17px;height:17px;background:#F0FDF4;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 4.5l2 2L7.5 2"/></svg>
+              </div>
+              <span style="font-size:12px;color:var(--muted);line-height:1.55">Stop chasing. Let the system do it.</span>
             </div>
           </div>
         </div>
@@ -556,24 +585,63 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
   </div>
 </section>
 
-<!-- FOR WHO -->
-<section class="who-section">
+<!-- WHY IT MATTERS -->
+<section style="padding:88px 0;border-top:1px solid var(--border)">
   <div class="wrap">
-    <div class="who-header rv">
-      <span class="eyebrow"><span class="eyebrow-dot"></span>Who it's for</span>
-      <h2 class="serif section-h2" style="margin-bottom:12px">Anyone who starts<br>projects with clients.</h2>
-      <p style="font-size:17px;color:var(--muted)">Brief fits your workflow, whatever it looks like.</p>
+    <div class="rv" style="text-align:center;max-width:560px;margin:0 auto 56px">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Why it matters</span>
+      <h2 class="serif section-h2" style="margin-bottom:12px">Bad briefs cost you time and clients.</h2>
+      <p style="font-size:16px;color:var(--muted);line-height:1.7">Every project that starts without clarity leads to revision rounds, delays, and frustrated clients.</p>
     </div>
-    <div class="who-grid">
-      <div class="who-card rv d1"><span class="who-em">🏢</span><div class="who-name">Agencies</div><div class="who-desc">Standardize how you intake every client. White-label portals, team seats, multi-workspace.</div></div>
-      <div class="who-card rv d2"><span class="who-em">👤</span><div class="who-name">Freelancers</div><div class="who-desc">Look professional from day one. A branded brief impresses clients before the work starts.</div></div>
-      <div class="who-card rv d3"><span class="who-em">📣</span><div class="who-name">Marketing Teams</div><div class="who-desc">Brief your agency partners and internal stakeholders with the same system, every time.</div></div>
-      <div class="who-card rv d4"><span class="who-em">🚀</span><div class="who-name">Startups</div><div class="who-desc">No briefing experience? Brief guides your clients through it automatically.</div></div>
+    <!-- Two-column: before / after -->
+    <div class="rv d1" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px">
+      <div style="border:1.5px solid #FECACA;border-radius:18px;overflow:hidden">
+        <div style="background:#FEF2F2;padding:14px 22px;border-bottom:1px solid #FECACA;display:flex;align-items:center;gap:8px">
+          <div style="width:20px;height:20px;border-radius:50%;background:#FEE2E2;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none" stroke="#DC2626" stroke-width="1.8" stroke-linecap="round"><path d="M1.5 1.5l5 5M6.5 1.5l-5 5"/></svg>
+          </div>
+          <span style="font-size:12px;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em">Without Brief</span>
+        </div>
+        <div style="background:white;padding:18px 22px;display:flex;flex-direction:column;gap:11px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><div style="width:5px;height:5px;border-radius:50%;background:#FCA5A5;flex-shrink:0"></div>90 min building a brief in Google Docs</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><div style="width:5px;height:5px;border-radius:50%;background:#FCA5A5;flex-shrink:0"></div>No idea if the client even opened it</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><div style="width:5px;height:5px;border-radius:50%;background:#FCA5A5;flex-shrink:0"></div>3 follow-up emails, then a call</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><div style="width:5px;height:5px;border-radius:50%;background:#FCA5A5;flex-shrink:0"></div>Answers buried across email threads</div>
+        </div>
+      </div>
+      <div style="border:1.5px solid #BBF7D0;border-radius:18px;overflow:hidden">
+        <div style="background:#F0FDF4;padding:14px 22px;border-bottom:1px solid #BBF7D0;display:flex;align-items:center;gap:8px">
+          <div style="width:20px;height:20px;border-radius:50%;background:#D1FAE5;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 4.5l2 2L7.5 2"/></svg>
+          </div>
+          <span style="font-size:12px;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em">With Brief</span>
+        </div>
+        <div style="background:white;padding:18px 22px;display:flex;flex-direction:column;gap:11px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><div style="width:5px;height:5px;border-radius:50%;background:#86EFAC;flex-shrink:0"></div>Brief ready in 3 minutes with AI or template</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><div style="width:5px;height:5px;border-radius:50%;background:#86EFAC;flex-shrink:0"></div>Live tracking: Sent → Seen → Completed</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><div style="width:5px;height:5px;border-radius:50%;background:#86EFAC;flex-shrink:0"></div>Automatic reminders — no manual chasing</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)"><div style="width:5px;height:5px;border-radius:50%;background:#86EFAC;flex-shrink:0"></div>Structured answers in one clean dashboard</div>
+        </div>
+      </div>
+    </div>
+    <!-- Stats row -->
+    <div class="rv d2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:24px 28px;text-align:center">
+        <div style="font-family:'Instrument Serif',serif;font-size:44px;color:var(--blue);line-height:1;margin-bottom:6px;letter-spacing:-1px">2.5x</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.55">fewer revision rounds</div>
+      </div>
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:24px 28px;text-align:center">
+        <div style="font-family:'Instrument Serif',serif;font-size:44px;color:var(--blue);line-height:1;margin-bottom:6px;letter-spacing:-1px">60%</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.55">less back-and-forth</div>
+      </div>
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:24px 28px;text-align:center">
+        <div style="font-family:'Instrument Serif',serif;font-size:44px;color:var(--blue);line-height:1;margin-bottom:6px;letter-spacing:-1px">3x</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.55">more on-time delivery</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
 <section class="price-section" id="pricing">
   <div class="wrap">
     <div class="price-header rv">
@@ -601,7 +669,7 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
           <li style="opacity:.35"><span class="pf-no">&#x2717;</span> Custom branding</li>
           <li style="opacity:.35"><span class="pf-no">&#x2717;</span> AI generator</li>
         </ul>
-        <a href="https://briefapp.base44.app/" class="plan-cta">Get started free <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
+        <a href="https://app.trybrief.co/" class="plan-cta">Get started free <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
       <div class="plan hi">
         <div class="plan-badge">Most popular</div>
@@ -618,7 +686,7 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
           <li><span class="pf-ok">&#x2713;</span> AI brief generator</li>
           <li><span class="pf-ok">&#x2713;</span> PDF export &middot; Client inbox</li>
         </ul>
-        <a href="https://briefapp.base44.app/" class="plan-cta">Start Pro <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
+        <a href="https://app.trybrief.co/" class="plan-cta">Start Pro <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
       <div class="plan">
         <div class="plan-tier">Enterprise</div>
@@ -632,7 +700,7 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
           <li><span class="pf-ok">&#x2713;</span> Unlimited workspaces</li>
           <li><span class="pf-ok">&#x2713;</span> Priority support</li>
         </ul>
-        <a href="https://briefapp.base44.app/" class="plan-cta">Get started <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
+        <a href="https://app.trybrief.co/" class="plan-cta">Get started <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
     </div>
     <!-- founding coupon strip -->
@@ -643,7 +711,43 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
       </div>
       <div class="founding-r">
         <div class="founding-code">FOUNDING</div>
-        <a href="https://briefapp.base44.app/" class="founding-cta-btn">Claim offer <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+        <a href="https://app.trybrief.co/" class="founding-cta-btn">Claim offer <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:80px 0;background:white;border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:44px">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>FAQ</span>
+      <h2 class="serif section-h2">Quick answers.</h2>
+    </div>
+    <div class="rv d1" style="max-width:640px;margin:0 auto" id="faqList">
+      <div style="border-top:1px solid var(--border)">
+        <button onclick="toggleFaq(this)" style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px">Does my client need an account?<span class="faq-icon" style="width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--subtle);transition:all .25s;line-height:1">+</span></button>
+        <div style="font-size:14px;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1),padding .35s">No. Clients receive a link and fill in the brief directly in their browser — no account, no login, no friction.</div>
+      </div>
+      <div style="border-top:1px solid var(--border)">
+        <button onclick="toggleFaq(this)" style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px">How is Brief different from Typeform?<span class="faq-icon" style="width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--subtle);transition:all .25s;line-height:1">+</span></button>
+        <div style="font-size:14px;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1),padding .35s">Typeform is a generic form builder. Brief is built specifically for client briefings — with live status tracking, custom branding, automated follow-ups, and a structured dashboard. Typeform doesn't know what a creative brief is. Brief does.</div>
+      </div>
+      <div style="border-top:1px solid var(--border)">
+        <button onclick="toggleFaq(this)" style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px">Can I use my own logo and colors?<span class="faq-icon" style="width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--subtle);transition:all .25s;line-height:1">+</span></button>
+        <div style="font-size:14px;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1),padding .35s">Yes — on Pro and Enterprise you can upload your logo, set brand colors, and use a custom domain. Your clients see your brand, not Brief's.</div>
+      </div>
+      <div style="border-top:1px solid var(--border)">
+        <button onclick="toggleFaq(this)" style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px">What if my client doesn't respond?<span class="faq-icon" style="width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--subtle);transition:all .25s;line-height:1">+</span></button>
+        <div style="font-size:14px;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1),padding .35s">Brief sends automated reminders on your schedule. Set it once — if the client hasn't opened after 2 days, a reminder goes out automatically. No manual chasing required.</div>
+      </div>
+      <div style="border-top:1px solid var(--border)">
+        <button onclick="toggleFaq(this)" style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px">Is there a free trial for Pro?<span class="faq-icon" style="width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--subtle);transition:all .25s;line-height:1">+</span></button>
+        <div style="font-size:14px;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1),padding .35s">Every new account gets a 14-day Pro trial — no credit card required. After that you can upgrade or stay on the Free plan.</div>
+      </div>
+      <div style="border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+        <button onclick="toggleFaq(this)" style="width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px">Can I cancel anytime?<span class="faq-icon" style="width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--subtle);transition:all .25s;line-height:1">+</span></button>
+        <div style="font-size:14px;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1),padding .35s">Yes. Cancel anytime from your account settings. Your plan stays active until the end of the billing period, then reverts to Free.</div>
       </div>
     </div>
   </div>
@@ -659,7 +763,7 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
         <h2 class="serif cta-h2">Start your next project<br>the right way.</h2>
         <p class="cta-sub">Free forever &middot; No credit card &middot; 3 minutes to set up</p>
         <div class="cta-btns">
-          <a href="https://briefapp.base44.app/" class="btn-cta-w">Start for free <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg></a>
+          <a href="https://app.trybrief.co/" class="btn-cta-w">Start for free <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg></a>
           <button class="btn-cta-gh" onclick="location.href='#how'">See how it works</button>
         </div>
       </div>
@@ -668,15 +772,29 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="foot-l">
+<footer style="border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+  <div style="display:flex;align-items:center;gap:12px">
     <img src="Group 4.png" style="height:22px;width:auto;object-fit:contain" alt="Brief">
-    <span class="foot-copy">&copy; 2025 Brief</span>
+    <span style="font-size:12px;color:var(--subtle)">&copy; 2025 Brief</span>
   </div>
-  <div class="foot-links">
-    <a href="https://briefapp.base44.app/">Changelog</a>
-    <a href="#">Privacy</a>
-    <a href="#">Imprint</a>
+  <div style="display:flex;align-items:center;gap:18px">
+    <a href="privacy.html" style="font-size:12px;color:var(--subtle);transition:color .18s" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Privacy</a>
+    <a href="terms.html" style="font-size:12px;color:var(--subtle);transition:color .18s" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Terms</a>
+    <a href="imprint.html" style="font-size:12px;color:var(--subtle);transition:color .18s" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Imprint</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <!-- LinkedIn -->
+    <a href="#" style="width:34px;height:34px;border-radius:8px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--subtle);transition:all .18s" onmouseover="this.style.borderColor='var(--blue-m)';this.style.color='var(--blue)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--subtle)'" aria-label="LinkedIn">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M1.5 2.5a1 1 0 112 0 1 1 0 01-2 0zM1.7 4.5h1.6V12H1.7V4.5zM5.2 4.5h1.5v1h.02c.22-.4.76-1.1 1.92-1.1 2.05 0 2.43 1.35 2.43 3.1V12H9.5V7.9c0-.72-.01-1.65-1-1.65-1.02 0-1.18.8-1.18 1.6V12H5.8V4.5h1.4z"/></svg>
+    </a>
+    <!-- Instagram -->
+    <a href="#" style="width:34px;height:34px;border-radius:8px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--subtle);transition:all .18s" onmouseover="this.style.borderColor='var(--blue-m)';this.style.color='var(--blue)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--subtle)'" aria-label="Instagram">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="1.5" width="11" height="11" rx="3"/><circle cx="7" cy="7" r="2.5"/><circle cx="10.2" cy="3.8" r=".6" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <!-- X / Twitter -->
+    <a href="#" style="width:34px;height:34px;border-radius:8px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--subtle);transition:all .18s" onmouseover="this.style.borderColor='var(--blue-m)';this.style.color='var(--blue)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--subtle)'" aria-label="X">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor"><path d="M7.55 5.6L11.8 1h-1L7.1 4.87 4.17 1H1l4.47 6.33L1 12h1l3.91-4.17L9.07 12H12.2L7.55 5.6zm-1.38 1.48l-.45-.63L2.4 1.8h1.55l2.92 4.06.45.63 3.78 5.25h-1.55L6.17 7.08z"/></svg>
+    </a>
   </div>
 </footer>
 
@@ -702,7 +820,7 @@ footer{border-top:1px solid var(--border);padding:28px 44px;max-width:1080px;mar
           <span id="fpTxt">Copy</span>
         </button>
       </div>
-      <a href="https://briefapp.base44.app/" class="fp-cta-btn">
+      <a href="https://app.trybrief.co/" class="fp-cta-btn">
         Claim 1 month free
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
       </a>
@@ -727,32 +845,58 @@ window.addEventListener('scroll', () =>
 function setBill(t, btn) {
   document.querySelectorAll('.pt-btn').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
-  const yr = t === 'yr';
-  document.getElementById('pp').innerHTML = yr ? '<sup>&euro;</sup>15' : '<sup>&euro;</sup>19';
+  var yr = t === 'yr';
+  document.getElementById('pp').innerHTML = yr ? '<sup>€</sup>15' : '<sup>€</sup>19';
   document.getElementById('pc').textContent = yr ? '/ month · billed yearly' : '/ month';
-  document.getElementById('ep').innerHTML = yr ? '<sup>&euro;</sup>38' : '<sup>&euro;</sup>47';
+  document.getElementById('ep').innerHTML = yr ? '<sup>€</sup>38' : '<sup>€</sup>47';
   document.getElementById('ec').textContent = yr ? '/ month · billed yearly' : '/ month';
 }
 
 /* Popup */
-let shown = false;
-function showPopup() { if(shown) return; shown=true; document.getElementById('fpOverlay').classList.add('show') }
-function closePopup() { document.getElementById('fpOverlay').classList.remove('show') }
-document.addEventListener('mouseleave', e => { if(e.clientY <= 0) showPopup() });
+var shown = false;
+function showPopup() { if(shown) return; shown=true; document.getElementById('fpOverlay').classList.add('show'); }
+function closePopup() { document.getElementById('fpOverlay').classList.remove('show'); }
+document.addEventListener('mouseleave', function(e) { if(e.clientY <= 0) showPopup(); });
 setTimeout(showPopup, 18000);
-document.getElementById('fpOverlay').addEventListener('click', function(e) { if(e.target===this) closePopup() });
+document.getElementById('fpOverlay').addEventListener('click', function(e) { if(e.target===this) closePopup(); });
+
+/* FAQ */
+function toggleFaq(btn) {
+  var wrapper = btn.parentElement;
+  var ans = btn.nextElementSibling;
+  var icon = btn.querySelector('.faq-icon');
+  var isOpen = wrapper.classList.contains('faq-open');
+  document.querySelectorAll('#faqList .faq-open').forEach(function(w) {
+    w.classList.remove('faq-open');
+    var a = w.querySelector('button + div');
+    if (a) { a.style.maxHeight = '0'; a.style.paddingBottom = '0'; }
+    var ic = w.querySelector('.faq-icon');
+    if (ic) { ic.textContent = '+'; ic.style.background = ''; ic.style.color = 'var(--subtle)'; ic.style.borderColor = 'var(--border)'; }
+  });
+  if (!isOpen) {
+    wrapper.classList.add('faq-open');
+    ans.style.maxHeight = (ans.scrollHeight + 40) + 'px';
+    ans.style.paddingBottom = '18px';
+    if (icon) { icon.textContent = '×'; icon.style.background = 'var(--blue)'; icon.style.color = 'white'; icon.style.borderColor = 'var(--blue)'; }
+  }
+}
 
 /* Copy code */
 async function copyCode() {
-  try { await navigator.clipboard.writeText('FOUNDING') } catch(e) {
-    const r = document.createRange(); r.selectNodeContents(document.querySelector('.fp-code-val'));
-    window.getSelection().removeAllRanges(); window.getSelection().addRange(r);
-    document.execCommand('copy'); window.getSelection().removeAllRanges();
+  try { await navigator.clipboard.writeText('FOUNDING'); } catch(e) {
+    var r = document.createRange();
+    r.selectNodeContents(document.querySelector('.fp-code-val'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
   }
-  const btn = document.getElementById('fpCopyBtn'), ic = document.getElementById('fpIc'), txt = document.getElementById('fpTxt');
+  var btn = document.getElementById('fpCopyBtn');
+  var ic = document.getElementById('fpIc');
+  var txt = document.getElementById('fpTxt');
   txt.textContent = 'Copied!'; btn.classList.add('ok');
   ic.innerHTML = '<path d="M2 5l2.5 2.5L8 2.5"/>';
-  setTimeout(() => {
+  setTimeout(function() {
     txt.textContent = 'Copy'; btn.classList.remove('ok');
     ic.innerHTML = '<rect x="4" y="4" width="7" height="7" rx="1.5"/><path d="M8 4V2.5A1.5 1.5 0 006.5 1H2.5A1.5 1.5 0 001 2.5V6.5A1.5 1.5 0 002.5 8H4"/>';
   }, 2500);
