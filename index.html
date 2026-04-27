@@ -26,7 +26,7 @@
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="dns-prefetch" href="https://app.trybrief.co">
+<link rel="dns-prefetch" href="https://briefapp.base44.app">
 <meta name="theme-color" content="#1558FF">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -75,8 +75,6 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(21,88,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(21,88,255,.04) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,black 40%,transparent 100%);pointer-events:none}
 .hero-text{position:relative;z-index:1;text-align:center;max-width:680px;margin:0 auto;padding:0 24px}
 
-
-
 .hero-kicker{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--border);border-radius:100px;padding:5px 14px 5px 7px;font-size:12px;font-weight:600;color:var(--muted);box-shadow:0 2px 10px rgba(6,13,31,.05);margin-bottom:28px;animation:fdUp .6s ease both}
 .hero-kicker-dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
 @keyframes fdUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
@@ -93,12 +91,10 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .hero-hint{font-size:12px;color:var(--subtle);animation:fdIn .8s .38s both;margin-bottom:24px}
 .hero-hint span{margin:0 6px;opacity:.4}
 
-/* ListMySaaS badge — in hero, centered, subtle */
 .hero-badges{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:56px;animation:fdIn .9s .44s both;flex-wrap:wrap}
 .hero-badges a{opacity:.55;transition:opacity .2s}
 .hero-badges a:hover{opacity:1}
 
-/* hero screen — fixed mobile scaling */
 .hero-screen-wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 40px}
 .hero-screen{background:var(--surface);border:1px solid rgba(232,236,244,.9);border-bottom:none;border-radius:20px 20px 0 0;overflow:hidden;box-shadow:0 -8px 64px rgba(6,13,31,.1),0 -2px 16px rgba(6,13,31,.05)}
 .hero-screen img{width:100%;height:auto;display:block;border-radius:20px 20px 0 0;object-fit:cover;object-position:top}
@@ -122,8 +118,6 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .features-header{text-align:center;margin-bottom:44px}
 .features-header p{font-size:16px;color:var(--muted);max-width:440px;margin:0 auto}
 
-
-
 /* ── BENTO ── */
 .bento{display:grid;grid-template-columns:1.65fr 1fr 1fr;grid-template-rows:auto auto;gap:12px}
 .bc{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;overflow:hidden;position:relative;display:flex;flex-direction:column;min-height:180px}
@@ -144,11 +138,9 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .bc-dark .bc-desc{color:rgba(255,255,255,.4)}
 .bc-illo{margin-top:auto;padding-top:20px;flex-shrink:0}
 
-/* ai cursor */
 .ai-cursor{display:inline-block;width:2px;height:12px;background:var(--blue-m);border-radius:1px;animation:blink 1s infinite;vertical-align:middle;margin-left:1px}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 
-/* status pills */
 .status-pills{display:flex;flex-wrap:wrap;gap:6px}
 .sp{font-size:11px;font-weight:600;padding:5px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:5px;border:1.5px solid transparent}
 .sp::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
@@ -157,7 +149,6 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .sp-prog{background:var(--blue-l);color:var(--blue-d);border-color:#BDD0FF}.sp-prog::before{background:var(--blue)}
 .sp-done{background:#F0FDF4;color:#166534;border-color:#BBF7D0}.sp-done::before{background:#22C55E}
 
-/* ── SCORING VISUAL ── */
 .score-ring-wrap{display:flex;align-items:center;gap:16px;margin-top:auto;padding-top:18px}
 .score-ring{width:72px;height:72px;flex-shrink:0;position:relative}
 .score-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
@@ -267,35 +258,6 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
 .btn-cta-gh{background:transparent;color:rgba(255,255,255,.6);font-family:inherit;font-size:15px;font-weight:600;padding:14px 24px;border-radius:100px;border:1.5px solid rgba(255,255,255,.16);cursor:pointer;transition:all .22s}
 .btn-cta-gh:hover{border-color:rgba(255,255,255,.4);color:white}
 
-/* ── POPUP ── */
-.fp-overlay{position:fixed;inset:0;background:rgba(6,13,31,.48);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.16,1,.3,1);backdrop-filter:blur(6px)}
-.fp-overlay.show{opacity:1;pointer-events:auto}
-.fp-card{background:white;border-radius:22px;max-width:500px;width:100%;overflow:hidden;box-shadow:0 32px 80px rgba(6,13,31,.2);position:relative;animation:popIn .4s .05s cubic-bezier(.16,1,.3,1) both}
-@keyframes popIn{from{opacity:0;transform:scale(.93) translateY(18px)}to{opacity:1;transform:none}}
-.fp-strip{height:4px;background:linear-gradient(90deg,var(--blue),var(--blue-m),var(--blue));background-size:200%;animation:stripAnim 3s linear infinite}
-@keyframes stripAnim{0%{background-position:0%}100%{background-position:200%}}
-.fp-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-size:14px;color:var(--muted);line-height:1;z-index:1}
-.fp-close:hover{background:var(--border);color:var(--ink)}
-.fp-body{padding:38px 36px 34px}
-.fp-ey{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:14px}
-.fp-ey-dot{width:5px;height:5px;border-radius:50%;background:var(--blue)}
-.fp-h{font-family:'Instrument Serif',serif;font-size:30px;line-height:1.1;color:var(--ink);margin-bottom:10px}
-.fp-desc{font-size:14px;color:var(--muted);line-height:1.68;margin-bottom:22px}
-.fp-perks{display:flex;flex-direction:column;gap:8px;margin-bottom:26px}
-.fp-perk{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
-.fp-perk-ic{width:18px;height:18px;border-radius:5px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.fp-perk-ic svg{width:10px;height:10px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.fp-code-row{background:var(--surface);border:1.5px solid var(--border);border-radius:13px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.fp-code-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--subtle);white-space:nowrap}
-.fp-code-val{flex:1;text-align:center;font-family:'Manrope',monospace;font-size:17px;font-weight:600;color:var(--muted);letter-spacing:.1em}
-.fp-copy{background:var(--blue);color:white;border:none;border-radius:9px;padding:9px 16px;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0}
-.fp-copy:hover{background:var(--blue-d)}
-.fp-copy.ok{background:#22C55E}
-.fp-copy svg{width:12px;height:12px;stroke:white;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.fp-cta-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:white;font-size:14px;font-weight:700;padding:14px;border-radius:100px;border:none;cursor:pointer;transition:all .22s;font-family:inherit;box-shadow:0 4px 18px rgba(21,88,255,.3)}
-.fp-cta-btn:hover{background:var(--blue-d);transform:translateY(-1px)}
-.fp-hint{font-size:11px;color:var(--subtle);text-align:center;margin-top:10px}
-
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   .wrap{padding:0 28px}
@@ -332,9 +294,6 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
   .cta-box{padding:56px 22px}
   .cta-btns{flex-direction:column;align-items:stretch}
   .btn-cta-w,.btn-cta-gh{justify-content:center;text-align:center}
-  .fp-body{padding:26px 22px 24px}
-  .fp-code-row{flex-direction:column;align-items:stretch;gap:10px}
-  .fp-copy{justify-content:center}
   .new-band{padding:24px 20px}
   .founding-strip{flex-direction:column;align-items:flex-start}
 }
@@ -352,8 +311,8 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
       <li><a href="#pricing">Pricing</a></li>
     </ul>
     <div class="nav-cta">
-      <button class="btn-login" onclick="location.href='https://app.trybrief.co/'">Log in</button>
-      <button class="btn-start" onclick="location.href='https://app.trybrief.co/'">
+      <button class="btn-login" onclick="location.href='https://briefapp.base44.app'">Log in</button>
+      <button class="btn-start" onclick="location.href='https://briefapp.base44.app'">
         Start for free
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
       </button>
@@ -370,14 +329,13 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
     <h1 class="serif hero-h1">The simplest way<br>to brief a client.</h1>
     <p class="hero-sub">Send a beautiful, branded form. Your client fills it in. You get structured answers — no back-and-forth.</p>
     <div class="hero-actions">
-      <a href="https://app.trybrief.co/" class="btn-hero btn-p">
+      <a href="https://briefapp.base44.app" class="btn-hero btn-p">
         Start for free
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg>
       </a>
       <a href="#how" class="btn-hero btn-g">See how it works</a>
     </div>
     <p class="hero-hint">No credit card <span>&middot;</span> Free to start <span>&middot;</span> 3 minutes to set up</p>
-    <!-- Badges row — ListMySaaS here -->
     <div class="hero-badges">
       <a href="https://listmysaas.xyz/" target="_blank" rel="dofollow noopener">
         <img src="https://listmysaas.xyz/listmysaasbadgenormal.svg" alt="Featured on ListMySaaS" width="125" height="44" loading="lazy" decoding="async" />
@@ -433,8 +391,6 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
   </div>
 </section>
 
-
-
 <!-- FEATURES -->
 <section class="features-section" id="features">
   <div class="wrap">
@@ -443,7 +399,6 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
       <h2 class="serif section-h2" style="margin-bottom:12px">Everything a brief needs.</h2>
       <p>No more PDFs. No more chasing. No more vague answers.</p>
     </div>
-
 
     <!-- BENTO -->
     <div class="bento rv d2">
@@ -457,12 +412,10 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
         <div class="bc-title" style="color:white;font-size:21px">Your brief,<br>built and scored<br>by AI.</div>
         <div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;margin-top:4px">Generate questions, adapt them to each client, summarize answers, and flag anything too vague to act on.</div>
         <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-top:24px;gap:8px">
-          <!-- Input -->
           <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:11px 14px;display:flex;align-items:center;gap:10px">
             <svg width="13" height="13" viewBox="0 0 12 12" fill="rgba(107,155,255,.8)" style="flex-shrink:0"><path d="M6 1L7.2 4.8 11 6 7.2 7.2 6 11 4.8 7.2 1 6 4.8 4.8Z"/></svg>
             <span style="font-size:12px;color:rgba(255,255,255,.32);font-style:italic;flex:1">Rebrand for B2B SaaS startup, Q3 launch<span class="ai-cursor"></span></span>
           </div>
-          <!-- Generated + scored rows -->
           <div style="display:flex;flex-direction:column;gap:4px">
             <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:8px 12px">
               <div style="width:6px;height:6px;border-radius:50%;background:#22C55E;flex-shrink:0"></div>
@@ -649,7 +602,7 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
           <li style="opacity:.35"><span class="pf-no">&#x2717;</span> Custom branding</li>
           <li style="opacity:.35"><span class="pf-no">&#x2717;</span> AI generator + scoring</li>
         </ul>
-        <a href="https://app.trybrief.co/" class="plan-cta">Get started free <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
+        <a href="https://briefapp.base44.app" class="plan-cta">Get started free <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
       <div class="plan hi">
         <div class="plan-badge">Most popular</div>
@@ -666,7 +619,7 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
           <li><span class="pf-ok">&#x2713;</span> AI generator + adaptive questions</li>
           <li><span class="pf-ok">&#x2713;</span> Briefing scoring + AI summary</li>
         </ul>
-        <a href="https://app.trybrief.co/" class="plan-cta">Start Pro <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
+        <a href="https://briefapp.base44.app" class="plan-cta">Start Pro <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
       <div class="plan">
         <div class="plan-tier">Enterprise</div>
@@ -680,7 +633,7 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
           <li><span class="pf-ok">&#x2713;</span> Unlimited workspaces</li>
           <li><span class="pf-ok">&#x2713;</span> Priority support</li>
         </ul>
-        <a href="https://app.trybrief.co/" class="plan-cta">Get started <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
+        <a href="https://briefapp.base44.app" class="plan-cta">Get started <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
       </div>
     </div>
     <div class="founding-strip rv d2">
@@ -690,7 +643,7 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
       </div>
       <div class="founding-r">
         <div class="founding-code">FOUNDING</div>
-        <a href="https://app.trybrief.co/" class="founding-cta-btn">Claim offer <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+        <a href="https://briefapp.base44.app" class="founding-cta-btn">Claim offer <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
       </div>
     </div>
   </div>
@@ -724,7 +677,7 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
         <h2 class="serif cta-h2">Start your next project<br>the right way.</h2>
         <p class="cta-sub">Free forever &middot; No credit card &middot; 3 minutes to set up</p>
         <div class="cta-btns">
-          <a href="https://app.trybrief.co/" class="btn-cta-w">Start for free <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg></a>
+          <a href="https://briefapp.base44.app" class="btn-cta-w">Start for free <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7.5 3l4 4-4 4"/></svg></a>
           <button class="btn-cta-gh" onclick="location.href='#how'">See how it works</button>
         </div>
       </div>
@@ -757,46 +710,11 @@ nav.up{background:rgba(255,255,255,.97);box-shadow:0 8px 32px rgba(6,13,31,.1)}
   </div>
 </footer>
 
-<!-- POPUP -->
-<div class="fp-overlay" id="fpOverlay">
-  <div class="fp-card">
-    <div class="fp-strip"></div>
-    <button class="fp-close" onclick="closePopup()">&#x2715;</button>
-    <div class="fp-body">
-      <div class="fp-ey"><span class="fp-ey-dot"></span> Limited Offer</div>
-      <h2 class="fp-h">Founding Member Offer</h2>
-      <p class="fp-desc">Be one of the first on Brief. Get your first month of Pro completely free — no strings, no card needed.</p>
-      <div class="fp-perks">
-        <div class="fp-perk"><div class="fp-perk-ic"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>Unlimited briefs &amp; sends</div>
-        <div class="fp-perk"><div class="fp-perk-ic"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>AI scoring + adaptive questions</div>
-        <div class="fp-perk"><div class="fp-perk-ic"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>Full custom branding + domain</div>
-      </div>
-      <div class="fp-code-row">
-        <span class="fp-code-label">Code</span>
-        <div class="fp-code-val">FOUNDING</div>
-        <button class="fp-copy" id="fpCopyBtn" onclick="copyCode()">
-          <svg id="fpIc" viewBox="0 0 12 12"><rect x="4" y="4" width="7" height="7" rx="1.5"/><path d="M8 4V2.5A1.5 1.5 0 006.5 1H2.5A1.5 1.5 0 001 2.5V6.5A1.5 1.5 0 002.5 8H4"/></svg>
-          <span id="fpTxt">Copy</span>
-        </button>
-      </div>
-      <a href="https://app.trybrief.co/" class="fp-cta-btn">Claim 1 month free <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
-      <p class="fp-hint">No credit card &middot; New accounts only</p>
-    </div>
-  </div>
-</div>
-
 <script>
 document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add('in')},{threshold:.07,rootMargin:'0px 0px -24px 0px'}).observe(el));
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('up',scrollY>24),{passive:true});
 function setBill(t,btn){document.querySelectorAll('.pt-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');var yr=t==='yr';document.getElementById('pp').innerHTML=yr?'<sup>&euro;</sup>15':'<sup>&euro;</sup>19';document.getElementById('pc').textContent=yr?'/ month · billed yearly':'/ month';document.getElementById('ep').innerHTML=yr?'<sup>&euro;</sup>38':'<sup>&euro;</sup>47';document.getElementById('ec').textContent=yr?'/ month · billed yearly':'/ month';}
-var shown=false;
-function showPopup(){if(shown)return;shown=true;document.getElementById('fpOverlay').classList.add('show');}
-function closePopup(){document.getElementById('fpOverlay').classList.remove('show');}
-document.addEventListener('mouseleave',function(e){if(e.clientY<=0)showPopup();});
-setTimeout(showPopup,18000);
-document.getElementById('fpOverlay').addEventListener('click',function(e){if(e.target===this)closePopup();});
 function toggleFaq(btn){var wrapper=btn.parentElement,ans=btn.nextElementSibling,icon=btn.querySelector('.faq-icon'),isOpen=wrapper.classList.contains('faq-open');document.querySelectorAll('#faqList .faq-open').forEach(function(w){w.classList.remove('faq-open');var a=w.querySelector('button+div');if(a){a.style.maxHeight='0';a.style.paddingBottom='0';}var ic=w.querySelector('.faq-icon');if(ic){ic.textContent='+';ic.style.background='';ic.style.color='var(--subtle)';ic.style.borderColor='var(--border)';}});if(!isOpen){wrapper.classList.add('faq-open');ans.style.maxHeight=(ans.scrollHeight+40)+'px';ans.style.paddingBottom='18px';if(icon){icon.textContent='×';icon.style.background='var(--blue)';icon.style.color='white';icon.style.borderColor='var(--blue)';}}}
-async function copyCode(){try{await navigator.clipboard.writeText('FOUNDING');}catch(e){var r=document.createRange();r.selectNodeContents(document.querySelector('.fp-code-val'));window.getSelection().removeAllRanges();window.getSelection().addRange(r);document.execCommand('copy');window.getSelection().removeAllRanges();}var btn=document.getElementById('fpCopyBtn'),ic=document.getElementById('fpIc'),txt=document.getElementById('fpTxt');txt.textContent='Copied!';btn.classList.add('ok');ic.innerHTML='<path d="M2 5l2.5 2.5L8 2.5"/>';setTimeout(function(){txt.textContent='Copy';btn.classList.remove('ok');ic.innerHTML='<rect x="4" y="4" width="7" height="7" rx="1.5"/><path d="M8 4V2.5A1.5 1.5 0 006.5 1H2.5A1.5 1.5 0 001 2.5V6.5A1.5 1.5 0 002.5 8H4"/>';},2500);}
 </script>
 </body>
 </html>
